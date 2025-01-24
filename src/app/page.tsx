@@ -20,6 +20,7 @@ export default async function Images() {
               height="0"
               sizes="100%"
               className="w-full rounded-md"
+              priority={true}
             />
             <div>{image.name}</div>
           </div>
