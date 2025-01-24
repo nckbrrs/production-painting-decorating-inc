@@ -1,21 +1,27 @@
 import { headers } from "next/headers";
-import Link from "next/link";
+import Image from "next/image";
 import { db } from "~/server/db";
+import { getImages } from "~/server/queries";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
-export default async function HomePage() {
-  const images = await db.query.images.findMany({
-    orderBy:(model, { desc }) => desc(model.id)
-  })
+export default async function Images() {
+  const images = await getImages();
 
   return (
-    <main className="">
-      <div className="flex flex-wrap gap-4">
-        {[...images, ...images, ...images].map((image, idx) => (
-          <div key={idx} className="w-48 flex flex-col">
-            <img src={image.url} alt="image" />  
-            <div>{image.id}</div>
+    <main>
+      <div className="flex flex-row w-full justify-center gap-4 ">
+        {images.map((image) => (
+          <div key={image.id} className="h-48 w-48 flex flex-col relative">
+            <Image    
+              src={image.url}
+              alt={image.name}
+              width="0"
+              height="0"
+              sizes="100%"
+              className="w-full rounded-md"
+            />
+            <div>{image.name}</div>
           </div>
         ))}
       </div>
