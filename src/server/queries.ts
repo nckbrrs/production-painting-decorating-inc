@@ -1,5 +1,9 @@
 import "server-only";
 import { db } from "./db";
+import { images } from "./db/schema";
+import { eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export async function getImages() {
 	const images = await db.query.images.findMany({
@@ -11,10 +15,15 @@ export async function getImages() {
 
 export async function getImage(id: number) {
 	const image = await db.query.images.findFirst({
-		where: (model, { eq }) => eq(model.id, id)
+		where: eq(images.id, id)
 	});
 
 	if (!image) throw new Error("Image not found");
 
 	return image;
+}
+
+export async function deleteImage(id: number) {
+	await db.delete(images).where(eq(images.id, id));
+	redirect("/");
 }
