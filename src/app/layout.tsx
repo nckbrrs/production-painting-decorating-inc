@@ -3,6 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import TopNav from "~/components/TopNav";
+import { CSPostHogProvider } from "./_analytics/provider";
 
 export const metadata: Metadata = {
 	title: "Production Painting & Decorating, Inc.",
@@ -19,14 +20,16 @@ export default function RootLayout({
 }>) {
 	return (
 		<ClerkProvider>
-			<html lang="en" className={`${GeistSans.variable}`}>
-				<body className={"flex flex-col h-screen"}>
-					<TopNav />
-					{children}
-					{modal}
-					<div id="modal-root" />
-				</body>
-			</html>
+			<CSPostHogProvider>
+				<html lang="en" className={`${GeistSans.variable}`}>
+					<body className={"flex flex-col h-screen"}>
+						<TopNav />
+						{children}
+						{modal}
+						<div id="modal-root" />
+					</body>
+				</html>
+			</CSPostHogProvider>
 		</ClerkProvider>
 	);
 }
