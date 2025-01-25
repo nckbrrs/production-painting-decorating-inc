@@ -6,22 +6,28 @@ import TopNav from "~/components/TopNav";
 
 
 export const metadata: Metadata = {
-  title: "Production Painting & Decorating, Inc.",
-  description: "Commercial painting and decorating company in Raleigh, NC.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+	title: "Production Painting & Decorating, Inc.",
+	description: "Commercial painting and decorating company in Raleigh, NC.",
+	icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <ClerkProvider>
-      <html lang="en" className={`${GeistSans.variable}`}>
-        <body className={"flex flex-col gap-4"}>
-          <TopNav/>
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
-  );
+	children,
+	modal,
+}: Readonly<{
+	children: React.ReactNode;
+	modal: React.ReactNode;
+}>) {
+	return (
+		<ClerkProvider>
+			<html lang="en" className={`${GeistSans.variable}`}>
+				<body className={"flex flex-col gap-4"}>
+					<TopNav />
+					{children}
+					{modal}
+					<div id="modal-root" />
+				</body>
+			</html>
+		</ClerkProvider>
+	);
 }
