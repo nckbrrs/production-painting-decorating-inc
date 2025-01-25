@@ -1,10 +1,6 @@
-import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
-import { db } from "~/server/db";
 import { getImages } from "~/server/queries";
-
-// export const dynamic = "force-dynamic";
 
 export default async function Images() {
 	const images = await getImages();

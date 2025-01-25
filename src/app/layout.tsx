@@ -4,7 +4,6 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import TopNav from "~/components/TopNav";
 
-
 export const metadata: Metadata = {
 	title: "Production Painting & Decorating, Inc.",
 	description: "Commercial painting and decorating company in Raleigh, NC.",
