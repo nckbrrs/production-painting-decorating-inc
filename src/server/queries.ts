@@ -2,8 +2,10 @@ import "server-only";
 import { db } from "./db";
 import { images } from "./db/schema";
 import { eq } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import analyticsServerClient from "./analytics";
+import posthog from "posthog-js";
+import { revalidatePath } from "next/cache";
 
 export async function getImages() {
 	const images = await db.query.images.findMany({
@@ -25,5 +27,15 @@ export async function getImage(id: number) {
 
 export async function deleteImage(id: number) {
 	await db.delete(images).where(eq(images.id, id));
+
+	analyticsServerClient.capture({
+		distinctId: posthog.get_distinct_id(),
+		event: "delete image",
+		properties: {
+			imageId: id
+		}
+	});
+
+	revalidatePath("/");
 	redirect("/");
 }
