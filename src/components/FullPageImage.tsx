@@ -15,7 +15,7 @@ export default function FullPageImage(props: { id: number }) {
 						"use server";
 						await deleteImage(props.id)
 					}}>
-						<Button type="submit" variant="destructive">Delete</Button>
+						<Button type="submit" variant={"destructive"}>Delete</Button>
 					</form>
 				</div>
 			</Suspense>

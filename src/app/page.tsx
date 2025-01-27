@@ -1,30 +1,21 @@
-import Image from "next/image";
-import Link from "next/link";
-import { getImages } from "~/server/queries";
+import AboutUs from "~/components/AboutUs";
+import FullScreenHeroVideo from "~/components/FullScreenHeroVideo";
 
-export default async function Images() {
-	const images = await getImages();
-
+export default async function Home() {
 	return (
-		<main className="flex flex-col grow justify-center">
-			<div className="flex flex-row w-full justify-center items-center gap-4">
-				{images.map((image) => (
-					<div key={image.id} className="h-48 w-48 flex flex-col relative">
-						<Link href={`/image/${image.id}`}>
-							<Image
-								src={image.url}
-								alt={image.name}
-								width="0"
-								height="0"
-								sizes="100%"
-								className="w-full rounded-md"
-								priority={true}
-							/>
-						</Link>
-						<div>{image.name}</div>
-					</div>
-				))}
-			</div>
+		<main className={homePageContainerStyling}>
+			<FullScreenHeroVideo />
+			<AboutUs />
 		</main>
 	);
 }
+
+const homePageContainerStyling = `
+  pageContainer
+  flex
+  flex-col
+  scroll-smooth
+  animate-fadeIn
+  items-center
+  bg-bone
+`

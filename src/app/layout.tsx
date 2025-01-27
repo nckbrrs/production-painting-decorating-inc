@@ -1,9 +1,16 @@
 import "~/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { GeistSans } from "geist/font/sans";
-import { type Metadata } from "next";
+import { Viewport, type Metadata } from "next";
 import TopNav from "~/components/TopNav";
 import { CSPostHogProvider } from "./_analytics/provider";
+import resolveConfig from 'tailwindcss/resolveConfig';
+import tailwindConfig from '../../tailwind.config';
+import { Config } from "tailwindcss";
+import Footer from "~/components/Footer";
+
+
+const twFullConfig = resolveConfig(tailwindConfig as Config & typeof tailwindConfig);
 
 export const metadata: Metadata = {
 	title: "Production Painting & Decorating, Inc.",
@@ -11,22 +18,30 @@ export const metadata: Metadata = {
 	icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+export const viewport: Viewport = {
+	themeColor: [
+		{
+			media: '(prefers-color-scheme: light)', color: twFullConfig.theme.colors["bone"]
+		},
+		{
+			media: '(prefers-color-scheme: dark)', color: twFullConfig.theme.colors["black"]
+		},
+	]
+}
+
 export default function RootLayout({
 	children,
-	modal,
 }: Readonly<{
 	children: React.ReactNode;
-	modal: React.ReactNode;
 }>) {
 	return (
 		<ClerkProvider>
 			<CSPostHogProvider>
 				<html lang="en" className={`${GeistSans.variable}`}>
-					<body className={"flex flex-col h-screen"}>
+					<body className={"flex flex-col h-screen bg-bone dark:bg-black"}>
 						<TopNav />
 						{children}
-						{modal}
-						<div id="modal-root" />
+						<Footer />
 					</body>
 				</html>
 			</CSPostHogProvider>
