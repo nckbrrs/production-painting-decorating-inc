@@ -41,13 +41,13 @@ export default function AboutUs() {
 	];
 
 	return (
-		<div className="h-full mt-12 md:mt-20 max-w-6xl">
+		<div className="h-full mt-6 md:mt-20 max-w-6xl">
 			{/* Our Story */}
 			<div className="mb-8">
-				<h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+				<h2 className="text-3xl md:text-4xl font-bold text-black mb-4 dark:text-bone">
 					Our Story
 				</h2>
-				<div className="space-y-4 text-gray-700 text-md md:text-lg">
+				<div className="space-y-4 text-gray-700 dark:text-bone/80 text-md md:text-lg">
 					<p>
 						At Production Painting & Decorating, we've been
 						transforming spaces with our expert painting services
@@ -109,10 +109,10 @@ export default function AboutUs() {
 
 			{/* Services Section */}
 			<div className="mb-12 md:mb-20">
-				<h2 className="text-3xl md:text-4xl font-bold text-black mb-1">
+				<h2 className="text-3xl md:text-4xl font-bold text-black dark:text-bone mb-1">
 					Our Services
 				</h2>
-				<h4 className="text-md md:text-lg text-slate-700 mb-5">
+				<h4 className="text-md md:text-lg text-slate-700 dark:text-bone/80 mb-5">
 					Click to get started on a quote!
 				</h4>
 				<div className="flex w-full justify-center items-center ">
@@ -138,7 +138,7 @@ export default function AboutUs() {
 													className="object-cover"
 												/>
 												<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60">
-													<h4 className="text-xl md:text-2xl text-white font-semibold text-center w-1/2">
+													<h4 className="text-xl md:text-2xl text-white font-semibold text-center">
 														{service.name}
 													</h4>
 													<h6 className="text-md md:text-lg text-white font-light">

@@ -48,8 +48,8 @@ const fullScreenMenuContainerStyling = `
     w-full
     h-full
     space-y-2 
-	bg-bone
-	dark:bg-black
+	bg-bone dark:bg-black
+	text-black dark:text-bone
     left-0 
     top-0 
     justify-center 

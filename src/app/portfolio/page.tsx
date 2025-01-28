@@ -15,7 +15,7 @@ export default function PortfolioPage() {
 				</h2>
 				<PortfolioGrid />
 				<div className={"flex flex-col mt-20 mb-28 items-center"}>
-					<h3 className="w-fit text-center text-lg font-semibold mb-2">
+					<h3 className="w-fit text-center text-lg font-semibold mb-2 text-black dark:text-bone/80">
 						Want to be next?
 					</h3>
 					<Link
@@ -45,7 +45,6 @@ const pageContainerStyling = `
 	relative
 	justify-start
 	items-center
-	bg-bone
 `;
 
 const spaceBehindHeaderStyling = `
@@ -60,6 +59,7 @@ const headerTextStyling = `
 	text-3xl md:text-4xl
 	font-bold
 	text-left
+	text-black dark:text-bone
 	w-full
 	mt-2
 `;
@@ -68,7 +68,7 @@ const subHeaderTextStyling = `
 	text-md md:text-lg
 	text-left
 	w-full
-	text-slate-700
+	text-slate-700 dark:text-bone/80
 	mb-4 md:mb-10
 `;
 

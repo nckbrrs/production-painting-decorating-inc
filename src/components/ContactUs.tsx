@@ -7,10 +7,10 @@ import { Button } from "./ui/button";
 export default function ContactUs() {
 	return (
 		<div className="mb-12 flex flex-col">
-			<h2 className="text-3xl md:text-4xl font-bold text-black mb-1">
+			<h2 className="text-3xl md:text-4xl font-bold text-black dark:text-bone mb-1">
 				Contact Us
 			</h2>
-			<h4 className="text-md md:text-lg mb-4 text-slate-700">
+			<h4 className="text-md md:text-lg mb-4 text-slate-700 dark:text-bone/80">
 				Reach out directly, or fill out an inquiry form and we'll be in
 				touch!
 			</h4>
@@ -23,9 +23,9 @@ export default function ContactUs() {
 									<Phone className="fill-black h-full py-1 mr-1 sm:mr-3" />
 									<Link
 										href="tel:123-4456-7890"
-										className="h-full flex flex-col justify-center font-semibold"
+										className="h-full flex flex-col justify-center"
 									>
-										<p className="text-sm sm:text-lg text-slate-700 tracking-wide">
+										<p className="text-sm sm:text-lg text-slate-700 dark:text-bone/80">
 											123-456-7890
 										</p>
 									</Link>
@@ -36,7 +36,7 @@ export default function ContactUs() {
 										href="mailto:general@productionpaintingonline.com"
 										className="h-full flex flex-col justify-center"
 									>
-										<p className="text-sm sm:text-lg text-slate-700 font-semibold text-nowrap tracking-wide">
+										<p className="text-sm sm:text-lg text-slate-700 dark:text-bone/80 text-nowrap">
 											General@PPDRaleigh.com
 										</p>
 									</Link>
@@ -48,7 +48,7 @@ export default function ContactUs() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<p className="text-sm sm:text-lg text-slate-700 font-semibold text-nowrap tracking-wide">
+										<p className="text-sm sm:text-lg text-slate-700 dark:text-bone/80 text-nowrap">
 											123 Capital Blvd, Raleigh, NC
 										</p>
 									</Link>

@@ -7,27 +7,37 @@ import LogoSVG from "./icons/Logo";
 import { usePathname } from "next/navigation";
 
 const topNavFillColorsByPage: {
-	[key: string]: "black" | "bone";
+	[key: string]: { light: "black" | "bone"; dark: "black" | "bone" };
 } = {
-	"/": "bone",
-	"/portfolio": "black",
-	"/portfolio/office-building": "black",
-	"/inquiry": "black",
-	"/contact": "black"
+	"/": {
+		light: "bone",
+		dark: "bone"
+	},
+	"/portfolio": { light: "black", dark: "bone" },
+	"/portfolio/office-building": { light: "black", dark: "bone" },
+	"/inquiry": { light: "black", dark: "bone" },
+	"/contact": { light: "black", dark: "bone" }
 };
 
 export default function TopNav() {
+	const pathname = usePathname();
+	const [isInDarkMode, setIsInDarkMode] = useState<boolean>(false);
+
 	const [fullScreenMenuIsOpen, setFullScreenMenuIsOpen] =
 		useState<boolean>(false);
 	const [isScrolledDownSome, setIsScrolledDownSome] =
 		useState<boolean>(false);
+
 	const [topNavFillColor, setTopNavFillColor] = useState<"black" | "bone">(
-		"bone"
+		topNavFillColorsByPage[pathname]
+			? isInDarkMode
+				? topNavFillColorsByPage[pathname].dark
+				: topNavFillColorsByPage[pathname].light
+			: "bone"
 	);
 	const [hamburgerOpenColor, setHamburgerOpenColor] = useState<
 		"black" | "bone"
-	>("black");
-	const pathname = usePathname();
+	>(isInDarkMode ? "bone" : "black");
 
 	const disableScroll = () => {
 		document.body.style.overflowY = "hidden";
@@ -59,10 +69,10 @@ export default function TopNav() {
 		)!;
 		hamburgerContainer.className = hamburgerContainer.className.replaceAll(
 			"backdrop-blur-none",
-			"backdrop-blur-3xl"
+			"backdrop-blur-lg"
 		);
 
-		setTopNavFillColor("black");
+		setTopNavFillColor(isInDarkMode ? "bone" : "black");
 	};
 
 	const removeBlurFromHamburgerContainer = () => {
@@ -70,11 +80,17 @@ export default function TopNav() {
 			"#hamburgerContainer"
 		)!;
 		hamburgerContainer.className = hamburgerContainer.className.replaceAll(
-			"backdrop-blur-3xl",
+			"backdrop-blur-lg",
 			"backdrop-blur-none"
 		);
 
-		if (topNavFillColorsByPage[pathname] == "bone") {
+		if (
+			topNavFillColorsByPage[pathname] &&
+			((isInDarkMode &&
+				topNavFillColorsByPage[pathname].dark == "bone") ||
+				(!isInDarkMode &&
+					topNavFillColorsByPage[pathname].light == "bone"))
+		) {
 			setTopNavFillColor("bone");
 		}
 	};
@@ -93,12 +109,19 @@ export default function TopNav() {
 		// Call resize handler right away so state gets updated with initial window size
 		handleResize();
 
-		// Add event listener for dark mode
+		// Set initial dark mode truthiness
+		if (
+			window.matchMedia &&
+			window.matchMedia("(prefers-color-scheme: dark)").matches
+		) {
+			setIsInDarkMode(true);
+		}
+
+		// Add event listener for changes between dark and light mode
 		window
 			.matchMedia("(prefers-color-scheme: dark)")
 			.addEventListener("change", (e) => {
-				// If dark mode, set hamburger bars' open color to bone
-				setHamburgerOpenColor(e.matches ? "bone" : "black");
+				setIsInDarkMode(e.matches);
 			});
 
 		// Add listener to make esc key to close full-screen menu
@@ -130,7 +153,25 @@ export default function TopNav() {
 	}, [isScrolledDownSome]);
 
 	useEffect(() => {
-		setTopNavFillColor(topNavFillColorsByPage[pathname] ?? "bone");
+		setTopNavFillColor(
+			topNavFillColorsByPage[pathname]
+				? isInDarkMode
+					? topNavFillColorsByPage[pathname].dark
+					: topNavFillColorsByPage[pathname].light
+				: "bone"
+		);
+		setHamburgerOpenColor(isInDarkMode ? "bone" : "black");
+	}, [isInDarkMode]);
+
+	useEffect(() => {
+		setTopNavFillColor(
+			topNavFillColorsByPage[pathname]
+				? isInDarkMode
+					? topNavFillColorsByPage[pathname].dark
+					: topNavFillColorsByPage[pathname].light
+				: "bone"
+		);
+
 		setFullScreenMenuIsOpen(false);
 		enableScroll();
 	}, [pathname]);
@@ -280,7 +321,7 @@ const textLinkStylingBase = `
 	hover:!opacity-100
 	hover:!blur-0
 	text-center
-	text-black
+	text-black dark:text-bone
 	text-xl
 `;
 

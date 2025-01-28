@@ -33,7 +33,7 @@ export default function FullScreenHeroVideo({
 					}}
 				>
 					<Button
-						className="uppercase font-semibold mb-8 md:mb-12 md:text-lg md:p-6"
+						className="uppercase font-semibold mb-8 md:mb-12 md:text-lg md:p-6 dark:bg-bone dark:text-black"
 						variant={"secondary"}
 					>
 						Contact

@@ -21,7 +21,6 @@ const pageContainerStyling = `
 	relative
 	justify-start
 	items-center
-	bg-bone
 `;
 
 const spaceBehindHeaderStyling = `

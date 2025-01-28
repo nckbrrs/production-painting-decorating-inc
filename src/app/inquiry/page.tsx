@@ -28,7 +28,6 @@ const pageContainerStyling = `
 	relative
 	justify-start
 	items-center
-	bg-bone
 `;
 
 const spaceBehindHeaderStyling = `
@@ -43,6 +42,7 @@ const headerTextStyling = `
 	text-3xl md:text-4xl
 	font-bold
 	text-left
+	text-black dark:text-bone
 	w-full
 	mt-2
 `;
@@ -51,7 +51,7 @@ const subHeaderTextStyling = `
 	text-md md:text-lg
 	text-left
 	w-full
-	text-slate-700
+	text-slate-700 dark:text-bone/80
 	mb-4 md:mb-10
 `;
 

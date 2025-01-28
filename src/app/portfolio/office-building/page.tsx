@@ -29,18 +29,22 @@ export default function ProjectPage() {
 				<VideoPlayer
 					src={project.videoSrc}
 					poster={project.posterSrc}
+					className="drop-shadow-md"
 				/>
-				<h1 className="w-full text-left text-3xl md:text-4xl font-bold mt-6 md:mt-10 mb-4">
+				<h1 className="w-full text-left text-3xl md:text-4xl font-bold mt-6 md:mt-10 mb-4 text-black dark:text-bone">
 					{project.title}
 				</h1>
 				<div className="mb-8 md:mb-12 space-y-4 md:space-y-8">
 					{project.description.map((p, idx) => (
-						<p key={idx} className="text-gray-800 md:text-lg">
+						<p
+							key={idx}
+							className="text-gray-800 dark:text-bone/80 md:text-lg"
+						>
 							{p}
 						</p>
 					))}
 				</div>
-				<h2 className="w-full text-left text-2xl md:text-3xl font-semibold mb-4">
+				<h2 className="w-full text-left text-2xl md:text-3xl font-semibold mb-4 text-black dark:text-bone">
 					Project Gallery
 				</h2>
 				<div className="mb-8">
@@ -66,8 +70,8 @@ export default function ProjectPage() {
 					</Link>
 					<Link href="/portfolio" className="w-full">
 						<Button
-							className="flex flex-row w-full items-center sm:text-md md:text-lg md:p-6"
-							variant={"outline"}
+							className="flex flex-row w-full items-center sm:text-md md:text-lg md:p-6 border-slate-950 border-[1px]"
+							variant={"secondary"}
 						>
 							<ArrowLeft />
 							See more of our work

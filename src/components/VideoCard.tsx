@@ -17,10 +17,10 @@ export default function VideoCard({
 	href
 }: VideoCardProps) {
 	return (
-		<div className="bg-white rounded-lg shadow-md overflow-hidden">
+		<div className="bg-white dark:bg-slate-950 dark:border-slate-800 border rounded-lg shadow-md overflow-hidden">
 			<div className="aspect-video">
 				<video
-					className="w-full h-full object-cover"
+					className="w-full h-full object-cover hover:cursor-pointer"
 					controls
 					poster={posterSrc}
 				>
@@ -31,15 +31,15 @@ export default function VideoCard({
 			<Link href={href}>
 				<div className="flex w-full ">
 					<div className="flex flex-col p-4">
-						<h2 className="text-xl md:text-2xl font-semibold mb-2 ">
+						<h2 className="text-xl md:text-2xl font-semibold mb-2 text-black dark:text-bone ">
 							{title}
 						</h2>
-						<p className="text-gray-600 md:text-lg">
+						<p className="text-gray-600 dark:text-bone/80 md:text-lg">
 							{description}
 						</p>
 					</div>
 					<div className="flex flex-col grow items-center justify-start mt-5 mr-4">
-						<ArrowRight className="w-6" />
+						<ArrowRight className="w-6 stroke-black dark:stroke-bone" />
 					</div>
 				</div>
 			</Link>

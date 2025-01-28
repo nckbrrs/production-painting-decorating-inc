@@ -19,7 +19,8 @@ const footerContainerStyling = `
     shrink-0
     items-center
     justify-end
-    bg-black
+    bg-black dark:bg-gray-950
+	border-gray-950 dark:border-bone/80 border-t-[1px]
 `;
 
 const copyrightTextStyling = `
