@@ -16,7 +16,22 @@ const twFullConfig = resolveConfig(
 export const metadata: Metadata = {
 	title: "Production Painting & Decorating, Inc.",
 	description: "Commercial painting and decorating company in Raleigh, NC.",
-	icons: [{ rel: "icon", url: "/favicon.ico" }]
+	icons: [{ rel: "icon", url: "/favicon.ico" }],
+	openGraph: {
+		title: "Production Painting & Decorating, Inc.",
+		description:
+			"Commercial painting and decorating company in Raleigh, NC.",
+		siteName: "PPD, Inc.",
+		type: "website",
+		images: [
+			{
+				url: "/stock-vid-2-poster.png",
+				width: 1200,
+				height: 630,
+				alt: "Preview image for PPD, Inc."
+			}
+		]
+	}
 };
 
 export const viewport: Viewport = {
