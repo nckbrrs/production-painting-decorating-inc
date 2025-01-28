@@ -1,9 +1,7 @@
 import "~/styles/globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
 import { GeistSans } from "geist/font/sans";
 import { Viewport, type Metadata } from "next";
 import TopNav from "~/components/TopNav";
-import { CSPostHogProvider } from "./_analytics/provider";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
 import { Config } from "tailwindcss";
@@ -25,7 +23,7 @@ export const metadata: Metadata = {
 		type: "website",
 		images: [
 			{
-				url: "/stock-vid-2-poster.png",
+				url: "/open-graph-img.png",
 				width: 1200,
 				height: 630,
 				alt: "Preview image for PPD, Inc."
