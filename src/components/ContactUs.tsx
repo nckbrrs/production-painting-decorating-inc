@@ -15,7 +15,7 @@ export default function ContactUs() {
 				touch!
 			</h4>
 			<Card className="rounded-2xl">
-				<CardContent className="pt-4">
+				<CardContent className="pt-6">
 					<div className="w-full h-full flex flex-col">
 						<div className="flex flex-col w-full md:flex-row md:space-x-8 ">
 							<div className="flex flex-col shrink md:grow md:justify-center md:px-4">
