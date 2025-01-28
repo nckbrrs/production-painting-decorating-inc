@@ -14,8 +14,8 @@ export default function ContactUs() {
 				Reach out directly, or fill out an inquiry form and we'll be in
 				touch!
 			</h4>
-			<Card>
-				<CardContent className="pt-6">
+			<Card className="rounded-2xl">
+				<CardContent className="pt-4">
 					<div className="w-full h-full flex flex-col">
 						<div className="flex flex-col w-full md:flex-row md:space-x-8 ">
 							<div className="flex flex-col shrink md:grow md:justify-center md:px-4">
@@ -55,13 +55,14 @@ export default function ContactUs() {
 								</div>
 							</div>
 
-							<div className="flex w-full h-full md:py-4 drop-shadow-md overflow-hidden">
+							<div className="flex w-full h-full md:py-4 flex-shrink-0 md:flex-shrink drop-shadow-md overflow-hidden">
 								<Link
 									href="https://maps.apple.com/?address=Capital%20Blvd,%20Raleigh,%20NC%20%2027616,%20United%20States&ll=35.861288,-78.581867&q=Capital%20Blvd&t=m"
 									target="_blank"
 									rel="noopener noreferrer"
+									className="w-full flex-shrink-0"
 								>
-									<div className="flex w-full h-full aspect-video md:aspect-auto overflow-hidden rounded-lg">
+									<div className="flex w-full h-full flex-shrink-0 md:flex-shrink aspect-video md:aspect-auto overflow-hidden rounded-xl">
 										<img
 											src="/mapsImage.png"
 											className="object-cover grow scale-150 lg:scale-100"
