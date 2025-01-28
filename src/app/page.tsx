@@ -18,4 +18,4 @@ const homePageContainerStyling = `
   animate-fadeIn
   items-center
   bg-bone
-`
+`;

@@ -10,7 +10,9 @@ export default {
 			},
 			colors: {
 				black: "#212121",
-				bone: "#fbf6f1"
+				bone: "#fbf6f1",
+				destructive: "hsl(0 100% 50%)",
+				"destructive-foreground": "hsl(210 40% 98%)"
 			},
 			keyframes: {
 				fadeIn: {

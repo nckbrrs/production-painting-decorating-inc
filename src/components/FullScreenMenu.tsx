@@ -1,33 +1,44 @@
 import { motion } from "framer-motion";
-import Link from 'next/link';
+import Link from "next/link";
 
 interface FullScreenMenuProps {
-	isOpen: boolean,
-	links: { linkType: 'external' | 'local', text: string, href: string }[],
+	isOpen: boolean;
+	// TODO need to receive function to close self when clicking link of current page
+	links: { linkType: "external" | "local"; text: string; href: string }[];
 }
 
 export default function FullScreenMenu({ isOpen, links }: FullScreenMenuProps) {
 	return isOpen ? (
-		<motion.div className={fullScreenMenuContainerStyling}
+		<motion.div
+			className={fullScreenMenuContainerStyling}
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 		>
 			<div className={menuLinksColStyling}>
 				{links.map((l) =>
-					l.linkType === 'external' ? (
-						<a key={l.text} href={l.href} target="_blank" rel="noopener noreferrer">
-							<p className={linkTextStyling}>{l.text.toUpperCase()}</p>
+					l.linkType === "external" ? (
+						<a
+							key={l.text}
+							href={l.href}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<p className={linkTextStyling}>
+								{l.text.toUpperCase()}
+							</p>
 						</a>
 					) : (
 						<Link key={l.text} href={`${l.href}`}>
-							<p className={linkTextStyling}>{l.text.toUpperCase()}</p>
+							<p className={linkTextStyling}>
+								{l.text.toUpperCase()}
+							</p>
 						</Link>
 					)
 				)}
 			</div>
 		</motion.div>
-	) : null
+	) : null;
 }
 
 const fullScreenMenuContainerStyling = `
@@ -44,8 +55,7 @@ const fullScreenMenuContainerStyling = `
     items-center
     fixed
     z-20
-`
-
+`;
 
 const menuLinksColStyling = `
     flex
@@ -56,7 +66,7 @@ const menuLinksColStyling = `
     justify-center
     space-y-0 lg:space-y-1
     translate-y-2 
-`
+`;
 
 const linkTextStyling = `
 	w-full
@@ -70,4 +80,4 @@ const linkTextStyling = `
     hover:!opacity-100
     hover:!blur-0
 	hover:!scale-[100%]
-`
+`;

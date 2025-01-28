@@ -11,7 +11,7 @@ const topNavFillColorsByPage: {
 } = {
 	"/": "bone",
 	"/portfolio": "black",
-	"/services": "black",
+	"/portfolio/office-building": "black",
 	"/contact": "black",
 	"/careers": "black"
 };
@@ -59,6 +59,8 @@ export default function TopNav() {
 			"backdrop-blur-none",
 			"backdrop-blur-3xl"
 		);
+
+		setTopNavFillColor("black");
 	};
 
 	const removeBlurFromHamburgerContainer = () => {
@@ -69,6 +71,10 @@ export default function TopNav() {
 			"backdrop-blur-3xl",
 			"backdrop-blur-none"
 		);
+
+		if (topNavFillColorsByPage[pathname] == "bone") {
+			setTopNavFillColor("bone");
+		}
 	};
 
 	// First-render things
@@ -124,6 +130,7 @@ export default function TopNav() {
 	useEffect(() => {
 		setTopNavFillColor(topNavFillColorsByPage[pathname] ?? "bone");
 		setFullScreenMenuIsOpen(false);
+		enableScroll();
 	}, [pathname]);
 
 	const links: {
@@ -133,18 +140,8 @@ export default function TopNav() {
 	}[] = [
 		{
 			linkType: "local",
-			text: "Services",
-			href: "/services"
-		},
-		{
-			linkType: "local",
 			text: "Portfolio",
 			href: "/portfolio"
-		},
-		{
-			linkType: "local",
-			text: "Careers",
-			href: "/careers"
 		},
 		{
 			linkType: "local",
@@ -179,19 +176,23 @@ export default function TopNav() {
 				<div className={textLinksRowStyling}>
 					{links.map((l) =>
 						l.linkType === "external" ? (
-							<a
+							<Link
 								key={`${l.text}-link`}
-								className={textLinkStyling}
+								className={
+									textLinkStylingVariants[topNavFillColor]
+								}
 								href={l.href}
 								target="_blank"
 								rel="noopener noreferrer"
 							>
 								{l.text}
-							</a>
+							</Link>
 						) : (
 							<Link
 								key={`${l.text}-link`}
-								className={textLinkStyling}
+								className={
+									textLinkStylingVariants[topNavFillColor]
+								}
 								href={l.href}
 							>
 								{l.text}
@@ -220,6 +221,7 @@ const logoContainerStyling = `
 	h-full
     hover:cursor-pointer
     ml-5
+	mt-1
 `;
 
 const logoStylingBase = `
@@ -246,7 +248,7 @@ const textLinksRowStyling = `
     gap-4
 `;
 
-const textLinkStyling = `
+const textLinkStylingBase = `
 	font-bold
 	hover:-translate-y-[1px]
 	hover:cursor-pointer
@@ -260,6 +262,11 @@ const textLinkStyling = `
 	text-center
 	text-black
 `;
+
+const textLinkStylingVariants = {
+	black: textLinkStylingBase + "text-black",
+	bone: textLinkStylingBase + "text-bone"
+};
 
 const hamburgerContainerStyling = `
 	flex
@@ -275,7 +282,7 @@ const hamburgerContainerStyling = `
 	right-0
 	top-5
 	z-20
-	backdrop-blur-3xl
+	backdrop-blur-none
 	p-2
 	rounded-md
 `;

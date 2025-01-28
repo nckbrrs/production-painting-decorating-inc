@@ -10,8 +10,38 @@ import Link from "next/link";
 import PhoneIcon from "./icons/Phone";
 import EmailIcon from "./icons/Email";
 import LocaitonIcon from "./icons/Location";
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious
+} from "./ui/carousel";
+import { InquiryTypes } from "~/lib/contactForm/contactFormSchema";
 
 export default function AboutUs() {
+	const services: {
+		name: string;
+		imgSrc: string;
+		inquiryType: InquiryTypes;
+	}[] = [
+		{
+			name: "Architectural Coatings",
+			imgSrc: "/arch-coatings.jpg",
+			inquiryType: InquiryTypes.ArchitechturalCoatingsQuote
+		},
+		{
+			name: "Floor Coatings",
+			imgSrc: "/floor-coatings.jpg",
+			inquiryType: InquiryTypes.FloorCoatingsQuote
+		},
+		{
+			name: "Maintenance Coatings",
+			imgSrc: "/maint-coatings.jpg",
+			inquiryType: InquiryTypes.MaintenanceCoatingsQuote
+		}
+	];
+
 	return (
 		<div className="h-full mx-12 mt-12">
 			{/* Content Section */}
@@ -87,6 +117,36 @@ export default function AboutUs() {
 				<h4 className="text-md text-slate-700 mb-5">
 					Click to get started on a quote!
 				</h4>
+				<div className="flex w-full justify-center items-center">
+					<Carousel className="w-full">
+						<CarouselContent>
+							{services.map((service) => (
+								<CarouselItem key={service.name}>
+									<Link
+										href={`/contact?inquiryType=${service.inquiryType}`}
+									>
+										<Card className="rounded-xl overflow-hidden border-0">
+											<CardContent className="flex aspect-square justify-center p-0 m-0 relative">
+												<img
+													src={service.imgSrc}
+													className="object-cover"
+												/>
+												<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60">
+													<h4 className="text-xl text-white font-semibold text-center w-1/2">
+														{service.name}
+													</h4>
+												</div>
+											</CardContent>
+										</Card>
+									</Link>
+								</CarouselItem>
+							))}
+						</CarouselContent>
+						<CarouselPrevious className={"left-4 dark:bg-bone"} />
+						<CarouselNext className={"right-4 dark:bg-bone"} />
+					</Carousel>
+				</div>
+				{/*
 				<div className="flex flex-col gap-4">
 					<div className="flex w-full h-full drop-shadow-xl">
 						<div className="flex aspect-video rounded-xl relative justify-center items-center overflow-hidden">
@@ -128,6 +188,7 @@ export default function AboutUs() {
 						</div>
 					</div>
 				</div>
+				*/}
 			</div>
 
 			{/* Contact Section */}

@@ -1,4 +1,4 @@
-import InstagramIcon from "./icons/Instagram"
+import InstagramIcon from "./icons/Instagram";
 
 export default function Footer() {
 	return (
@@ -7,7 +7,7 @@ export default function Footer() {
 				Copyright &copy; {new Date().getFullYear()} PPD, INC
 			</p>
 		</div>
-	)
+	);
 }
 
 const footerContainerStyling = `
@@ -20,17 +20,17 @@ const footerContainerStyling = `
     items-center
     justify-end
     bg-black
-`
+`;
 
 const copyrightTextStyling = `
 	text-bone 
 	font-thin
 	text-xs lg:text-lg
 	mr-5
-`
+`;
 
 const InstagramIconContainerStyling = `
     w-8
 	ml-5
     fill-bone
-`
+`;
