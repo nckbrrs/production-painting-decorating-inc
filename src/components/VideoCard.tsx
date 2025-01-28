@@ -18,7 +18,7 @@ export default function VideoCard({
 }: VideoCardProps) {
 	return (
 		<div className="bg-white rounded-lg shadow-md overflow-hidden">
-			<div className="aspect-w-16 aspect-h-9">
+			<div className="aspect-video">
 				<video
 					className="w-full h-full object-cover"
 					controls
@@ -30,11 +30,15 @@ export default function VideoCard({
 			</div>
 			<Link href={href}>
 				<div className="flex w-full ">
-					<div className="p-4">
-						<h2 className="text-xl font-semibold mb-2 ">{title}</h2>
-						<p className="text-gray-600">{description}</p>
+					<div className="flex flex-col p-4">
+						<h2 className="text-xl md:text-2xl font-semibold mb-2 ">
+							{title}
+						</h2>
+						<p className="text-gray-600 md:text-lg">
+							{description}
+						</p>
 					</div>
-					<div className="flex flex-col grow items-center justify-center mr-2">
+					<div className="flex flex-col grow items-center justify-start mt-5 mr-4">
 						<ArrowRight className="w-6" />
 					</div>
 				</div>

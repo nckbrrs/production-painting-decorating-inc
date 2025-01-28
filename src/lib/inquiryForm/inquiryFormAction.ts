@@ -1,9 +1,9 @@
 "use server";
 
-import { contactFormSchema } from "./contactFormSchema";
+import { inquiryFormSchema } from "./inquiryFormSchema";
 import { z } from "zod";
 
-export async function contactFormAction(
+export async function inquiryFormAction(
 	_prevState: unknown,
 	formData: FormData
 ) {
@@ -12,7 +12,7 @@ export async function contactFormAction(
 		.parse(Object.fromEntries(formData.entries()));
 
 	try {
-		const data = contactFormSchema.parse(Object.fromEntries(formData));
+		const data = inquiryFormSchema.parse(Object.fromEntries(formData));
 
 		console.log(data);
 

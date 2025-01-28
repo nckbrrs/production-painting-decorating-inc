@@ -1,6 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import PortfolioGrid from "../../components/PortfolioGrid";
 import { Button } from "~/components/ui/button";
+import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
+import Link from "next/link";
 
 export default function PortfolioPage() {
 	return (
@@ -13,12 +15,21 @@ export default function PortfolioPage() {
 				</h2>
 				<PortfolioGrid />
 				<div className={"flex flex-col mt-20 mb-28 items-center"}>
-					<h3 className="w-fit text-center text-md font-semibold">
+					<h3 className="w-fit text-center text-lg font-semibold mb-2">
 						Want to be next?
 					</h3>
-					<Button className="text-lg">
-						Get started on a quote <ArrowRight />
-					</Button>
+					<Link
+						href={{
+							pathname: "/inquiry",
+							query: `inquiryType=${InquiryTypes.GeneralInquiry}`
+						}}
+						className="max-w-1/2"
+					>
+						<Button className="flex flex-row w-full grow p-6 items-center text-lg">
+							Get started on an inquiry
+							<ArrowRight />
+						</Button>
+					</Link>
 				</div>
 			</div>
 		</div>
@@ -30,7 +41,6 @@ const pageContainerStyling = `
 	flex-col
 	grow
 	shrink-0
-	min-h-screen
 	scroll-smooth
 	relative
 	justify-start
@@ -39,15 +49,15 @@ const pageContainerStyling = `
 `;
 
 const spaceBehindHeaderStyling = `
-  flex
-  flex-col
-  shrink-0
-  w-full
-  h-24
+	flex
+	flex-col
+	shrink-0
+	w-full
+	h-24 md:h-32 lg:h-40
 `;
 
 const headerTextStyling = `
-	text-3xl
+	text-3xl md:text-4xl
 	font-bold
 	text-left
 	w-full
@@ -55,15 +65,17 @@ const headerTextStyling = `
 `;
 
 const subHeaderTextStyling = `
-	text-md
+	text-md md:text-lg
 	text-left
 	w-full
 	text-slate-700
-	mb-4
+	mb-4 md:mb-10
 `;
 
 const portfolioContainerStyling = `
 	flex
 	flex-col
-	mx-12
+	grow
+	w-full max-w-7xl
+	px-12
 `;

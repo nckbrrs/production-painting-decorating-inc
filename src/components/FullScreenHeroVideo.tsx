@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
-import { InquiryTypes } from "~/lib/contactForm/contactFormSchema";
+import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
 
 export default function FullScreenHeroVideo({
 	children
@@ -19,22 +19,21 @@ export default function FullScreenHeroVideo({
 				playsInline
 			/>
 			<div className={textOverVideoContainerStyling}>
-				<div className="flex flex-col grow justify-center mt-16 px-5">
+				<div className="flex flex-col grow justify-center mt-16 md:mt-20 px-5">
 					<h1 className={textOverVideoStyling}>
 						Production Painting & Decorating, Inc.
 					</h1>
 				</div>
 				<Link
 					href={{
-						pathname: "/contact",
+						pathname: "/inquiry",
 						query: {
 							inquiryType: InquiryTypes.GeneralInquiry
 						}
 					}}
-					className=""
 				>
 					<Button
-						className="uppercase font-semibold mb-8"
+						className="uppercase font-semibold mb-8 md:mb-12 md:text-lg md:p-6"
 						variant={"secondary"}
 					>
 						Contact
@@ -73,7 +72,7 @@ const textOverVideoContainerStyling = `
 
 const textOverVideoStyling = `
   font-bold
-  text-3xl
+  text-3xl md:text-4xl lg:text-5xl
   text-center
   uppercase
   text-bone

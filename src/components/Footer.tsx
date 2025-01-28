@@ -25,7 +25,7 @@ const footerContainerStyling = `
 const copyrightTextStyling = `
 	text-bone 
 	font-thin
-	text-xs lg:text-lg
+	text-xs sm:text-sm md:text-md 
 	mr-5
 `;
 

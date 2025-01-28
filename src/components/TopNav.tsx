@@ -12,7 +12,7 @@ const topNavFillColorsByPage: {
 	"/": "bone",
 	"/portfolio": "black",
 	"/portfolio/office-building": "black",
-	"/contact": "black",
+	"/inquiry": "black",
 	"/careers": "black"
 };
 
@@ -48,7 +48,9 @@ export default function TopNav() {
 
 	const closeFullScreenMenu = () => {
 		enableScroll();
-		setFullScreenMenuIsOpen(false);
+		setTimeout(() => {
+			setFullScreenMenuIsOpen(false);
+		}, 200);
 	};
 
 	const addBlurToHamburgerContainer = () => {
@@ -145,14 +147,22 @@ export default function TopNav() {
 		},
 		{
 			linkType: "local",
-			text: "Contact",
-			href: "/contact"
+			text: "Inquiries",
+			href: "/inquiry"
 		}
 	];
 
+	const onClickMenuLink = () => {
+		closeFullScreenMenu();
+	};
+
 	return (
 		<>
-			<FullScreenMenu isOpen={fullScreenMenuIsOpen} links={links} />
+			<FullScreenMenu
+				isOpen={fullScreenMenuIsOpen}
+				links={links}
+				onClickLink={onClickMenuLink}
+			/>
 			<div
 				id="hamburgerContainer"
 				className={hamburgerContainerStyling}
@@ -214,14 +224,14 @@ const topNavContainerStyling = `
     items-center
     py-4
     z-10
-    h-20
+    h-20 md:h-28 lg:h-36
 `;
 
 const logoContainerStyling = `
 	h-full
     hover:cursor-pointer
-    ml-5
-	mt-1
+    ml-5 md:ml-8 lg:ml-10
+	pt-1 md:py-4 lg:py-6
 `;
 
 const logoStylingBase = `
@@ -244,7 +254,7 @@ const textLinksRowStyling = `
     items-center
     hidden xl:flex
     group
-    mr-3
+    mr-3 md:mr-6 lg:mr-8
     gap-4
 `;
 
@@ -261,6 +271,7 @@ const textLinkStylingBase = `
 	hover:!blur-0
 	text-center
 	text-black
+	text-xl
 `;
 
 const textLinkStylingVariants = {
@@ -277,7 +288,7 @@ const hamburgerContainerStyling = `
 	cursor-pointer
 	duration-75
 	hover:scale-110
-	mr-3
+    mr-3 md:mr-6 lg:mr-8
 	fixed
 	right-0
 	top-5

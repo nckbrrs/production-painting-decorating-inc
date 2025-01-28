@@ -3,11 +3,15 @@ import Link from "next/link";
 
 interface FullScreenMenuProps {
 	isOpen: boolean;
-	// TODO need to receive function to close self when clicking link of current page
 	links: { linkType: "external" | "local"; text: string; href: string }[];
+	onClickLink: () => void;
 }
 
-export default function FullScreenMenu({ isOpen, links }: FullScreenMenuProps) {
+export default function FullScreenMenu({
+	isOpen,
+	links,
+	onClickLink
+}: FullScreenMenuProps) {
 	return isOpen ? (
 		<motion.div
 			className={fullScreenMenuContainerStyling}
@@ -16,26 +20,23 @@ export default function FullScreenMenu({ isOpen, links }: FullScreenMenuProps) {
 			exit={{ opacity: 0 }}
 		>
 			<div className={menuLinksColStyling}>
-				{links.map((l) =>
-					l.linkType === "external" ? (
-						<a
-							key={l.text}
-							href={l.href}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<p className={linkTextStyling}>
-								{l.text.toUpperCase()}
-							</p>
-						</a>
-					) : (
-						<Link key={l.text} href={`${l.href}`}>
-							<p className={linkTextStyling}>
-								{l.text.toUpperCase()}
-							</p>
-						</Link>
-					)
-				)}
+				{links.map((l) => (
+					<Link
+						key={l.text}
+						href={`${l.href}`}
+						target={l.linkType === "external" ? "_blank" : ""}
+						rel={
+							l.linkType === "external"
+								? "noopener noreferrer"
+								: ""
+						}
+						onClick={onClickLink}
+					>
+						<p className={linkTextStyling}>
+							{l.text.toUpperCase()}
+						</p>
+					</Link>
+				))}
 			</div>
 		</motion.div>
 	) : null;

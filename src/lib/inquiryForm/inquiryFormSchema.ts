@@ -8,7 +8,7 @@ export enum InquiryTypes {
 	GeneralInquiry = "General Inquiry"
 }
 
-export const contactFormSchema = z.object({
+export const inquiryFormSchema = z.object({
 	name: z
 		.string()
 		.min(2, { message: "Name must be at least 2 characters" })

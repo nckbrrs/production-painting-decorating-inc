@@ -7,9 +7,6 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import Link from "next/link";
-import PhoneIcon from "./icons/Phone";
-import EmailIcon from "./icons/Email";
-import LocaitonIcon from "./icons/Location";
 import {
 	Carousel,
 	CarouselContent,
@@ -17,7 +14,8 @@ import {
 	CarouselNext,
 	CarouselPrevious
 } from "./ui/carousel";
-import { InquiryTypes } from "~/lib/contactForm/contactFormSchema";
+import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
+import ContactUs from "./ContactUs";
 
 export default function AboutUs() {
 	const services: {
@@ -43,13 +41,13 @@ export default function AboutUs() {
 	];
 
 	return (
-		<div className="h-full mx-12 mt-12">
-			{/* Content Section */}
+		<div className="h-full px-12 mt-12 md:mt-20 max-w-6xl">
+			{/* Our Story */}
 			<div className="mx-auto mb-8">
 				<h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
 					Our Story
 				</h2>
-				<div className="space-y-4 text-gray-700">
+				<div className="space-y-4 text-gray-700 text-md md:text-lg">
 					<p>
 						At Production Painting & Decorating, we've been
 						transforming spaces with our expert painting services
@@ -70,7 +68,7 @@ export default function AboutUs() {
 			</div>
 
 			{/* Statistics Section */}
-			<div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
+			<div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12 md:mb-20">
 				<Card>
 					<CardContent className="flex flex-col items-center justify-center p-4 lg:p-6">
 						<UsersIcon className="w-8 h-8 lg:w-12 lg:h-12 mb-2 lg:mb-4 text-slate-600" />
@@ -110,20 +108,28 @@ export default function AboutUs() {
 			</div>
 
 			{/* Services Section */}
-			<div className="mx-auto mb-12">
+			<div className="mx-auto mb-12 md:mb-20">
 				<h2 className="text-3xl md:text-4xl font-bold text-black mb-1">
 					Our Services
 				</h2>
-				<h4 className="text-md text-slate-700 mb-5">
+				<h4 className="text-md md:text-lg text-slate-700 mb-5">
 					Click to get started on a quote!
 				</h4>
-				<div className="flex w-full justify-center items-center">
+				<div className="flex w-full justify-center items-center ">
 					<Carousel className="w-full">
 						<CarouselContent>
 							{services.map((service) => (
-								<CarouselItem key={service.name}>
+								<CarouselItem
+									key={service.name}
+									className="md:basis-1/3"
+								>
 									<Link
-										href={`/contact?inquiryType=${service.inquiryType}`}
+										href={{
+											pathname: "/inquiry",
+											query: {
+												inquiryType: service.inquiryType
+											}
+										}}
 									>
 										<Card className="rounded-xl overflow-hidden border-0">
 											<CardContent className="flex aspect-square justify-center p-0 m-0 relative">
@@ -132,9 +138,12 @@ export default function AboutUs() {
 													className="object-cover"
 												/>
 												<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60">
-													<h4 className="text-xl text-white font-semibold text-center w-1/2">
+													<h4 className="text-xl md:text-2xl text-white font-semibold text-center w-1/2">
 														{service.name}
 													</h4>
+													<h6 className="text-md md:text-lg text-white font-light">
+														Service Description
+													</h6>
 												</div>
 											</CardContent>
 										</Card>
@@ -142,118 +151,18 @@ export default function AboutUs() {
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						<CarouselPrevious className={"left-4 dark:bg-bone"} />
-						<CarouselNext className={"right-4 dark:bg-bone"} />
+						<CarouselPrevious
+							className={"left-4 md:hidden dark:bg-bone"}
+						/>
+						<CarouselNext
+							className={"right-4 md:hidden dark:bg-bone"}
+						/>
 					</Carousel>
 				</div>
-				{/*
-				<div className="flex flex-col gap-4">
-					<div className="flex w-full h-full drop-shadow-xl">
-						<div className="flex aspect-video rounded-xl relative justify-center items-center overflow-hidden">
-							<img src="https://placecats.com/neo/1600/900.jpg" />
-							<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60 hover:bg-red-700/60 rounded-xl">
-								<h4 className="text-xl text-white font-semibold text-center">
-									Service 1
-								</h4>
-								<h6 className="text-sm text-white text-center">
-									Service 1 Description
-								</h6>
-							</div>
-						</div>
-					</div>
-					<div className="flex w-full h-full drop-shadow-xl">
-						<div className="flex aspect-video rounded-xl relative justify-center items-center overflow-hidden">
-							<img src="https://placecats.com/neo_banana/1600/900.jpg" />
-							<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60 hover:bg-red-700/60 rounded-xl">
-								<h4 className="text-xl text-white font-semibold text-center">
-									Service 2
-								</h4>
-								<h6 className="text-sm text-white text-center">
-									Service 2 Description
-								</h6>
-							</div>
-						</div>
-					</div>
-					<div className="flex w-full h-full drop-shadow-xl">
-						<div className="flex aspect-video rounded-xl relative justify-center items-center overflow-hidden">
-							<img src="https://placecats.com/millie_neo/1600/900.jpg" />
-							<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60 hover:bg-red-700/60 rounded-xl">
-								<h4 className="text-xl text-white font-semibold text-center">
-									Service 3
-								</h4>
-								<h6 className="text-sm text-white text-center">
-									Service 3 Description
-								</h6>
-							</div>
-						</div>
-					</div>
-				</div>
-				*/}
 			</div>
 
 			{/* Contact Section */}
-			<div className="mx-auto mb-12 flex flex-col">
-				<h2 className="text-3xl md:text-4xl font-bold text-black mb-1">
-					Contact Us
-				</h2>
-				<h4 className="text-md mb-4 text-slate-700">
-					Reach out directly, or{" "}
-					<Link
-						className="font-semibold hover:cursor-pointer underline underline-offset-2"
-						href="/contact"
-					>
-						fill out a contact form
-					</Link>{" "}
-					and we'll be in touch!
-				</h4>
-				<div className="h-6 flex flex-row items-center">
-					<PhoneIcon className="h-full py-1 mr-1" />
-					<Link
-						href="tel:123-4456-7890"
-						className="h-full flex flex-col justify-center"
-					>
-						<p className="text-sm text-slate-700">123-456-7890</p>
-					</Link>
-				</div>
-				<div className="h-6 flex flex-row items-center">
-					<EmailIcon className="h-full py-1 mr-1" />
-					<Link
-						href="mailto:general@productionpaintingonline.com"
-						className="h-full flex flex-col justify-center"
-					>
-						<p className="text-sm text-slate-700">
-							general@productionpaintingonline.com
-						</p>
-					</Link>
-				</div>
-				<div className="h-6 flex flex-row items-center mb-5">
-					<LocaitonIcon className="h-full py-1 mr-1" />
-					<Link
-						href="https://maps.apple.com/?address=Capital%20Blvd,%20Raleigh,%20NC%20%2027616,%20United%20States&ll=35.861288,-78.581867&q=Capital%20Blvd&t=m"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<p className="text-sm text-slate-700">
-							123 Capital Blvd, Raleigh, NC
-						</p>
-					</Link>
-				</div>
-
-				<Link
-					href="https://maps.apple.com/?address=Capital%20Blvd,%20Raleigh,%20NC%20%2027616,%20United%20States&ll=35.861288,-78.581867&q=Capital%20Blvd&t=m"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<div className="w-full drop-shadow-md">
-						<div className="w-full aspect-video overflow-hidden rounded-xl">
-							<img
-								src="/mapsImage.png"
-								className="object-contain scale-150"
-							/>
-						</div>
-					</div>
-				</Link>
-			</div>
+			<ContactUs />
 		</div>
 	);
 }
