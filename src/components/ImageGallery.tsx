@@ -29,7 +29,7 @@ export default function ImageGallery({ images }: { images: string[] }) {
 							alt={`Project image ${index + 1}`}
 							width={300}
 							height={200}
-							className="object-cover w-full h-48 rounded-lg drop-shadow-sm duration-75 hover:-translate-y-1"
+							className="object-cover w-full h-48 rounded-lg drop-shadow-sm duration-75 lg:hover:-translate-y-1"
 						/>
 					</div>
 				))}
