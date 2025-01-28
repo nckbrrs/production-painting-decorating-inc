@@ -1,15 +1,16 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { ContactForm } from "../../components/ContactForm";
-import { InquiryTypes } from "~/lib/contactForm/contactFormSchema";
 
 export default function ContactPage() {
 	return (
 		<div className={pageContainerStyling}>
 			<div className={spaceBehindHeaderStyling} />
 			<div className={careersFormContainerStyling}>
-				<ContactForm />
+				<Suspense>
+					<ContactForm />
+				</Suspense>
 			</div>
 		</div>
 	);

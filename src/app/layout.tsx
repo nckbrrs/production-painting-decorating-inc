@@ -38,20 +38,16 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<ClerkProvider>
-			<CSPostHogProvider>
-				<html lang="en" className={`${GeistSans.variable}`}>
-					<body
-						className={
-							"flex flex-col h-screen bg-bone dark:bg-black"
-						}
-					>
-						<TopNav />
-						{children}
-						<Footer />
-					</body>
-				</html>
-			</CSPostHogProvider>
-		</ClerkProvider>
+		// <ClerkProvider>
+		// 	<CSPostHogProvider>
+		<html lang="en" className={`${GeistSans.variable}`}>
+			<body className={"flex flex-col h-screen bg-bone dark:bg-black"}>
+				<TopNav />
+				{children}
+				<Footer />
+			</body>
+		</html>
+		// 	</CSPostHogProvider>
+		// </ClerkProvider>
 	);
 }
