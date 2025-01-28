@@ -21,6 +21,7 @@ export default function InquiryPage() {
 const pageContainerStyling = `
 	flex
 	flex-col
+	w-full
 	grow
 	shrink-0
 	scroll-smooth
@@ -59,5 +60,6 @@ const careersFormContainerStyling = `
 	flex-col
 	grow
 	w-full max-w-7xl
-	px-12
+	px-6
+	mb-12
 `;

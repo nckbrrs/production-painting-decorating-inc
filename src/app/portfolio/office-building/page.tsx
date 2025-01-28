@@ -103,6 +103,6 @@ const contentContainerStyling = `
 	flex
 	flex-col
 	w-full max-w-7xl
-	px-12
 	items-center
+	px-6
 `;

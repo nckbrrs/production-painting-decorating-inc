@@ -43,7 +43,7 @@ export default function AboutUs() {
 	return (
 		<div className="h-full px-12 mt-12 md:mt-20 max-w-6xl">
 			{/* Our Story */}
-			<div className="mx-auto mb-8">
+			<div className="mb-8">
 				<h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
 					Our Story
 				</h2>
@@ -108,7 +108,7 @@ export default function AboutUs() {
 			</div>
 
 			{/* Services Section */}
-			<div className="mx-auto mb-12 md:mb-20">
+			<div className="mb-12 md:mb-20">
 				<h2 className="text-3xl md:text-4xl font-bold text-black mb-1">
 					Our Services
 				</h2>
