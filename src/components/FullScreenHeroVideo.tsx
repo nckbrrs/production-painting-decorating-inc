@@ -54,8 +54,10 @@ const videoContainerStyling = `
 `;
 
 const videoStyling = `
-  grow
-  object-cover
+	h-full
+	w-full
+  	grow
+  	object-cover
 `;
 
 const textOverVideoContainerStyling = `

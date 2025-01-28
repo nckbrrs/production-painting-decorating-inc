@@ -6,8 +6,17 @@ import Image from "next/image";
 export default function ImageGallery({ images }: { images: string[] }) {
 	const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
+	if (typeof window !== "undefined") {
+		// Add scroll listener to hide modal caused by image selection
+		document.addEventListener("scroll", (e: any) => {
+			if (selectedImage) {
+				setSelectedImage(null);
+			}
+		});
+	}
+
 	return (
-		<div>
+		<div onScroll={() => setSelectedImage(null)}>
 			<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 				{images.map((image, index) => (
 					<div

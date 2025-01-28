@@ -12,7 +12,7 @@ const project = {
 		`Our team undertook a complete exterior repaint of a 10-story office building in the heart of downtown. This project presented unique challenges due to the building's height and busy urban location. We employed state-of-the-art equipment and safety measures to ensure efficient and safe completion of the project. The new color scheme, chosen in collaboration with the client, has dramatically improved the building's appearance, making it a standout in the city skyline. This transformation not only enhanced the building's aesthetic appeal but also contributed to increased property value and tenant satisfaction.`
 	],
 	videoSrc: "/stock-vid-2.mp4",
-	posterSrc: "",
+	posterSrc: "/stock-vid-2-poster.png",
 	images: [
 		"/heroVideoPoster.png",
 		"/floor-coatings.jpg",

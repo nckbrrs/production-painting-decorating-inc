@@ -7,7 +7,7 @@ const portfolioItems = [
 		description:
 			"Complete exterior repaint of a 10-story office building in downtown, bringing new life to the urban landscape.",
 		videoSrc: "/stock-vid-1.mp4",
-		posterSrc: "",
+		posterSrc: "/stock-vid-1-poster.png",
 		href: "/portfolio/office-building"
 	},
 	{
@@ -16,7 +16,7 @@ const portfolioItems = [
 		description:
 			"Interior and exterior painting of a 50,000 sq ft warehouse, improving work environment and curb appeal.",
 		videoSrc: "/stock-vid-2.mp4",
-		posterSrc: "",
+		posterSrc: "/stock-vid-2-poster.png",
 		href: "/portfolio/office-building"
 	},
 	{
@@ -25,7 +25,7 @@ const portfolioItems = [
 		description:
 			"Helping a chain of retail stores rebrand with a fresh, modern color scheme across 20 locations.",
 		videoSrc: "/stock-vid-3.mp4",
-		posterSrc: "",
+		posterSrc: "/stock-vid-3-poster.png",
 		href: "/portfolio/office-building"
 	},
 	{
@@ -34,7 +34,7 @@ const portfolioItems = [
 		description:
 			"Comprehensive painting work for a luxury hotel renovation, including guest rooms, lobbies, and exterior.",
 		videoSrc: "/stock-vid-4.mp4",
-		posterSrc: "",
+		posterSrc: "/stock-vid-4-poster.png",
 		href: "/portfolio/office-building"
 	}
 ];
