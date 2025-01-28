@@ -71,7 +71,6 @@ const menuLinksColStyling = `
 
 const linkTextStyling = `
 	w-full
-    px-2
     text-3xl md:text-5xl lg:text-7xl
     font-bold
     duration-200

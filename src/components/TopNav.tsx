@@ -13,7 +13,7 @@ const topNavFillColorsByPage: {
 	"/portfolio": "black",
 	"/portfolio/office-building": "black",
 	"/inquiry": "black",
-	"/careers": "black"
+	"/contact": "black"
 };
 
 export default function TopNav() {
@@ -142,6 +142,11 @@ export default function TopNav() {
 	}[] = [
 		{
 			linkType: "local",
+			text: "Home",
+			href: "/"
+		},
+		{
+			linkType: "local",
 			text: "Portfolio",
 			href: "/portfolio"
 		},
@@ -149,6 +154,11 @@ export default function TopNav() {
 			linkType: "local",
 			text: "Inquiries",
 			href: "/inquiry"
+		},
+		{
+			linkType: "local",
+			text: "Contact",
+			href: "/contact"
 		}
 	];
 
@@ -230,7 +240,7 @@ const topNavContainerStyling = `
 const logoContainerStyling = `
 	h-full
     hover:cursor-pointer
-    ml-5 md:ml-8 lg:ml-10
+    ml-6 md:ml-8 lg:ml-10
 	pt-1 md:py-4 lg:py-6
 `;
 
@@ -254,7 +264,7 @@ const textLinksRowStyling = `
     items-center
     hidden xl:flex
     group
-    mr-3 md:mr-6 lg:mr-8
+	pr-3 md:pr-6 lg:pr-8
     gap-4
 `;
 
@@ -288,10 +298,9 @@ const hamburgerContainerStyling = `
 	cursor-pointer
 	duration-75
 	hover:scale-110
-    mr-3 md:mr-6 lg:mr-8
 	fixed
-	right-0
-	top-5
+	right-4 md:right-6 lg:right-8
+	top-6 md:top-10 lg:top-14
 	z-20
 	backdrop-blur-none
 	p-2

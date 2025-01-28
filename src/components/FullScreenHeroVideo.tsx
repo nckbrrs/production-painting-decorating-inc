@@ -12,14 +12,14 @@ export default function FullScreenHeroVideo({
 		<div className={videoContainerStyling}>
 			<video
 				className={videoStyling}
-				src={"/heroVideo.mov"}
+				src={"/stock-vid-5.mp4"}
 				autoPlay
 				muted
 				loop
 				playsInline
 			/>
 			<div className={textOverVideoContainerStyling}>
-				<div className="flex flex-col grow justify-center mt-16 md:mt-20 px-5">
+				<div className="flex flex-col grow justify-center mt-16 md:mt-20 px-6">
 					<h1 className={textOverVideoStyling}>
 						Production Painting & Decorating, Inc.
 					</h1>
@@ -50,6 +50,7 @@ const videoContainerStyling = `
   min-h-screen
   relative
   overflow-hidden
+  w-full
 `;
 
 const videoStyling = `
@@ -72,7 +73,7 @@ const textOverVideoContainerStyling = `
 
 const textOverVideoStyling = `
   font-bold
-  text-3xl md:text-4xl lg:text-5xl
+  text-3xl lg:text-5xl
   text-center
   uppercase
   text-bone

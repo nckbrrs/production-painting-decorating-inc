@@ -77,5 +77,5 @@ const portfolioContainerStyling = `
 	flex-col
 	grow
 	w-full max-w-7xl
-	px-6
+	px-6 md:px-8 lg:px-10
 `;

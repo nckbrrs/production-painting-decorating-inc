@@ -5,7 +5,9 @@ export default async function Home() {
 	return (
 		<main className={homePageContainerStyling}>
 			<FullScreenHeroVideo />
-			<AboutUs />
+			<div className="flex flex-col grow px-6">
+				<AboutUs />
+			</div>
 		</main>
 	);
 }
@@ -17,5 +19,4 @@ const homePageContainerStyling = `
   scroll-smooth
   animate-fadeIn
   items-center
-  bg-bone
 `;

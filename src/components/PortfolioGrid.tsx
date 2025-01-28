@@ -6,8 +6,8 @@ const portfolioItems = [
 		title: "Office Building Transformation",
 		description:
 			"Complete exterior repaint of a 10-story office building in downtown, bringing new life to the urban landscape.",
-		videoSrc: "/heroVideo.mov",
-		posterSrc: "/heroVideoPoster.png",
+		videoSrc: "/stock-vid-1.mp4",
+		posterSrc: "",
 		href: "/portfolio/office-building"
 	},
 	{
@@ -15,8 +15,8 @@ const portfolioItems = [
 		title: "Industrial Warehouse Makeover",
 		description:
 			"Interior and exterior painting of a 50,000 sq ft warehouse, improving work environment and curb appeal.",
-		videoSrc: "/heroVideo.mov",
-		posterSrc: "/heroVideoPoster.png",
+		videoSrc: "/stock-vid-2.mp4",
+		posterSrc: "",
 		href: "/portfolio/office-building"
 	},
 	{
@@ -24,8 +24,8 @@ const portfolioItems = [
 		title: "Retail Store Rebranding",
 		description:
 			"Helping a chain of retail stores rebrand with a fresh, modern color scheme across 20 locations.",
-		videoSrc: "/heroVideo.mov",
-		posterSrc: "/heroVideoPoster.png",
+		videoSrc: "/stock-vid-3.mp4",
+		posterSrc: "",
 		href: "/portfolio/office-building"
 	},
 	{
@@ -33,8 +33,8 @@ const portfolioItems = [
 		title: "Hotel Renovation Project",
 		description:
 			"Comprehensive painting work for a luxury hotel renovation, including guest rooms, lobbies, and exterior.",
-		videoSrc: "/heroVideo.mov",
-		posterSrc: "/heroVideoPoster.png",
+		videoSrc: "/stock-vid-4.mp4",
+		posterSrc: "",
 		href: "/portfolio/office-building"
 	}
 ];

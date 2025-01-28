@@ -26,7 +26,7 @@ const copyrightTextStyling = `
 	text-bone 
 	font-thin
 	text-xs sm:text-sm md:text-md 
-	mr-5
+	pr-5
 `;
 
 const InstagramIconContainerStyling = `

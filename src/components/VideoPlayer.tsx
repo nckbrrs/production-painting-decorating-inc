@@ -6,9 +6,9 @@ export default function VideoPlayer({
 	poster: string;
 }) {
 	return (
-		<div className="aspect-w-16 aspect-h-9">
+		<div className="w-full h-full grow">
 			<video
-				className="w-full h-full object-cover rounded-xl"
+				className="w-full h-full grow object-cover rounded-xl"
 				controls
 				poster={poster}
 			>

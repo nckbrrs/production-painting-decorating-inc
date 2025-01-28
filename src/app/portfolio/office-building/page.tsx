@@ -11,8 +11,8 @@ const project = {
 		`Our team undertook a complete exterior repaint of a 10-story office building in the heart of downtown. This project presented unique challenges due to the building's height and busy urban location. We employed state-of-the-art equipment and safety measures to ensure efficient and safe completion of the project. The new color scheme, chosen in collaboration with the client, has dramatically improved the building's appearance, making it a standout in the city skyline. This transformation not only enhanced the building's aesthetic appeal but also contributed to increased property value and tenant satisfaction.`,
 		`Our team undertook a complete exterior repaint of a 10-story office building in the heart of downtown. This project presented unique challenges due to the building's height and busy urban location. We employed state-of-the-art equipment and safety measures to ensure efficient and safe completion of the project. The new color scheme, chosen in collaboration with the client, has dramatically improved the building's appearance, making it a standout in the city skyline. This transformation not only enhanced the building's aesthetic appeal but also contributed to increased property value and tenant satisfaction.`
 	],
-	videoSrc: "/heroVideo.mov",
-	posterSrc: "/heroVideoPoster.png",
+	videoSrc: "/stock-vid-2.mp4",
+	posterSrc: "",
 	images: [
 		"/heroVideoPoster.png",
 		"/floor-coatings.jpg",
@@ -34,9 +34,9 @@ export default function ProjectPage() {
 					{project.title}
 				</h1>
 				<div className="mb-8 md:mb-12 space-y-4 md:space-y-8">
-					{project.description.map((p) => (
-						<p className="text-gray-800 md:text-lg">
-							{project.description}
+					{project.description.map((p, idx) => (
+						<p key={idx} className="text-gray-800 md:text-lg">
+							{p}
 						</p>
 					))}
 				</div>
@@ -104,5 +104,5 @@ const contentContainerStyling = `
 	flex-col
 	w-full max-w-7xl
 	items-center
-	px-6
+	px-6 md:px-8 lg:px-10
 `;

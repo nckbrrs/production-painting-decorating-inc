@@ -31,6 +31,13 @@ const coreConfig = {
 					generator: {
 						filename: "static/[hash][ext]"
 					}
+				},
+				{
+					test: /\.mp4/,
+					type: "asset/resource",
+					generator: {
+						filename: "static/[hash][ext]"
+					}
 				}
 			]
 		);
