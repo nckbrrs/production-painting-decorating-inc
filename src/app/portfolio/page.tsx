@@ -39,6 +39,7 @@ export default function PortfolioPage() {
 const pageContainerStyling = `
 	flex
 	flex-col
+	w-full
 	grow
 	shrink-0
 	scroll-smooth
@@ -78,4 +79,5 @@ const portfolioContainerStyling = `
 	grow
 	w-full max-w-7xl
 	px-6 md:px-8 lg:px-10
+	mb-12
 `;
