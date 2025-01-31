@@ -12,6 +12,11 @@ const twFullConfig = resolveConfig(
 );
 
 export const metadata: Metadata = {
+	metadataBase: new URL(
+		process.env.NODE_ENV == "development"
+			? "http://localhost:3000"
+			: "https://production-painting-decorating-inc.vercel.app/"
+	),
 	title: "Production Painting & Decorating, Inc.",
 	description: "Commercial painting and decorating company in Raleigh, NC.",
 	icons: [{ rel: "icon", url: "/favicon.ico" }],
@@ -52,7 +57,6 @@ export default function RootLayout({
 }>) {
 	return (
 		// <ClerkProvider>
-		// 	<CSPostHogProvider>
 		<html lang="en" className={`${GeistSans.variable}`}>
 			<body className={"flex flex-col h-screen bg-bone dark:bg-gray-950"}>
 				<TopNav />
@@ -60,7 +64,6 @@ export default function RootLayout({
 				<Footer />
 			</body>
 		</html>
-		// 	</CSPostHogProvider>
 		// </ClerkProvider>
 	);
 }
