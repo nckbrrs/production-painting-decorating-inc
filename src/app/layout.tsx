@@ -1,5 +1,6 @@
 import "~/styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import { GeistSans } from "geist/font/sans";
 import { Viewport, type Metadata } from "next";
 import TopNav from "~/components/TopNav";
@@ -60,10 +61,11 @@ export default function RootLayout({
 		// <ClerkProvider>
 		<html lang="en" className={`${GeistSans.variable}`}>
 			<body className={"flex flex-col h-screen bg-bone dark:bg-gray-950"}>
-				<SpeedInsights />
 				<TopNav />
 				{children}
 				<Footer />
+				<SpeedInsights />
+				<Analytics />
 			</body>
 		</html>
 		// </ClerkProvider>
