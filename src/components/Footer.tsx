@@ -1,5 +1,3 @@
-import InstagramIcon from "./icons/Instagram";
-
 export default function Footer() {
 	return (
 		<div className={footerContainerStyling}>
