@@ -58,7 +58,6 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		// <ClerkProvider>
 		<html lang="en" className={`${GeistSans.variable}`}>
 			<body className={"flex flex-col h-screen bg-bone dark:bg-gray-950"}>
 				<TopNav />
@@ -68,6 +67,5 @@ export default function RootLayout({
 				<Analytics />
 			</body>
 		</html>
-		// </ClerkProvider>
 	);
 }
