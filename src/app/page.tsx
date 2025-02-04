@@ -5,7 +5,7 @@ export default async function Home() {
 	return (
 		<main className={homePageContainerStyling}>
 			<FullScreenHeroVideo />
-			<div className="flex flex-col grow px-6">
+			<div className={aboutUsContainer}>
 				<AboutUs />
 			</div>
 		</main>
@@ -13,10 +13,17 @@ export default async function Home() {
 }
 
 const homePageContainerStyling = `
-  pageContainer
-  flex
-  flex-col
-  scroll-smooth
-  animate-fadeIn
-  items-center
+	pageContainer
+	flex
+	flex-col
+	scroll-smooth
+	animate-fadeIn
+  	items-center
+`;
+
+const aboutUsContainer = `
+	flex
+	flex-col
+	grow
+	px-6
 `;

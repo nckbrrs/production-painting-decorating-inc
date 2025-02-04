@@ -59,7 +59,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className={`${GeistSans.variable}`}>
-			<body className={"flex flex-col h-screen bg-bone dark:bg-gray-950"}>
+			<body className={bodyContainerStyling}>
 				<TopNav />
 				{children}
 				<Footer />
@@ -69,3 +69,10 @@ export default function RootLayout({
 		</html>
 	);
 }
+
+const bodyContainerStyling = `
+	flex
+	flex-col
+	h-screen
+	bg-bone dark:bg-gray-950
+`;

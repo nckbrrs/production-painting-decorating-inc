@@ -1,10 +1,4 @@
-import {
-	PaintbrushIcon as Paint,
-	BuildingIcon,
-	MapPinIcon,
-	StarIcon,
-	UsersIcon
-} from "lucide-react";
+import { BuildingIcon, MapPinIcon, StarIcon, UsersIcon } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import Link from "next/link";
 import {
@@ -16,8 +10,32 @@ import {
 } from "./ui/carousel";
 import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
 import ContactUs from "./ContactUs";
+import StatCardGroup from "./StatCardGroup";
 
 export default function AboutUs() {
+	const statsForStatCards = [
+		{
+			nounDesc: "Satisfied Clients",
+			valueDesc: "100+",
+			icon: UsersIcon
+		},
+		{
+			nounDesc: "Finished Projects",
+			valueDesc: "500+",
+			icon: BuildingIcon
+		},
+		{
+			nounDesc: "Cities Served",
+			valueDesc: "5+",
+			icon: MapPinIcon
+		},
+		{
+			nounDesc: "Average Rating",
+			valueDesc: "4.9",
+			icon: StarIcon
+		}
+	];
+
 	const services: {
 		name: string;
 		imgSrc: string;
@@ -40,8 +58,14 @@ export default function AboutUs() {
 		}
 	];
 
+	const containerStyling = `
+		max-w-6xl	
+		h-full
+		mt-6 md:mt-20 
+	`;
+
 	return (
-		<div className="h-full mt-6 md:mt-20 max-w-6xl">
+		<div className={containerStyling}>
 			{/* Our Story */}
 			<div className="mb-8">
 				<h2 className="text-3xl md:text-4xl font-bold text-black mb-4 dark:text-bone">
@@ -68,44 +92,10 @@ export default function AboutUs() {
 			</div>
 
 			{/* Statistics Section */}
-			<div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12 md:mb-20">
-				<Card>
-					<CardContent className="flex flex-col items-center justify-center p-4 lg:p-6">
-						<UsersIcon className="w-8 h-8 lg:w-12 lg:h-12 mb-2 lg:mb-4 text-slate-600" />
-						<p className="text-2xl lg:text-3xl font-bold">100+</p>
-						<p className="text-sm lg:text-base text-gray-500 text-center">
-							Satisfied Clients
-						</p>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardContent className="flex flex-col items-center justify-center p-4 lg:p-6">
-						<BuildingIcon className="w-8 h-8 lg:w-12 lg:h-12 mb-2 lg:mb-4 text-slate-600" />
-						<p className="text-2xl lg:text-3xl font-bold">500+</p>
-						<p className="text-sm lg:text-base text-gray-500 text-center">
-							Finished Projects
-						</p>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardContent className="flex flex-col items-center justify-center p-4 lg:p-6">
-						<MapPinIcon className="w-8 h-8 lg:w-12 lg:h-12 mb-2 lg:mb-4 text-slate-600" />
-						<p className="text-2xl lg:text-3xl font-bold">5+</p>
-						<p className="text-sm lg:text-base text-gray-500 text-center">
-							Cities Served
-						</p>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardContent className="flex flex-col items-center justify-center p-4 lg:p-6">
-						<StarIcon className="w-8 h-8 lg:w-12 lg:h-12 mb-2 lg:mb-4 text-slate-600" />
-						<p className="text-2xl lg:text-3xl font-bold">4.9</p>
-						<p className="text-sm lg:text-base text-gray-500 text-center">
-							Average Rating
-						</p>
-					</CardContent>
-				</Card>
-			</div>
+			<StatCardGroup
+				className="mb-12 md:mb-20"
+				stats={statsForStatCards}
+			/>
 
 			{/* Services Section */}
 			<div className="mb-12 md:mb-20">

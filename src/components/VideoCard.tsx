@@ -1,13 +1,13 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-interface VideoCardProps {
+export type VideoCardProps = {
 	title: string;
 	description: string;
 	videoSrc: string;
 	posterSrc: string;
 	href: string;
-}
+};
 
 export default function VideoCard({
 	title,

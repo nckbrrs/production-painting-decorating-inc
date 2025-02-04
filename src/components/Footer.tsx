@@ -12,13 +12,12 @@ const footerContainerStyling = `
     flex
     flex-row
     w-full
-    h-fit
 	py-4
     shrink-0
     items-center
     justify-end
     bg-black dark:bg-gray-950
-	border-gray-950 dark:border-bone/80 border-t-[1px]
+	border-gray-950 dark:border-slate-800 border-t-[1px]
 `;
 
 const copyrightTextStyling = `

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import FullScreenMenu from "./FullScreenMenu";
 import Hamburger from "./Hamburger";
 import Link from "next/link";
-import LogoSVG from "./icons/Logo";
+import Logo from "./icons/Logo";
 import { usePathname } from "next/navigation";
 
 const topNavFillColorsByPage: {
@@ -230,7 +230,7 @@ export default function TopNav() {
 				<div className={logoContainerStyling}>
 					<div className={logoStylingVariants[topNavFillColor]}>
 						<Link href={"/"}>
-							<LogoSVG className="w-full h-full" />
+							<Logo className="w-full h-full" />
 						</Link>
 					</div>
 				</div>

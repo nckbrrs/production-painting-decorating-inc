@@ -1,9 +1,9 @@
-export default function LogoSVG(props: { className: string }) {
+export default function Logo(props: { className: string }) {
 	return (
 		<svg
+			className={props.className}
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 1410.12 1500"
-			className={props.className}
 		>
 			<g>
 				<g>

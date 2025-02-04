@@ -1,6 +1,6 @@
-import VideoCard from "./VideoCard";
+import VideoCard, { VideoCardProps } from "./VideoCard";
 
-const portfolioItems = [
+const portfolioItems: (VideoCardProps & { id: number })[] = [
 	{
 		id: 1,
 		title: "Office Building Transformation",
@@ -39,9 +39,19 @@ const portfolioItems = [
 	}
 ];
 
-export default function PortfolioGrid() {
+type PortfolioGridProps = {
+	items: VideoCardProps[];
+};
+
+export default function PortfolioGrid(props: PortfolioGridProps) {
+	const containerStyling = `
+		grid
+		grid-cols-1 md:grid-cols-2
+		gap-8
+	`;
+
 	return (
-		<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+		<div className={containerStyling}>
 			{portfolioItems.map((item) => (
 				<VideoCard key={item.id} {...item} />
 			))}

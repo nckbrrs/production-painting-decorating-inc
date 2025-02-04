@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-interface FullScreenMenuProps {
+type FullScreenMenuProps = {
 	isOpen: boolean;
 	links: { linkType: "external" | "local"; text: string; href: string }[];
 	onClickLink: () => void;
-}
+};
 
 export default function FullScreenMenu({
 	isOpen,
