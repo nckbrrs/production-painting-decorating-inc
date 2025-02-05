@@ -1,6 +1,4 @@
 import "~/styles/globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
 import { GeistSans } from "geist/font/sans";
 import { Viewport, type Metadata } from "next";
 import TopNav from "~/components/TopNav";
@@ -63,8 +61,6 @@ export default function RootLayout({
 				<TopNav />
 				{children}
 				<Footer />
-				<SpeedInsights />
-				<Analytics />
 			</body>
 		</html>
 	);
