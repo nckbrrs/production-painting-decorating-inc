@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 export default function ContactUs() {
 	return (
-		<div className="mb-12 flex flex-col mt-2 h-full">
+		<div className="mb-12 flex flex-col mt-2">
 			<h2 className="text-3xl md:text-4xl font-bold text-black dark:text-bone mb-1">
 				Contact Us
 			</h2>

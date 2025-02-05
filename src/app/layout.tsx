@@ -73,6 +73,6 @@ export default function RootLayout({
 const bodyContainerStyling = `
 	flex
 	flex-col
-	h-screen
+	min-h-screen
 	bg-bone dark:bg-gray-950
 `;
