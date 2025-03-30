@@ -39,11 +39,7 @@ const portfolioItems: (VideoCardProps & { id: number })[] = [
 	}
 ];
 
-type PortfolioGridProps = {
-	items: VideoCardProps[];
-};
-
-export default function PortfolioGrid(props: PortfolioGridProps) {
+export default function PortfolioGrid() {
 	const containerStyling = `
 		grid
 		grid-cols-1 md:grid-cols-2

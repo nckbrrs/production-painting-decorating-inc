@@ -1,9 +1,9 @@
 import { z } from "zod";
 
 export enum InquiryTypes {
-	ArchitechturalCoatingsQuote = "Architectural Coatings Quote",
+	CommercialPaintQuote = "Commercial Paint Quote",
 	FloorCoatingsQuote = "Floor Coatings Quote",
-	MaintenanceCoatingsQuote = "Maintenance Coatings Quote",
+	VinylAndSpecialtyQuote = "Vinyl Wall Covering and Specialty Coatings Quote",
 	JobOpportunities = "Job Opportunities",
 	GeneralInquiry = "General Inquiry"
 }

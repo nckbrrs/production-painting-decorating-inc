@@ -1,4 +1,10 @@
-import { BuildingIcon, MapPinIcon, StarIcon, UsersIcon } from "lucide-react";
+import {
+	BicepsFlexedIcon,
+	BuildingIcon,
+	MapPinIcon,
+	StarIcon,
+	UsersIcon
+} from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import Link from "next/link";
 import {
@@ -8,31 +14,60 @@ import {
 	CarouselNext,
 	CarouselPrevious
 } from "./ui/carousel";
-import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
+
 import ContactUs from "./ContactUs";
 import StatCardGroup from "./StatCardGroup";
+import OSHAIcon from "./icons/OSHA";
+import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
 
 export default function AboutUs() {
+	const statCardIconStyling = `
+		w-8 md:w-12 lg:w-16
+		h-8 md:h-12 lg:h-16 
+		mb-2 lg:mb-4 
+		stroke-slate-600
+	`;
+
 	const statsForStatCards = [
 		{
 			nounDesc: "Satisfied Clients",
 			valueDesc: "100+",
-			icon: UsersIcon
+			icon: <UsersIcon className={statCardIconStyling} />
 		},
 		{
 			nounDesc: "Finished Projects",
-			valueDesc: "500+",
-			icon: BuildingIcon
+			valueDesc: "1000+",
+			icon: <BuildingIcon className={statCardIconStyling} />
 		},
 		{
-			nounDesc: "Cities Served",
-			valueDesc: "5+",
-			icon: MapPinIcon
+			nounDesc: "Years of Experience",
+			valueDesc: "20+",
+			icon: <BicepsFlexedIcon className={statCardIconStyling} />
 		},
 		{
-			nounDesc: "Average Rating",
-			valueDesc: "4.9",
-			icon: StarIcon
+			nounDesc: "Certified",
+			valueDesc: "OSHA",
+			icon: (
+				<OSHAIcon
+					className={
+						statCardIconStyling +
+						"w-14 h-14 dark:bg-gray-300 rounded-full p-0.5"
+					}
+				/>
+			)
+		},
+		{
+			nounDesc: "Certified",
+			valueDesc: "MBE",
+			icon: (
+				<img
+					src={"/MBE-Certification.png"}
+					className={
+						statCardIconStyling +
+						"w-14 h-14 dark:bg-gray-300 rounded-full p-0.5 "
+					}
+				/>
+			)
 		}
 	];
 
@@ -42,9 +77,9 @@ export default function AboutUs() {
 		inquiryType: InquiryTypes;
 	}[] = [
 		{
-			name: "Architectural Coatings",
-			imgSrc: "/arch-coatings.jpg",
-			inquiryType: InquiryTypes.ArchitechturalCoatingsQuote
+			name: "Commercial Paint",
+			imgSrc: "/commercial-paint.jpg",
+			inquiryType: InquiryTypes.CommercialPaintQuote
 		},
 		{
 			name: "Floor Coatings",
@@ -52,24 +87,24 @@ export default function AboutUs() {
 			inquiryType: InquiryTypes.FloorCoatingsQuote
 		},
 		{
-			name: "Maintenance Coatings",
-			imgSrc: "/maint-coatings.jpg",
-			inquiryType: InquiryTypes.MaintenanceCoatingsQuote
+			name: "Vinyl Wall Covering and Specialty Coatings",
+			imgSrc: "/vinyl-and-specialty.jpg",
+			inquiryType: InquiryTypes.VinylAndSpecialtyQuote
 		}
 	];
 
 	const containerStyling = `
 		max-w-6xl	
 		h-full
-		mt-6 md:mt-20 
+		mt-10 md:mt-20 
 	`;
 
 	return (
 		<div className={containerStyling}>
-			{/* Our Story */}
+			{/* Accolades */}
 			<div className="mb-8">
 				<h2 className="text-3xl md:text-4xl font-bold text-black mb-4 dark:text-bone">
-					Our Story
+					Our Accolades
 				</h2>
 				<div className="space-y-4 text-gray-700 dark:text-bone/80 text-md md:text-lg">
 					<p>
@@ -128,10 +163,10 @@ export default function AboutUs() {
 													className="object-cover"
 												/>
 												<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60">
-													<h4 className="text-xl md:text-2xl text-white font-semibold text-center">
+													<h4 className="text-xl lg:text-2xl text-white font-semibold text-center w-4/5">
 														{service.name}
 													</h4>
-													<h6 className="text-md md:text-lg text-white font-light">
+													<h6 className="text-md lg:text-lg text-white opacity-80 font-light">
 														Service Description
 													</h6>
 												</div>
@@ -141,12 +176,8 @@ export default function AboutUs() {
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						<CarouselPrevious
-							className={"left-4 md:hidden dark:bg-bone"}
-						/>
-						<CarouselNext
-							className={"right-4 md:hidden dark:bg-bone"}
-						/>
+						<CarouselPrevious className={"left-4 md:hidden "} />
+						<CarouselNext className={"right-4 md:hidden"} />
 					</Carousel>
 				</div>
 			</div>

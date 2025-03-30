@@ -192,13 +192,11 @@ export function InquiryForm({ className }: React.ComponentProps<typeof Card>) {
 								<SelectContent>
 									<SelectItem
 										value={
-											InquiryTypes.ArchitechturalCoatingsQuote
+											InquiryTypes.CommercialPaintQuote
 										}
 										className="md:text-lg"
 									>
-										{
-											InquiryTypes.ArchitechturalCoatingsQuote
-										}
+										{InquiryTypes.CommercialPaintQuote}
 									</SelectItem>
 									<SelectItem
 										value={InquiryTypes.FloorCoatingsQuote}
@@ -208,11 +206,11 @@ export function InquiryForm({ className }: React.ComponentProps<typeof Card>) {
 									</SelectItem>
 									<SelectItem
 										value={
-											InquiryTypes.MaintenanceCoatingsQuote
+											InquiryTypes.VinylAndSpecialtyQuote
 										}
 										className="md:text-lg"
 									>
-										{InquiryTypes.MaintenanceCoatingsQuote}
+										{InquiryTypes.VinylAndSpecialtyQuote}
 									</SelectItem>
 									<SelectItem
 										value={InquiryTypes.JobOpportunities}

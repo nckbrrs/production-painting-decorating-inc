@@ -14,7 +14,7 @@ export default function ContactUs() {
 				Reach out directly, or fill out an inquiry form and we'll be in
 				touch!
 			</h4>
-			<Card className="rounded-2xl">
+			<Card className="rounded-2xl dark:border-2">
 				<CardContent className="pt-6">
 					<div className="w-full h-full flex flex-col">
 						<div className="flex flex-col w-full md:flex-row md:space-x-8 ">

@@ -16,8 +16,8 @@ const project = {
 	images: [
 		"/heroVideoPoster.png",
 		"/floor-coatings.jpg",
-		"/arch-coatings.jpg",
-		"/maint-coatings.jpg"
+		"/commercial-paint.jpg",
+		"/vinyl-and-specialty.jpg"
 	]
 };
 

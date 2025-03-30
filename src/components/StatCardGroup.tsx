@@ -1,4 +1,4 @@
-import { LucideIcon, UsersIcon } from "lucide-react";
+import { LucideIcon, LucideProps, UsersIcon } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { cn } from "~/lib/utils";
 
@@ -9,51 +9,79 @@ interface StatCardGroupProps {
 
 export default function StatCardGroup(props: StatCardGroupProps) {
 	const containerStyling = `
-		grid
-		grid-cols-2 lg:grid-cols-4
-		gap-4 lg:gap-6
+		flex
+		flex-wrap md:flex-nowrap
+		w-full
+		justify-center
+		gap-2
 	`;
 
 	return (
 		<div className={cn(containerStyling, props.className)}>
-			{props.stats.map((s, idx) => {
-				return (
-					<StatCard
-						key={`${s.valueDesc}-statCard`}
-						icon={s.icon}
-						valueDesc={s.valueDesc}
-						nounDesc={s.nounDesc}
-					/>
-				);
-			})}
+			<div
+				className={
+					"flex flex-row gap-2 w-full grow justify-center basis-3/5"
+				}
+			>
+				{props.stats.map((s, idx) => {
+					return (
+						idx < 3 && (
+							<StatCard
+								className={
+									"flex flex-col basis-full dark:border-2"
+								}
+								key={`${s.valueDesc}-statCard`}
+								icon={s.icon}
+								valueDesc={s.valueDesc}
+								nounDesc={s.nounDesc}
+							/>
+						)
+					);
+				})}
+			</div>
+			<div
+				className={
+					"flex flex-row gap-2 w-full grow justify-center basis-2/5"
+				}
+			>
+				{props.stats.map((s, idx) => {
+					return (
+						idx >= 3 && (
+							<StatCard
+								className={
+									"flex flex-col  basis-1/3 md:basis-full dark:border-2"
+								}
+								key={`${s.valueDesc}-statCard`}
+								icon={s.icon}
+								valueDesc={s.valueDesc}
+								nounDesc={s.nounDesc}
+							/>
+						)
+					);
+				})}
+			</div>
 		</div>
 	);
 }
 
 type StatCardProps = {
+	className?: string;
 	valueDesc: string;
 	nounDesc: string;
-	icon: LucideIcon;
+	icon: JSX.Element | React.ReactElement | React.ReactNode;
 };
 
 const StatCard = function (props: StatCardProps) {
 	const cardContentStyling = `
 		flex
 		flex-col
+		w-full
 		items-center
-		justify-center
 		p-4 lg:p-6
 	`;
 
-	const iconStyling = `
-		w-8 lg:w-12
-		h-8 lg:h-12 
-		mb-2 lg:mb-4 
-		stroke-slate-600
-	`;
-
 	const valueDescStyling = `
-		text-2xl lg:text-3xl font-bold
+		text-lg md:text-2xl lg:text-3xl font-bold
 	`;
 
 	const nounDescStyling = `
@@ -63,9 +91,9 @@ const StatCard = function (props: StatCardProps) {
 	`;
 
 	return (
-		<Card>
+		<Card className={props.className}>
 			<CardContent className={cardContentStyling}>
-				<props.icon className={iconStyling} />
+				<>{props.icon}</>
 				<p className={valueDescStyling}>{props.valueDesc}</p>
 				<p className={nounDescStyling}>{props.nounDesc}</p>
 			</CardContent>

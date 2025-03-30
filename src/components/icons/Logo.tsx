@@ -1,4 +1,4 @@
-export default function Logo(props: { className: string }) {
+export default function Logo(props: { className?: string }) {
 	return (
 		<svg
 			className={props.className}

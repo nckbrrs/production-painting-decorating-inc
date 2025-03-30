@@ -4,25 +4,33 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function ImageGallery({ images }: { images: string[] }) {
-	const [selectedImage, setSelectedImage] = useState<string | null>(null);
+	const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+		null
+	);
 
 	if (typeof window !== "undefined") {
 		// Add scroll listener to hide modal caused by image selection
 		document.addEventListener("scroll", (e: any) => {
-			if (selectedImage) {
-				setSelectedImage(null);
+			if (selectedImageIndex) {
+				setSelectedImageIndex(null);
+			}
+		});
+
+		window.addEventListener("keydown", function (event) {
+			if (event.key == "Escape") {
+				setSelectedImageIndex(null);
 			}
 		});
 	}
 
 	return (
-		<div onScroll={() => setSelectedImage(null)}>
+		<div onScroll={() => setSelectedImageIndex(null)}>
 			<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 				{images.map((image, index) => (
 					<div
 						key={index}
 						className="cursor-pointer"
-						onClick={() => setSelectedImage(image)}
+						onClick={() => setSelectedImageIndex(index)}
 					>
 						<Image
 							src={image || "/placeholder.svg"}
@@ -35,14 +43,16 @@ export default function ImageGallery({ images }: { images: string[] }) {
 				))}
 			</div>
 
-			{selectedImage && (
+			{selectedImageIndex != null && (
 				<div
-					className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-					onClick={() => setSelectedImage(null)}
+					className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 backdrop-blur-sm"
+					onClick={() => setSelectedImageIndex(null)}
 				>
-					<div className="max-w-4xl max-h-full p-4">
+					<div className="max-w-7xl max-h-full rounded-md overflow-hidden">
 						<Image
-							src={selectedImage || "/placeholder.svg"}
+							src={
+								images[selectedImageIndex] || "/placeholder.svg"
+							}
 							alt="Full size project image"
 							width={1200}
 							height={800}
