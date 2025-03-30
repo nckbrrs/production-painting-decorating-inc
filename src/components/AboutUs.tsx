@@ -61,7 +61,7 @@ export default function AboutUs() {
 			valueDesc: "MBE",
 			icon: (
 				<img
-					src={"/MBE-Certification.png"}
+					src={"/mbe-certification.png"}
 					className={
 						statCardIconStyling +
 						"w-14 h-14 dark:bg-gray-300 rounded-full p-0.5 "
