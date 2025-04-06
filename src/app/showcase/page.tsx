@@ -1,19 +1,19 @@
 import { ArrowRight } from "lucide-react";
-import PortfolioGrid from "../../components/PortfolioGrid";
+import ShowcaseGrid from "../../components/ShowcaseGrid";
 import { Button } from "~/components/ui/button";
 import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
 import Link from "next/link";
 
-export default function PortfolioPage() {
+export default function ShowcasePage() {
 	return (
 		<div className={pageContainerStyling}>
 			<div className={spaceBehindHeaderStyling} />
-			<div className={portfolioContainerStyling}>
-				<h1 className={headerTextStyling}>Our Portfolio</h1>
+			<div className={showcaseContainerStyling}>
+				<h1 className={headerTextStyling}>Our Showcase</h1>
 				<h2 className={subHeaderTextStyling}>
 					See what we're capable of.
 				</h2>
-				<PortfolioGrid />
+				<ShowcaseGrid />
 				<div className={"flex flex-col mt-20 mb-28 items-center"}>
 					<h3 className="w-fit text-center text-lg font-semibold mb-2 text-black dark:text-bone/80">
 						Want to be next?
@@ -73,7 +73,7 @@ const subHeaderTextStyling = `
 	mb-4 md:mb-10
 `;
 
-const portfolioContainerStyling = `
+const showcaseContainerStyling = `
 	flex
 	flex-col
 	grow

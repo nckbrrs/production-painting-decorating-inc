@@ -1,6 +1,6 @@
 import VideoCard, { VideoCardProps } from "./VideoCard";
 
-const portfolioItems: (VideoCardProps & { id: number })[] = [
+const showcaseItems: (VideoCardProps & { id: number })[] = [
 	{
 		id: 1,
 		title: "Office Building Transformation",
@@ -8,7 +8,7 @@ const portfolioItems: (VideoCardProps & { id: number })[] = [
 			"Complete exterior repaint of a 10-story office building in downtown, bringing new life to the urban landscape.",
 		videoSrc: "/stock-vid-1.mp4",
 		posterSrc: "/stock-vid-1-poster.png",
-		href: "/portfolio/office-building"
+		href: "/showcase/office-building"
 	},
 	{
 		id: 2,
@@ -17,7 +17,7 @@ const portfolioItems: (VideoCardProps & { id: number })[] = [
 			"Interior and exterior painting of a 50,000 sq ft warehouse, improving work environment and curb appeal.",
 		videoSrc: "/stock-vid-2.mp4",
 		posterSrc: "/stock-vid-2-poster.png",
-		href: "/portfolio/office-building"
+		href: "/showcase/office-building"
 	},
 	{
 		id: 3,
@@ -26,7 +26,7 @@ const portfolioItems: (VideoCardProps & { id: number })[] = [
 			"Helping a chain of retail stores rebrand with a fresh, modern color scheme across 20 locations.",
 		videoSrc: "/stock-vid-3.mp4",
 		posterSrc: "/stock-vid-3-poster.png",
-		href: "/portfolio/office-building"
+		href: "/showcase/office-building"
 	},
 	{
 		id: 4,
@@ -35,11 +35,11 @@ const portfolioItems: (VideoCardProps & { id: number })[] = [
 			"Comprehensive painting work for a luxury hotel renovation, including guest rooms, lobbies, and exterior.",
 		videoSrc: "/stock-vid-4.mp4",
 		posterSrc: "/stock-vid-4-poster.png",
-		href: "/portfolio/office-building"
+		href: "/showcase/office-building"
 	}
 ];
 
-export default function PortfolioGrid() {
+export default function ShowcaseGrid() {
 	const containerStyling = `
 		grid
 		grid-cols-1 md:grid-cols-2
@@ -48,7 +48,7 @@ export default function PortfolioGrid() {
 
 	return (
 		<div className={containerStyling}>
-			{portfolioItems.map((item) => (
+			{showcaseItems.map((item) => (
 				<VideoCard key={item.id} {...item} />
 			))}
 		</div>

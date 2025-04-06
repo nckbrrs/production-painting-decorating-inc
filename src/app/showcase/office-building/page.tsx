@@ -68,7 +68,7 @@ export default function ProjectPage() {
 							<ArrowRight />
 						</Button>
 					</Link>
-					<Link href="/portfolio" className="w-full">
+					<Link href="/showcase" className="w-full">
 						<Button
 							className="flex flex-row w-full items-center sm:text-md md:text-lg md:p-6 border-slate-950 border-[1px]"
 							variant={"secondary"}
