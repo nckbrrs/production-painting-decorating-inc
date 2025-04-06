@@ -77,7 +77,7 @@ const StatCard = function (props: StatCardProps) {
 		flex-col
 		w-full
 		items-center
-		p-4 lg:p-6
+		p-4 pb-3 lg:p-6 lg:pb-5
 	`;
 
 	const valueDescStyling = `

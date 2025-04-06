@@ -25,8 +25,8 @@ import { cn } from "~/lib/utils";
 
 export default function AboutUs() {
 	const statCardIconStyling = `
-		w-8 md:w-12 lg:w-16
-		h-8 md:h-12 lg:h-16 
+		w-8 md:w-12 lg:w-14
+		h-8 md:h-12 lg:h-14
 		mb-2 lg:mb-4 
 		stroke-slate-600
 	`;
@@ -97,7 +97,7 @@ export default function AboutUs() {
 	];
 
 	const containerStyling = `
-		max-w-6xl	
+		max-w-4xl	
 		h-full
 		mt-10 md:mt-20 
 	`;
@@ -136,11 +136,14 @@ export default function AboutUs() {
 	return (
 		<div className={containerStyling}>
 			{/* Accolades */}
-			<div className="mb-8">
-				<h2 className="text-3xl md:text-4xl font-bold text-black mb-4 dark:text-bone">
-					Our Accolades
+			<div className="mb-12 md:mb-20">
+				<h2 className="drop-shadow-sm text-3xl md:text-4xl font-bold text-black dark:text-bone mb-3">
+					Our Story
 				</h2>
-				<div className="space-y-4 text-gray-700 dark:text-bone/80 text-md md:text-lg">
+				{/* <h4 className="text-md  text-slate-700 dark:text-bone/80 mb-4">
+					Some subtext here
+				</h4> */}
+				<div className="space-y-4 text-gray-900 dark:text-bone/80 text-md md:text-lg">
 					<p>
 						At Production Painting & Decorating, we've been
 						transforming spaces with our expert painting services
@@ -160,20 +163,25 @@ export default function AboutUs() {
 				</div>
 			</div>
 
-			{/* Statistics Section */}
-			<StatCardGroup
-				className="mb-12 md:mb-20"
-				stats={statsForStatCards}
-			/>
+			{/* Accolades */}
+			<div className="mb-12 md:mb-20">
+				<h2 className="drop-shadow-sm  text-3xl md:text-4xl font-bold text-black dark:text-bone mb-4">
+					Our Accolades
+				</h2>
+				{/* <h4 className="text-md  text-slate-700 dark:text-bone/80 mb-4">
+					Some subtext here.
+				</h4> */}
+				<StatCardGroup stats={statsForStatCards} />
+			</div>
 
 			{/* Services Section */}
 			<div className="mb-12 md:mb-20">
-				<h2 className="text-3xl md:text-4xl font-bold text-black dark:text-bone mb-1">
+				<h2 className="drop-shadow-sm  text-3xl md:text-4xl font-bold text-black dark:text-bone mb-4">
 					Our Services
 				</h2>
-				<h4 className="text-md md:text-lg text-slate-700 dark:text-bone/80 mb-5">
-					Click to get started on a quote!
-				</h4>
+				{/* <h4 className="text-md md:text-lg text-slate-700 dark:text-bone/80 mb-4">
+					Some subtext here.
+				</h4> */}
 				<div className="flex w-full justify-center items-center ">
 					<Carousel className="w-full">
 						<CarouselContent>
@@ -218,12 +226,12 @@ export default function AboutUs() {
 
 			{/* Our Customers */}
 			<div className="mb-12 md:mb-20">
-				<h2 className="text-3xl md:text-4xl font-bold text-black dark:text-bone mb-1">
+				<h2 className="drop-shadow-sm  text-3xl md:text-4xl font-bold text-black dark:text-bone mb-4">
 					Our Customers
 				</h2>
-				<h4 className="text-md md:text-lg text-slate-700 dark:text-bone/80 mb-5">
-					We've got you covered.
-				</h4>
+				{/* <h4 className="text-md md:text-lg text-slate-700 dark:text-bone/80 mb-4">
+					Some subtext here.
+				</h4> */}
 				<div className="flex-col space-y-4">
 					{ourCustomersData.map((cust) => {
 						return (
