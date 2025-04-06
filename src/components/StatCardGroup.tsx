@@ -68,7 +68,7 @@ type StatCardProps = {
 	className?: string;
 	valueDesc: string;
 	nounDesc: string;
-	icon: JSX.Element | React.ReactElement | React.ReactNode;
+	icon: JSX.Element;
 };
 
 const StatCard = function (props: StatCardProps) {
@@ -93,7 +93,7 @@ const StatCard = function (props: StatCardProps) {
 	return (
 		<Card className={props.className}>
 			<CardContent className={cardContentStyling}>
-				<>{props.icon}</>
+				{props.icon}
 				<p className={valueDescStyling}>{props.valueDesc}</p>
 				<p className={nounDescStyling}>{props.nounDesc}</p>
 			</CardContent>
