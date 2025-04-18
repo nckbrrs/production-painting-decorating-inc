@@ -17,7 +17,7 @@ export default function VideoCard({
 	href
 }: VideoCardProps) {
 	return (
-		<div className="bg-white dark:bg-slate-950 dark:border-slate-800 border dark:border-2 rounded-lg shadow-md overflow-hidden">
+		<div className="bg-white dark:bg-slate-950 dark:border-slate-800 border dark:border-1 rounded-lg shadow-md overflow-hidden">
 			<div className="aspect-video">
 				<video
 					className="w-full h-full object-cover hover:cursor-pointer"

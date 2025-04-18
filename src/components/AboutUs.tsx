@@ -29,6 +29,7 @@ export default function AboutUs() {
 		h-8 md:h-12 lg:h-14
 		mb-2 lg:mb-4 
 		stroke-slate-600
+		dark:stroke-slate-400
 	`;
 
 	const statsForStatCards = [

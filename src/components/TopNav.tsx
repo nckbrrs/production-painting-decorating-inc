@@ -15,6 +15,7 @@ const topNavFillColorsByPage: {
 	},
 	"/showcase": { light: "black", dark: "bone" },
 	"/showcase/office-building": { light: "black", dark: "bone" },
+	"/portfolio": { light: "black", dark: "bone" },
 	"/inquiry": { light: "black", dark: "bone" },
 	"/contact": { light: "black", dark: "bone" }
 };
@@ -190,6 +191,11 @@ export default function TopNav() {
 			linkType: "local",
 			text: "Showcase",
 			href: "/showcase"
+		},
+		{
+			linkType: "local",
+			text: "Portfolio",
+			href: "/portfolio"
 		},
 		{
 			linkType: "local",
