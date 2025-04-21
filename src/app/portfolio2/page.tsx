@@ -440,8 +440,8 @@ export default function Portfolio2Page() {
 										className={
 											"flex w-full group hover:cursor-pointer h-16 p-0" +
 											(selectedCategory === category.text
-												? " bg-blue-950 dark:bg-white"
-												: "  hover:bg-gray-100 dark:hover:bg-blue-950")
+												? " bg-slate-950 dark:bg-white"
+												: "  hover:bg-gray-100 dark:hover:bg-slate-950")
 										}
 									>
 										<CardContent className="pb-0 flex flex-row w-full justify-start items-center p-0">
