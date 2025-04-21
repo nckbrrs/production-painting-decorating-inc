@@ -31,6 +31,7 @@ export default function FullScreenMenu({
 								: ""
 						}
 						onClick={onClickLink}
+						className="w-full"
 					>
 						<p className={linkTextStyling}>
 							{l.text.toUpperCase()}
@@ -70,14 +71,11 @@ const menuLinksColStyling = `
 `;
 
 const linkTextStyling = `
-	w-full
+	text-center
     text-3xl md:text-5xl lg:text-7xl
     font-bold
-    duration-200
+    duration-75
     group-hover:opacity-25
-    group-hover:blur-[2px]
-	group-hover:scale-[98%]
     hover:!opacity-100
-    hover:!blur-0
-	hover:!scale-[100%]
+
 `;

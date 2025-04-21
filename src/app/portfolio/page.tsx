@@ -1,3 +1,4 @@
+"use client";
 import {
 	ArrowRight,
 	Building,
@@ -14,15 +15,29 @@ import { Button } from "~/components/ui/button";
 import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
 import Link from "next/link";
 import { Card, CardContent } from "~/components/ui/card";
+import PortfolioEntry from "~/components/PortfolioEntry";
+import { useState } from "react";
+
+type Category =
+	| "Historical"
+	| "Education"
+	| "Restaurants"
+	| "Healthcare"
+	| "Sporting & Entertainment"
+	| "Office & Retail";
 
 export default function PortfolioPage() {
 	const categories = [
-		{ text: "Historical", icon: Landmark },
-		{ text: "Education", icon: School },
-		{ text: "Restaurants", icon: Utensils },
-		{ text: "Healthcare", icon: Hospital },
-		{ text: "Sporting & Entertainment", icon: Trophy },
-		{ text: "Office & Retail", icon: Building2 }
+		{ text: "Historical", icon: Landmark, slug: "historical" },
+		{ text: "Education", icon: School, slug: "education" },
+		{ text: "Restaurants", icon: Utensils, slug: "restaurants" },
+		{ text: "Healthcare", icon: Hospital, slug: "healthcare" },
+		{
+			text: "Sporting & Entertainment",
+			icon: Trophy,
+			slug: "sporting-and-entertainment"
+		},
+		{ text: "Office & Retail", icon: Building2, slug: "office-and-retail" }
 	];
 
 	return (
@@ -34,18 +49,20 @@ export default function PortfolioPage() {
 					Select a category to see our happy clients.
 				</h2>
 				{/* <div className="flex flex-wrap w-full bg-red-400"> */}
-				<div className="flex flex-row justify-center">
+				<div className="flex flex-row flex-wrap justify-center mb-6">
 					<div className="grid grid-cols-2 gap-4 sm:gap-6 w-96 sm:grid-cols-3 sm:w-full xl:grid-cols-6 lg:gap-4">
 						{categories.map((category) => {
 							return (
 								<Link
 									key={category.text}
 									className="flex grow-0 shrink"
-									href={`/portfolio/${category.text}`}
+									href={`/portfolio/${category.slug}`}
 								>
-									<Card className="flex w-full aspect-square sm:aspect-video  sm:py-6 group hover:cursor-pointer	">
+									<Card className="flex w-full aspect-square sm:aspect-auto sm:py-4 group hover:cursor-pointer	">
 										<CardContent className="pb-0 flex flex-col w-full justify-center items-center ">
-											<category.icon className="flex h-12 w-10 sm:h-14 sm:w-14 mb-1 sm:mb-2 stroke-slate-500 dark:stroke-slate-400 drop-shadow-xs" />
+											{category.icon && (
+												<category.icon className="flex h-12 w-10 sm:h-14 sm:w-14 mb-1 sm:mb-2 stroke-slate-500 dark:stroke-slate-400 drop-shadow-xs" />
+											)}
 											<p className="flex text-lg sm:text-xl flex-col font-semibold dark:text-bone text-center text-slate-700 group-hover:underline underline-offset-2">
 												{category.text}
 											</p>
