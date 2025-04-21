@@ -136,7 +136,6 @@ export default function AboutUs() {
 
 	return (
 		<div className={containerStyling}>
-			{/* Accolades */}
 			<div className="mb-12 md:mb-20">
 				<h2 className="drop-shadow-sm text-3xl md:text-4xl font-bold text-black dark:text-bone mb-3">
 					Our Story

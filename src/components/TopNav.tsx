@@ -24,7 +24,8 @@ const topNavFillColorsByPage: {
 	"/portfolio/education": { light: "black", dark: "bone" },
 	"/portfolio2": { light: "black", dark: "bone" },
 	"/inquiry": { light: "black", dark: "bone" },
-	"/contact": { light: "black", dark: "bone" }
+	"/contact": { light: "black", dark: "bone" },
+	"/about": { light: "black", dark: "bone" }
 };
 
 export default function TopNav() {
@@ -206,8 +207,8 @@ export default function TopNav() {
 		},
 		{
 			linkType: "local",
-			text: "Inquiries",
-			href: "/inquiry"
+			text: "About Us",
+			href: "/about"
 		},
 		{
 			linkType: "local",
@@ -286,9 +287,9 @@ const topNavContainerStyling = `
     flex-row
     justify-between
     items-center
-    py-4
+    py-4 xl:py-0
     z-10
-    h-20 md:h-28 lg:h-36
+    h-20 md:h-28 lg:h-36 xl:h-24
 `;
 
 const logoContainerStyling = `

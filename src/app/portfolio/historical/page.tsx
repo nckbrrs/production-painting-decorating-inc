@@ -427,7 +427,7 @@ const spaceBehindHeaderStyling = `
 	flex-col
 	shrink-0
 	w-full
-	h-24 md:h-32 lg:h-40
+	h-24 md:h-32 lg:h-40  xl:h-28
 `;
 
 const headerTextStyling = `
