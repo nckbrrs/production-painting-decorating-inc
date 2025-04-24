@@ -1,22 +1,14 @@
 "use client";
 import {
-	ArrowRight,
-	Building,
 	Building2,
-	History,
 	Hospital,
 	Landmark,
 	School,
 	Trophy,
 	Utensils
 } from "lucide-react";
-import ShowcaseGrid from "../../components/ShowcaseGrid";
-import { Button } from "~/components/ui/button";
-import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
-import Link from "next/link";
 import { Card, CardContent } from "~/components/ui/card";
-import PortfolioEntry from "~/components/PortfolioEntry";
-import { useState } from "react";
+import Link from "next/link";
 
 type Category =
 	| "Historical"

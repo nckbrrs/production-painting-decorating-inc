@@ -1,7 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import ShowcaseGrid from "../../components/ShowcaseGrid";
 import { Button } from "~/components/ui/button";
-import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
 import Link from "next/link";
 
 export default function ShowcasePage() {
@@ -18,13 +17,7 @@ export default function ShowcasePage() {
 					<h3 className="w-fit text-center text-lg font-semibold mb-2 text-black dark:text-bone/80">
 						Want to be next?
 					</h3>
-					<Link
-						href={{
-							pathname: "/inquiry",
-							query: `inquiryType=${InquiryTypes.GeneralInquiry}`
-						}}
-						className="max-w-1/2"
-					>
+					<Link href="/inquiry" className="max-w-1/2">
 						<Button className="flex flex-row w-full grow p-6 items-center text-lg">
 							Get started on an inquiry
 							<ArrowRight />

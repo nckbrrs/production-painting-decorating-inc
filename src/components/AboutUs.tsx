@@ -20,7 +20,6 @@ import {
 import ContactUs from "./ContactUs";
 import StatCardGroup from "./StatCardGroup";
 import OSHAIcon from "./icons/OSHA";
-import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
 import { cn } from "~/lib/utils";
 
 export default function AboutUs() {
@@ -78,22 +77,18 @@ export default function AboutUs() {
 	const services: {
 		name: string;
 		imgSrc: string;
-		inquiryType: InquiryTypes;
 	}[] = [
 		{
 			name: "Commercial Paint",
-			imgSrc: "/commercial-paint.jpg",
-			inquiryType: InquiryTypes.CommercialPaintQuote
+			imgSrc: "/commercial-paint.jpg"
 		},
 		{
 			name: "Floor Coatings",
-			imgSrc: "/floor-coatings.jpg",
-			inquiryType: InquiryTypes.FloorCoatingsQuote
+			imgSrc: "/floor-coatings.jpg"
 		},
 		{
 			name: "Vinyl Wall Covering and Specialty Coatings",
-			imgSrc: "/vinyl-and-specialty.jpg",
-			inquiryType: InquiryTypes.VinylAndSpecialtyQuote
+			imgSrc: "/vinyl-and-specialty.jpg"
 		}
 	];
 
@@ -190,31 +185,24 @@ export default function AboutUs() {
 									key={service.name}
 									className="md:basis-1/3"
 								>
-									<Link
-										href={{
-											pathname: "/inquiry",
-											query: {
-												inquiryType: service.inquiryType
-											}
-										}}
-									>
-										<Card className="rounded-xl overflow-hidden border-0">
-											<CardContent className="flex aspect-square justify-center p-0 m-0 relative">
-												<img
-													src={service.imgSrc}
-													className="object-cover"
-												/>
-												<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60">
-													<h4 className="text-xl lg:text-2xl text-white font-semibold text-center w-4/5">
-														{service.name}
-													</h4>
-													<h6 className="text-md lg:text-lg text-white opacity-80 font-light">
-														Service Description
-													</h6>
-												</div>
-											</CardContent>
-										</Card>
-									</Link>
+									{/* <Link href="/inquiry"> */}
+									<Card className="rounded-xl overflow-hidden border-0">
+										<CardContent className="flex aspect-square justify-center p-0 m-0 relative">
+											<img
+												src={service.imgSrc}
+												className="object-cover"
+											/>
+											<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60">
+												<h4 className="text-xl lg:text-2xl text-white font-semibold text-center w-4/5">
+													{service.name}
+												</h4>
+												<h6 className="text-md lg:text-lg text-white opacity-80 font-light">
+													Service Description
+												</h6>
+											</div>
+										</CardContent>
+									</Card>
+									{/* </Link> */}
 								</CarouselItem>
 							))}
 						</CarouselContent>

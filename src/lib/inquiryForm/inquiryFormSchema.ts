@@ -1,13 +1,5 @@
 import { z } from "zod";
 
-export enum InquiryTypes {
-	CommercialPaintQuote = "Commercial Paint Quote",
-	FloorCoatingsQuote = "Floor Coatings Quote",
-	VinylAndSpecialtyQuote = "Vinyl Wall Covering and Specialty Coatings Quote",
-	JobOpportunities = "Job Opportunities",
-	GeneralInquiry = "General Inquiry"
-}
-
 export const inquiryFormSchema = z.object({
 	name: z
 		.string()
@@ -19,11 +11,8 @@ export const inquiryFormSchema = z.object({
 		.min(10, { message: "Phone number must be at least 10 digits" })
 		.max(15, { message: "Phone number must be at most 15 digits" })
 		.regex(/^[0-9+\-\s()]+$/, { message: "Invalid phone number format" }),
-	inquiryType: z.nativeEnum(InquiryTypes, {
-		required_error: "Please select an inquiry type"
-	}),
 	message: z
 		.string()
-		.max(1000, { message: "Message must be at most 1000 characters" })
-		.optional()
+		.min(1, { message: "Message cannot be empty" })
+		.max(1000, { message: "Message cannot be longer than 1000 characters" })
 });

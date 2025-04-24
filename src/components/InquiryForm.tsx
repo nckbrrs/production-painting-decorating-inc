@@ -1,47 +1,17 @@
 "use client";
 
 import * as React from "react";
-import {
-	Card,
-	CardTitle,
-	CardHeader,
-	CardDescription,
-	CardContent,
-	CardFooter
-} from "./ui/card";
+import { Card, CardContent, CardFooter } from "./ui/card";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue
-} from "./ui/select";
 import { cn } from "../lib/utils";
 
 import { inquiryFormAction } from "../lib/inquiryForm/inquiryFormAction";
 import { Check } from "lucide-react";
-import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export function InquiryForm({ className }: React.ComponentProps<typeof Card>) {
-	const searchParams = useSearchParams();
-	const router = useRouter();
-	const pathname = usePathname();
-
-	let inquiryType = searchParams.get("inquiryType") as InquiryTypes;
-
-	React.useEffect(() => {
-		if (!Object.values(InquiryTypes).includes(inquiryType)) {
-			router.push(
-				`${pathname}?inquiryType=${InquiryTypes.GeneralInquiry}`
-			);
-		}
-	}, [searchParams]);
-
 	const [state, formAction, pending] = React.useActionState(
 		inquiryFormAction,
 		{
@@ -49,9 +19,6 @@ export function InquiryForm({ className }: React.ComponentProps<typeof Card>) {
 				name: "",
 				email: "",
 				phoneNumber: "",
-				inquiryType: Object.values(InquiryTypes).includes(inquiryType)
-					? inquiryType
-					: InquiryTypes.GeneralInquiry,
 				message: ""
 			},
 			success: false,
@@ -60,10 +27,10 @@ export function InquiryForm({ className }: React.ComponentProps<typeof Card>) {
 	);
 
 	const placeholderVals = {
-		name: "Nick Barrs",
-		email: "ppd-inc@nickbarrs.com",
+		name: "John Doe",
+		email: "hello@productionpaintingonline.com",
 		phoneNumber: "+1 (555) 123-4567",
-		message: "Type your message here (optional)..."
+		message: "Type your message here"
 	};
 
 	return (
@@ -160,78 +127,6 @@ export function InquiryForm({ className }: React.ComponentProps<typeof Card>) {
 									className="text-destructive text-sm md:text-md"
 								>
 									{state.errors.phoneNumber}
-								</p>
-							)}
-						</div>
-						<div
-							className="group/field grid gap-2"
-							data-invalid={!!state.errors?.inquiryType}
-						>
-							<Label
-								htmlFor="inquiryType"
-								className="group-data-[invalid=true]/field:text-destructive md:text-lg"
-							>
-								Inquiry Type <span aria-hidden="true">*</span>
-							</Label>
-							<Select
-								name="inquiryType"
-								defaultValue={state.formValues.inquiryType}
-								disabled={pending}
-							>
-								<SelectTrigger
-									className="group-data-[invalid=true]/field:border-destructive focus-visible:group-data-[invalid=true]/field:ring-destructive md:text-lg"
-									aria-invalid={!!state.errors?.inquiryType}
-									aria-errormessage="error-inquiryType"
-								>
-									<SelectValue
-										placeholder={
-											state.formValues.inquiryType
-										}
-									/>
-								</SelectTrigger>
-								<SelectContent>
-									<SelectItem
-										value={
-											InquiryTypes.CommercialPaintQuote
-										}
-										className="md:text-lg"
-									>
-										{InquiryTypes.CommercialPaintQuote}
-									</SelectItem>
-									<SelectItem
-										value={InquiryTypes.FloorCoatingsQuote}
-										className="md:text-lg"
-									>
-										{InquiryTypes.FloorCoatingsQuote}
-									</SelectItem>
-									<SelectItem
-										value={
-											InquiryTypes.VinylAndSpecialtyQuote
-										}
-										className="md:text-lg"
-									>
-										{InquiryTypes.VinylAndSpecialtyQuote}
-									</SelectItem>
-									<SelectItem
-										value={InquiryTypes.JobOpportunities}
-										className="md:text-lg"
-									>
-										{InquiryTypes.JobOpportunities}
-									</SelectItem>
-									<SelectItem
-										value={InquiryTypes.GeneralInquiry}
-										className="md:text-lg"
-									>
-										{InquiryTypes.GeneralInquiry}
-									</SelectItem>
-								</SelectContent>
-							</Select>
-							{state.errors?.inquiryType && (
-								<p
-									id="error-inquiryType"
-									className="text-destructive text-sm md:text-md"
-								>
-									{state.errors.inquiryType}
 								</p>
 							)}
 						</div>

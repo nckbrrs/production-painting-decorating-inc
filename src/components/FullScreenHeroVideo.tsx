@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { ArrowRight } from "lucide-react";
-import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
 
 export default function FullScreenHeroVideo({
 	children
@@ -24,14 +22,7 @@ export default function FullScreenHeroVideo({
 						Production Painting & Decorating, Inc.
 					</h1>
 				</div>
-				<Link
-					href={{
-						pathname: "/inquiry",
-						query: {
-							inquiryType: InquiryTypes.GeneralInquiry
-						}
-					}}
-				>
+				<Link href="/inquiry">
 					<Button
 						className="uppercase font-semibold mb-8 md:mb-12 md:text-lg md:p-6 dark:bg-bone dark:text-black dark:hover:bg-white/80"
 						variant={"secondary"}

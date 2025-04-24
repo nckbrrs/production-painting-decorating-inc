@@ -3,7 +3,6 @@ import ImageGallery from "../../../components/ImageGallery";
 import { Button } from "~/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
 
 const project = {
 	title: "Office Building Transformation",
@@ -56,13 +55,7 @@ export default function ProjectPage() {
 					/>
 				</div>
 				<div className="flex flex-col md:flex-row-reverse w-full justify-center space-y-4 md:space-y-0 md:gap-4 items-center mb-12">
-					<Link
-						href={{
-							pathname: "/inquiry",
-							query: `inquiryType=${InquiryTypes.GeneralInquiry}`
-						}}
-						className="w-full"
-					>
+					<Link href="/inquiry" className="w-full">
 						<Button className="flex flex-row w-full grow p-6 items-center text-lg">
 							Get started on an inquiry
 							<ArrowRight />

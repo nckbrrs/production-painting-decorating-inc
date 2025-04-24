@@ -11,10 +11,6 @@ import {
 	Trophy,
 	Utensils
 } from "lucide-react";
-import ShowcaseGrid from "../../components/ShowcaseGrid";
-import { Button } from "~/components/ui/button";
-import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
-import Link from "next/link";
 import { Card, CardContent } from "~/components/ui/card";
 import PortfolioEntry from "~/components/PortfolioEntry";
 import { Fragment, useState } from "react";
@@ -441,7 +437,7 @@ export default function Portfolio2Page() {
 											"flex w-full group hover:cursor-pointer h-16 p-0" +
 											(selectedCategory === category.text
 												? " bg-slate-950 dark:bg-white"
-												: "  hover:bg-gray-100 dark:hover:bg-slate-950")
+												: "  hover:bg-gray-100 dark:hover:bg-slate-900")
 										}
 									>
 										<CardContent className="pb-0 flex flex-row w-full justify-start items-center p-0">

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { InquiryTypes } from "~/lib/inquiryForm/inquiryFormSchema";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
@@ -73,8 +72,7 @@ export default function ContactUs() {
 						</div>
 						<Link
 							href={{
-								pathname: "/inquiry",
-								query: `inquiryType=${InquiryTypes.GeneralInquiry}`
+								pathname: "/inquiry"
 							}}
 							className="w-full mt-4"
 						>

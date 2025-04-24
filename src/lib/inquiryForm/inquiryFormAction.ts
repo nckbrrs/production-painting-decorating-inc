@@ -21,7 +21,6 @@ export async function inquiryFormAction(
 				name: data.name,
 				email: data.email,
 				phoneNumber: data.phoneNumber,
-				inquiryType: data.inquiryType,
 				message: data.message
 			},
 			success: true,
