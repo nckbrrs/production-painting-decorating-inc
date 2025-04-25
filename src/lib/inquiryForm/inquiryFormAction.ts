@@ -27,6 +27,7 @@ export async function inquiryFormAction(
 			errors: null
 		};
 	} catch (error) {
+		console.log(error);
 		if (error instanceof z.ZodError) {
 			return {
 				formValues: defaultValues,

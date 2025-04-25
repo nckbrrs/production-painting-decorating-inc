@@ -1,0 +1,121 @@
+import { Card, CardContent } from "~/components/ui/card";
+import { WorkWithUsForm } from "~/components/WorkWithUsForm";
+
+export default function WorkWithUsPage() {
+	return (
+		<div className={pageContainerStyling}>
+			<div className={spaceBehindHeaderStyling} />
+			<div className={contentContainerStyling}>
+				<h1 className={headerTextStyling}>Work With Us</h1>
+
+				<div className="grid gap-10 lg:grid-cols-2">
+					<div>
+						<h2 className="text-2xl font-semibold mb-4">
+							Join Our Team
+						</h2>
+
+						<div className="prose max-w-none">
+							<p className="text-slate-900 dark:text-slate-50">
+								At our commercial painting company, we're
+								looking for skilled, reliable professionals who
+								take pride in their work and are committed to
+								excellence.
+							</p>
+
+							<h3 className="text-xl font-medium mt-6 mb-3">
+								Who We're Looking For:
+							</h3>
+
+							<ul className="space-y-2 text-slate-900 dark:text-slate-50 ml-2">
+								<li>
+									• Experienced painters with 2+ years in
+									commercial painting
+								</li>
+								<li>
+									• Detail-oriented individuals who deliver
+									high-quality finishes
+								</li>
+								<li>
+									• Team players who communicate effectively
+								</li>
+								<li>
+									• Reliable professionals who value
+									punctuality and commitment
+								</li>
+								<li>
+									• Safety-conscious workers who follow proper
+									procedures
+								</li>
+							</ul>
+
+							<p className="mt-6">
+								We offer competitive pay, a positive work
+								environment, and opportunities for growth. If
+								you're passionate about painting and looking to
+								build a career with a reputable company, we'd
+								love to hear from you.
+							</p>
+						</div>
+					</div>
+
+					<div>
+						<Card className="pt-6">
+							<CardContent>
+								<h2 className="text-2xl font-semibold mb-4">
+									Apply Now
+								</h2>
+								<p className="mb-6">
+									Fill out the form below to express your
+									interest in joining our team. We'll review
+									your information and contact qualified
+									candidates.
+								</p>
+
+								<WorkWithUsForm />
+							</CardContent>
+						</Card>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+}
+
+const pageContainerStyling = `
+	flex
+	flex-col
+	w-full
+	grow
+	shrink-0
+	scroll-smooth
+	relative
+	justify-start
+	items-center
+`;
+
+const spaceBehindHeaderStyling = `
+	flex
+	flex-col
+	shrink-0
+	w-full
+	h-24 md:h-32 lg:h-40  xl:h-28
+`;
+
+const contentContainerStyling = `
+	flex
+	flex-col
+	grow
+	w-full max-w-7xl
+	px-6 md:px-8 lg:px-10
+	mb-12
+`;
+
+const headerTextStyling = `
+	text-3xl md:text-4xl
+	font-bold
+	text-left
+	text-black dark:text-bone
+	w-full
+	mt-2
+	mb-6
+`;

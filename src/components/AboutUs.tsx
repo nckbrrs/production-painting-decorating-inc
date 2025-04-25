@@ -133,7 +133,7 @@ export default function AboutUs() {
 		<div className={containerStyling}>
 			<div className="mb-12 md:mb-20">
 				<h2 className="drop-shadow-sm text-3xl md:text-4xl font-bold text-black dark:text-bone mb-3">
-					Our Story
+					Our Mission
 				</h2>
 				{/* <h4 className="text-md  text-slate-700 dark:text-bone/80 mb-4">
 					Some subtext here

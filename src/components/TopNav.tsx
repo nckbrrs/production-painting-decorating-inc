@@ -25,7 +25,8 @@ const topNavFillColorsByPage: {
 	"/portfolio2": { light: "black", dark: "bone" },
 	"/inquiry": { light: "black", dark: "bone" },
 	"/contact": { light: "black", dark: "bone" },
-	"/about": { light: "black", dark: "bone" }
+	"/about": { light: "black", dark: "bone" },
+	"/careers": { light: "black", dark: "bone" }
 };
 
 export default function TopNav() {
@@ -212,8 +213,8 @@ export default function TopNav() {
 		},
 		{
 			linkType: "local",
-			text: "Contact",
-			href: "/contact"
+			text: "Careers",
+			href: "/careers"
 		}
 	];
 

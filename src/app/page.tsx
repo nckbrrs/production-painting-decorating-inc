@@ -13,6 +13,7 @@ export default async function Home() {
 }
 
 const homePageContainerStyling = `
+	antialiased
 	pageContainer
 	flex
 	flex-col

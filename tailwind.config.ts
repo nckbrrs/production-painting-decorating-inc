@@ -10,7 +10,7 @@ export default {
 			},
 			colors: {
 				black: "#212121",
-				bone: "#fbf6f1",
+				bone: "#f9f7f3",
 				destructive: "hsl(0 100% 50%)",
 				"destructive-foreground": "hsl(210 40% 98%)"
 			},
