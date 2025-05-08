@@ -22,7 +22,7 @@ import {
 	PopoverTrigger
 } from "~/components/ui/popover";
 import { toast } from "~/components/ui/use-toast";
-import { sendApplicationEmail } from "~/lib/workWithUsForm/email-actions";
+import { sendCareersInterestFormEmail } from "~/lib/workWithUsForm/email-actions";
 import { Label } from "~/components/ui/label";
 import { z } from "zod";
 import { workWithUsFormSchema } from "~/lib/workWithUsForm/workWithUsFormSchema";

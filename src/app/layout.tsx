@@ -41,7 +41,7 @@ export const viewport: Viewport = {
 	themeColor: [
 		{
 			media: "(prefers-color-scheme: light)",
-			color: twFullConfig.theme.colors["bone"]
+			color: twFullConfig.theme.colors["white"]
 		},
 		{
 			media: "(prefers-color-scheme: dark)",

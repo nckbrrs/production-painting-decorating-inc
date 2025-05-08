@@ -10,7 +10,7 @@ export default function WorkWithUsPage() {
 
 				<div className="grid gap-10 lg:grid-cols-2">
 					<div>
-						<h2 className="text-2xl font-semibold mb-4">
+						<h2 className="text-2xl font-semibold mb-4 lg:mt-6">
 							Join Our Team
 						</h2>
 
@@ -103,9 +103,10 @@ const contentContainerStyling = `
 	flex
 	flex-col
 	grow
-	w-full max-w-7xl
+	w-full 
 	px-6 md:px-8 lg:px-10
 	mb-12
+	max-w-6xl
 `;
 
 const headerTextStyling = `

@@ -1,5 +1,6 @@
 "use server";
 
+import { sendGeneralInquiryEmail } from "../workWithUsForm/email-actions";
 import { inquiryFormSchema } from "./inquiryFormSchema";
 import { z } from "zod";
 
@@ -15,6 +16,8 @@ export async function inquiryFormAction(
 		const data = inquiryFormSchema.parse(Object.fromEntries(formData));
 
 		console.log(data);
+
+		await sendGeneralInquiryEmail(formData);
 
 		return {
 			formValues: {

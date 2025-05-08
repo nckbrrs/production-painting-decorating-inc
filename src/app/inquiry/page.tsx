@@ -7,7 +7,7 @@ export default function InquiryPage() {
 	return (
 		<div className={pageContainerStyling}>
 			<div className={spaceBehindHeaderStyling} />
-			<div className={careersFormContainerStyling}>
+			<div className={inquiryFormContainerStyling}>
 				<h1 className={headerTextStyling}>Inquiries</h1>
 				<h2 className={subHeaderTextStyling}>How can we help you?</h2>
 				<Suspense>
@@ -55,11 +55,12 @@ const subHeaderTextStyling = `
 	mb-4 md:mb-10
 `;
 
-const careersFormContainerStyling = `
+const inquiryFormContainerStyling = `
 	flex
 	flex-col
 	grow
-	w-full max-w-7xl
+	w-full 
 	px-6 md:px-8 lg:px-10
 	mb-12
+	max-w-6xl
 `;

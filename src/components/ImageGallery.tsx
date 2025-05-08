@@ -48,7 +48,7 @@ export default function ImageGallery({ images }: { images: string[] }) {
 					className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 backdrop-blur-sm"
 					onClick={() => setSelectedImageIndex(null)}
 				>
-					<div className="max-w-7xl max-h-full rounded-md overflow-hidden">
+					<div className=" max-h-full rounded-md overflow-hidden">
 						<Image
 							src={
 								images[selectedImageIndex] || "/placeholder.svg"

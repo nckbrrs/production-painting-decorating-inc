@@ -3,14 +3,15 @@ import { z } from "zod";
 export const inquiryFormSchema = z.object({
 	name: z
 		.string()
-		.min(2, { message: "Name must be at least 2 characters" })
+		.min(2, { message: "Please enter full name" })
 		.max(32, { message: "Name must be at most 32 characters" }),
 	email: z.string().email({ message: "Invalid email address" }),
 	phoneNumber: z
 		.string()
-		.min(10, { message: "Phone number must be at least 10 digits" })
-		.max(15, { message: "Phone number must be at most 15 digits" })
-		.regex(/^[0-9+\-\s()]+$/, { message: "Invalid phone number format" }),
+		.regex(/^(\+\d{1,3}[- ]?)?(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/, {
+			message:
+				"Please enter a valid phone number (e.g., (123) 456-7890 or 123-456-7890)"
+		}),
 	message: z
 		.string()
 		.min(1, { message: "Message cannot be empty" })

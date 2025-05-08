@@ -13,7 +13,7 @@ export default function ShowcasePage() {
 					See what we're capable of.
 				</h2>
 				<ShowcaseGrid />
-				<div className={"flex flex-col mt-20 mb-28 items-center"}>
+				<div className={"flex flex-col mt-20 mb-20 items-center"}>
 					<h3 className="w-fit text-center text-lg font-semibold mb-2 text-black dark:text-bone/80">
 						Want to be next?
 					</h3>
@@ -70,7 +70,8 @@ const showcaseContainerStyling = `
 	flex
 	flex-col
 	grow
-	w-full max-w-7xl
+	w-full 
 	px-6 md:px-8 lg:px-10
 	mb-12
+	max-w-6xl
 `;

@@ -35,7 +35,8 @@ const contentContainerStyling = `
 	flex
 	flex-col
 	grow
-	w-full max-w-7xl
+	w-full 
 	px-6 md:px-8 lg:px-10
 	mb-12
+	max-w-6xl
 `;

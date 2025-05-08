@@ -99,7 +99,8 @@ const spaceBehindHeaderStyling = `
 const contentContainerStyling = `
 	flex
 	flex-col
-	w-full max-w-7xl
+	w-full 
 	items-center
 	px-6 md:px-8 lg:px-10
+	max-w-6xl
 `;
