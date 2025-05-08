@@ -65,10 +65,8 @@ export default function WorkWithUsPage() {
 									Apply Now
 								</h2>
 								<p className="mb-6">
-									Fill out the form below to express your
-									interest in joining our team. We'll review
-									your information and contact qualified
-									candidates.
+									Please fill out the form below to express
+									interest in joining our team.
 								</p>
 
 								<WorkWithUsForm />
