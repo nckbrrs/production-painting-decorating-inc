@@ -22,23 +22,6 @@ export async function sendApplicationEmail(formData: FormData) {
 
 		// Initialize Resend (you'll need to add RESEND_API_KEY to your environment variables)
 		const resend = new Resend(process.env.RESEND_API_KEY);
-
-		// Format the date
-		const formattedDate =
-			validatedData.availableStartDate.toLocaleDateString("en-US", {
-				year: "numeric",
-				month: "long",
-				day: "numeric"
-			});
-
-		// Map experience level to readable text
-		const experienceLevelMap: Record<string, string> = {
-			entry: "Entry Level (0-2 years)",
-			intermediate: "Intermediate (2-5 years)",
-			experienced: "Experienced (5-10 years)",
-			expert: "Expert (10+ years)"
-		};
-
 		// Create email content
 		const emailHtml = `
       <h1>New Job Application</h1>
@@ -49,9 +32,6 @@ export async function sendApplicationEmail(formData: FormData) {
         <li><strong>Name:</strong> ${validatedData.fullName}</li>
         <li><strong>Email:</strong> ${validatedData.email}</li>
         <li><strong>Phone:</strong> ${validatedData.phone}</li>
-        <li><strong>Experience Level:</strong> ${experienceLevelMap[validatedData.experienceLevel] || validatedData.experienceLevel}</li>
-        <li><strong>Available Start Date:</strong> ${formattedDate}</li>
-        ${validatedData.resume ? `<li><strong>Resume/Portfolio:</strong> <a href="${validatedData.resume}">${validatedData.resume}</a></li>` : ""}
       </ul>
       
       ${

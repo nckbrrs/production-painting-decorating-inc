@@ -29,10 +29,6 @@ import { workWithUsFormSchema } from "~/lib/workWithUsForm/workWithUsFormSchema"
 import { Check } from "lucide-react";
 
 export function WorkWithUsForm() {
-	const [availableStartDate, setAvailableStartDate] = useState<
-		Date | undefined
-	>(undefined);
-
 	const [state, formAction, isPending] = useActionState(
 		async (_prevState: unknown, formData: FormData) => {
 			const defaultValues = z
@@ -53,9 +49,6 @@ export function WorkWithUsForm() {
 						fullName: data.fullName,
 						email: data.email,
 						phone: data.phone,
-						experienceLevel: data.experienceLevel,
-						availableStartDate: data.availableStartDate,
-						resume: data.resume,
 						additionalInfo: data.additionalInfo
 					},
 					success: true,
@@ -85,9 +78,6 @@ export function WorkWithUsForm() {
 				fullName: "",
 				email: "",
 				phoneNumber: "",
-				experienceLevel: "",
-				availableStartDate: "",
-				resume: "",
 				additionalInfo: ""
 			},
 			success: false,
@@ -97,15 +87,13 @@ export function WorkWithUsForm() {
 
 	const placeholderVals = {
 		fullName: "John Doe",
-		email: "hello@productionpaintingonline.com",
+		email: "hello@ppd_online.com",
 		phoneNumber: "+1 (555) 123-4567",
-		resume: "https://myresume.com/johndoe",
-		additionalInfo:
-			"Tell us about your qualifications, skills, or anything else you'd like us to know..."
+		additionalInfo: "Anything else you'd like us to know?"
 	};
 
 	return state.success ? (
-		<p className="text-green-600 font-semibold m-6 md:m-12 flex justify-center items-center gap-2 text-lg">
+		<p className="text-green-600 font-semibold p-6 md:p-12 flex justify-center items-center gap-2 text-lg">
 			<Check className="size-8 md:size-10" />
 			Your message has been sent. Thank you.
 		</p>
@@ -188,112 +176,6 @@ export function WorkWithUsForm() {
 					)}
 				</div>
 			</div>
-
-			<div
-				className="group/field grid gap-2"
-				data-invalid={!!state.errors?.experienceLevel}
-			>
-				<Label htmlFor="experienceLevel">Experience Level</Label>
-				<Select name="experienceLevel">
-					<SelectTrigger
-						className="group-data-[invalid=true]/field:border-destructive focus-visible:group-data-[invalid=true]/field:ring-destructive md:text-md"
-						disabled={isPending}
-						aria-invalid={!!state.errors?.experienceLevel}
-						aria-errormessage="error-experienceLevel"
-						defaultValue={state.formValues.experienceLevel}
-					>
-						<SelectValue placeholder="Select your experience level" />
-					</SelectTrigger>
-					<SelectContent>
-						<SelectItem value="entry">
-							Entry Level (0-2 years)
-						</SelectItem>
-						<SelectItem value="intermediate">
-							Intermediate (2-5 years)
-						</SelectItem>
-						<SelectItem value="experienced">
-							Experienced (5-10 years)
-						</SelectItem>
-						<SelectItem value="expert">
-							Expert (10+ years)
-						</SelectItem>
-					</SelectContent>
-				</Select>
-				{state.errors?.experienceLevel && (
-					<p
-						id="error-email"
-						className="text-destructive text-sm md:text-md"
-					>
-						{state.errors.experienceLevel}
-					</p>
-				)}
-			</div>
-
-			<div
-				className="group/field grid gap-2"
-				data-invalid={!!state.errors?.availableStartDate}
-			>
-				<Label htmlFor="availableStartDate">Available Start Date</Label>
-				<Popover>
-					<PopoverTrigger
-						asChild
-						disabled={isPending}
-						aria-invalid={!!state.errors?.availableStartDate}
-						aria-errormessage="error-availableStartDate"
-					>
-						<Button
-							className={`font-normal pl-3 w-full group-data-[invalid=true]/field:border-destructive focus-visible:group-data-[invalid=true]/field:ring-destructive md:text-md`}
-							variant={"outline"}
-						>
-							{availableStartDate ? (
-								format(availableStartDate, "PPP")
-							) : (
-								<span>Pick a date</span>
-							)}
-							<CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-						</Button>
-					</PopoverTrigger>
-					<PopoverContent className="w-auto p-0" align="start">
-						<Calendar
-							mode="single"
-							selected={availableStartDate}
-							onSelect={setAvailableStartDate}
-							disabled={(date) => date < new Date()}
-							initialFocus
-						/>
-					</PopoverContent>
-				</Popover>
-				<input
-					type="hidden"
-					name="availableStartDate"
-					value={
-						availableStartDate
-							? format(availableStartDate, "yyyy-MM-dd")
-							: ""
-					}
-				/>
-				{state.errors?.availableStartDate && (
-					<p
-						id="error-availableStartDate"
-						className="text-destructive text-sm md:text-md"
-					>
-						{state.errors.availableStartDate}
-					</p>
-				)}
-			</div>
-
-			<div className="space-y-2">
-				<Label htmlFor="resume">Resume/Portfolio URL (Optional)</Label>
-				<Input
-					id="resume"
-					name="resume"
-					placeholder={placeholderVals.resume}
-				/>
-				<p className="text-sm text-muted-foreground">
-					Link to your resume, LinkedIn profile, or portfolio
-				</p>
-			</div>
-
 			<div className="space-y-2">
 				<Label htmlFor="additionalInfo">
 					Additional Information (Optional)
@@ -316,7 +198,7 @@ export function WorkWithUsForm() {
 						Submitting...
 					</>
 				) : (
-					"Submit Application"
+					"Submit"
 				)}
 			</Button>
 		</form>
