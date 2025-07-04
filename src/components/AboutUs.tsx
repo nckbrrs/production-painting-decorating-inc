@@ -64,7 +64,7 @@ export default function AboutUs() {
 			valueDesc: "MBE",
 			icon: (
 				<img
-					src={"/mbe-certification.png"}
+					src={"/images/mbe-certification.png"}
 					className={cn(
 						statCardIconStyling,
 						"w-14 h-14 dark:bg-gray-300 rounded-full p-0.5 "
@@ -80,15 +80,15 @@ export default function AboutUs() {
 	}[] = [
 		{
 			name: "Commercial Paint",
-			imgSrc: "/commercial-paint.jpg"
+			imgSrc: "/STOCK/images/services/commercial-paint.jpg"
 		},
 		{
 			name: "Floor Coatings",
-			imgSrc: "/floor-coatings.jpg"
+			imgSrc: "/STOCK/images/services/floor-coatings.jpg"
 		},
 		{
 			name: "Vinyl Wall Covering and Specialty Coatings",
-			imgSrc: "/vinyl-and-specialty.jpg"
+			imgSrc: "/STOCK/images/services/vinyl-and-specialty.jpg"
 		}
 	];
 

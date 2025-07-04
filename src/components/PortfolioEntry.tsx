@@ -41,15 +41,24 @@ export default function PortfolioEntry({
 	return (
 		<div className="flex flex-col w-full">
 			{/* Main large image */}
-			<div className="relative w-full overflow-hidden bg-muted rounded-lg aspect-video">
-				<Carousel className="w-full h-full" setApi={setApi}>
-					<CarouselContent className="">
+			<div className="relative w-full bg-muted rounded-lg md:aspect-video">
+				<Carousel
+					className="flex h-full justify-center"
+					setApi={setApi}
+				>
+					<CarouselContent className="h-full">
 						{images.map((image, idx) => (
-							<CarouselItem key={idx}>
-								<img
-									src={image.src || "/placeholder.svg"}
-									className="object-cover h-full w-full"
-								/>
+							<CarouselItem
+								key={idx}
+								className="flex h-full w-full justify-center"
+							>
+								<div className="flex h-full rounded-lg overflow-hidden">
+									<img
+										src={image.src || "/placeholder.svg"}
+										className="object-contain h-full"
+										loading={idx === 0 ? "eager" : "lazy"}
+									/>
+								</div>
 							</CarouselItem>
 						))}
 					</CarouselContent>
@@ -59,7 +68,7 @@ export default function PortfolioEntry({
 			</div>
 
 			{/* Thumbnails row */}
-			<div className="py-4 overflow-x-auto">
+			<div className="flex py-4 overflow-x-auto">
 				<div className="flex gap-2 w-fit px-4">
 					{images.map((image, index) => (
 						<button
@@ -77,6 +86,7 @@ export default function PortfolioEntry({
 								alt="TODO"
 								fill
 								className="object-cover"
+								loading="eager"
 							/>
 						</button>
 					))}

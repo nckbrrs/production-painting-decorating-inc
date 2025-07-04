@@ -16,13 +16,6 @@ const topNavFillColorsByPage: {
 	"/showcase": { light: "black", dark: "bone" },
 	"/showcase/office-building": { light: "black", dark: "bone" },
 	"/portfolio": { light: "black", dark: "bone" },
-	"/portfolio/office-and-retail": { light: "black", dark: "bone" },
-	"/portfolio/restaurants": { light: "black", dark: "bone" },
-	"/portfolio/sporting-and-entertainment": { light: "black", dark: "bone" },
-	"/portfolio/healthcare": { light: "black", dark: "bone" },
-	"/portfolio/historical": { light: "black", dark: "bone" },
-	"/portfolio/education": { light: "black", dark: "bone" },
-	"/portfolio2": { light: "black", dark: "bone" },
 	"/inquiry": { light: "black", dark: "bone" },
 	"/contact": { light: "black", dark: "bone" },
 	"/about": { light: "black", dark: "bone" },
@@ -204,7 +197,7 @@ export default function TopNav() {
 		{
 			linkType: "local",
 			text: "Portfolio",
-			href: "/portfolio2"
+			href: "/portfolio"
 		},
 		{
 			linkType: "local",

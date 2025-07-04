@@ -12,28 +12,28 @@ export default function AboutPage() {
 			name: "Matt Cain",
 			title: "Executive Vice President",
 			email: "matt@brookwood-construction.com",
-			imageSrc: "/people/person-1.jpg",
+			imageSrc: "/STOCK/images/people/person-1.jpg",
 			bio: "Matt Cain serves as Executive Vice President of Brookwood Construction. Matt joined Brookwood in 2011 and leads the pre-construction and estimating. Matt is married to Allison and has two children. He grew up in North Carolina and attended NC State University where he obtained a degree in Construction Engineering and Management. Prior to joining Brookwood, Matt worked 10 years for another local Raleigh general contracting firm. When he's not working, Matt enjoys playing golf, hunting, fishing, and spending time with his family."
 		},
 		{
 			name: "Matt Cain",
 			title: "Executive Vice President",
 			email: "matt@brookwood-construction.com",
-			imageSrc: "/people/person-2.jpg",
+			imageSrc: "/STOCK/images/people/person-2.jpg",
 			bio: "Matt Cain serves as Executive Vice President of Brookwood Construction. Matt joined Brookwood in 2011 and leads the pre-construction and estimating. Matt is married to Allison and has two children. He grew up in North Carolina and attended NC State University where he obtained a degree in Construction Engineering and Management. Prior to joining Brookwood, Matt worked 10 years for another local Raleigh general contracting firm. When he's not working, Matt enjoys playing golf, hunting, fishing, and spending time with his family."
 		},
 		{
 			name: "Matt Cain",
 			title: "Executive Vice President",
 			email: "matt@brookwood-construction.com",
-			imageSrc: "/people/person-3.jpg",
+			imageSrc: "/STOCK/images/people/person-3.jpg",
 			bio: "Matt Cain serves as Executive Vice President of Brookwood Construction. Matt joined Brookwood in 2011 and leads the pre-construction and estimating. Matt is married to Allison and has two children. He grew up in North Carolina and attended NC State University where he obtained a degree in Construction Engineering and Management. Prior to joining Brookwood, Matt worked 10 years for another local Raleigh general contracting firm. When he's not working, Matt enjoys playing golf, hunting, fishing, and spending time with his family."
 		},
 		{
 			name: "Matt Cain",
 			title: "Executive Vice President",
 			email: "matt@brookwood-construction.com",
-			imageSrc: "/people/person-4.jpg",
+			imageSrc: "/STOCK/images/people/person-4.jpg",
 			bio: "Matt Cain serves as Executive Vice President of Brookwood Construction. Matt joined Brookwood in 2011 and leads the pre-construction and estimating. Matt is married to Allison and has two children. He grew up in North Carolina and attended NC State University where he obtained a degree in Construction Engineering and Management. Prior to joining Brookwood, Matt worked 10 years for another local Raleigh general contracting firm. When he's not working, Matt enjoys playing golf, hunting, fishing, and spending time with his family."
 		}
 	];

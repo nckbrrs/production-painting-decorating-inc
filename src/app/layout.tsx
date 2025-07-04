@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 		type: "website",
 		images: [
 			{
-				url: "/open-graph-img.png",
+				url: "/images/open-graph-img.png",
 				width: 1200,
 				height: 630,
 				alt: "Preview image for PPD, Inc."

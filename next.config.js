@@ -1,3 +1,5 @@
+import webpack from "webpack";
+
 /** @type {import("next").NextConfig} */
 const coreConfig = {
 	images: {
@@ -35,6 +37,19 @@ const coreConfig = {
 				}
 			]
 		);
+
+		config.plugins.push(
+			new webpack.ProvidePlugin({
+				Buffer: ["buffer", "Buffer"]
+			})
+		);
+
+		// Add fallback for 'buffer'
+		config.resolve.fallback = {
+			...(config.resolve.fallback || {}),
+			buffer: "buffer"
+		};
+
 		return config;
 	}
 };

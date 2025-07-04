@@ -63,7 +63,7 @@ export default function ContactUs() {
 								>
 									<div className="flex w-full h-full flex-shrink-0 md:flex-shrink aspect-video md:aspect-auto overflow-hidden rounded-xl">
 										<img
-											src="/mapsImage.png"
+											src="/images/mapsImage.png"
 											className="object-cover grow scale-150 lg:scale-100"
 										/>
 									</div>
