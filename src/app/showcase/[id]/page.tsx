@@ -11,6 +11,7 @@ type ProjectPageProps = {
 	};
 };
 
+// TODO fix/cleanup this since not dynamically getting imgSrcs anymore
 export default async function ShowcaseProjectPage({
 	params
 }: ProjectPageProps) {
@@ -21,14 +22,8 @@ export default async function ShowcaseProjectPage({
 		redirect("/");
 	}
 
-	const thisEntryImgSrcs = fs
-		.readdirSync(`public/showcase/${showcaseEntry.id}/images`)
-		.filter((file) => /\.(jpg|jpeg|png|gif|webp)$/i.test(file))
-		.filter((file) => file !== "videoPoster.png")
-		.map((image) => `/showcase/${showcaseEntry.id}/images/${image}`);
-
-	if (thisEntryImgSrcs.length === 0) {
-		thisEntryImgSrcs.push(
+	if (showcaseEntry.imgSrcs.length === 0) {
+		showcaseEntry.imgSrcs.push(
 			...Array.from(
 				{ length: 5 },
 				(_, idx) =>
@@ -39,7 +34,7 @@ export default async function ShowcaseProjectPage({
 
 	const showcaseEntryWithSrcs: ShowcaseProjectComponentProps = {
 		...showcaseEntry,
-		imgSrcs: thisEntryImgSrcs,
+		// imgSrcs: thisEntryImgSrcs,
 		posterSrc: `/showcase/${showcaseEntry.id}/images/videoPoster.png`
 	};
 
