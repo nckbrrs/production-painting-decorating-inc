@@ -3,7 +3,13 @@ import webpack from "webpack";
 /** @type {import("next").NextConfig} */
 const coreConfig = {
 	images: {
-		remotePatterns: [{ hostname: "*.ufs.sh" }]
+		remotePatterns: [
+			{ hostname: "*ufs.sh" },
+			{ hostname: "*placekittens.com" },
+			{ hostname: "*placehold.co" },
+			{ hostname: "*vimeo.com" },
+			{ hostname: "*vimeocdn.com" }
+		]
 	},
 	typescript: {
 		ignoreBuildErrors: true

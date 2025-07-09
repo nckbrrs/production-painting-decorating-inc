@@ -6,22 +6,6 @@ import Link from "next/link";
 import Logo from "./icons/Logo";
 import { usePathname } from "next/navigation";
 
-const topNavFillColorsByPage: {
-	[key: string]: { light: "black" | "bone"; dark: "black" | "bone" };
-} = {
-	"/": {
-		light: "bone",
-		dark: "bone"
-	},
-	"/showcase": { light: "black", dark: "bone" },
-	"/showcase/office-building": { light: "black", dark: "bone" },
-	"/portfolio": { light: "black", dark: "bone" },
-	"/inquiry": { light: "black", dark: "bone" },
-	"/contact": { light: "black", dark: "bone" },
-	"/about": { light: "black", dark: "bone" },
-	"/careers": { light: "black", dark: "bone" }
-};
-
 export default function TopNav() {
 	const pathname = usePathname();
 	const [isInDarkMode, setIsInDarkMode] = useState<boolean>(false);
@@ -32,11 +16,7 @@ export default function TopNav() {
 		useState<boolean>(false);
 
 	const [topNavFillColor, setTopNavFillColor] = useState<"black" | "bone">(
-		topNavFillColorsByPage[pathname]
-			? isInDarkMode
-				? topNavFillColorsByPage[pathname].dark
-				: topNavFillColorsByPage[pathname].light
-			: "bone"
+		pathname === "/" ? "bone" : isInDarkMode ? "bone" : "black"
 	);
 	const [hamburgerOpenColor, setHamburgerOpenColor] = useState<
 		"black" | "bone"
@@ -87,13 +67,7 @@ export default function TopNav() {
 			"backdrop-blur-none"
 		);
 
-		if (
-			topNavFillColorsByPage[pathname] &&
-			((isInDarkMode &&
-				topNavFillColorsByPage[pathname].dark == "bone") ||
-				(!isInDarkMode &&
-					topNavFillColorsByPage[pathname].light == "bone"))
-		) {
+		if (pathname === "/") {
 			setTopNavFillColor("bone");
 		}
 	};
@@ -157,22 +131,14 @@ export default function TopNav() {
 
 	useEffect(() => {
 		setTopNavFillColor(
-			topNavFillColorsByPage[pathname]
-				? isInDarkMode
-					? topNavFillColorsByPage[pathname].dark
-					: topNavFillColorsByPage[pathname].light
-				: "bone"
+			pathname === "/" ? "bone" : isInDarkMode ? "bone" : "black"
 		);
 		setHamburgerOpenColor(isInDarkMode ? "bone" : "black");
 	}, [isInDarkMode]);
 
 	useEffect(() => {
 		setTopNavFillColor(
-			topNavFillColorsByPage[pathname]
-				? isInDarkMode
-					? topNavFillColorsByPage[pathname].dark
-					: topNavFillColorsByPage[pathname].light
-				: "bone"
+			pathname === "/" ? "bone" : isInDarkMode ? "bone" : "black"
 		);
 
 		setFullScreenMenuIsOpen(false);
