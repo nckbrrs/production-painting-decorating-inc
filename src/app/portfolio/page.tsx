@@ -8,10 +8,12 @@ export default async function PortfolioPage() {
 			return {
 				...entry,
 				images: fs
-					.readdirSync(`public/portfolio/${entry.title}/images`)
+					.readdirSync(
+						`public/portfolio/${entry.title.replaceAll(",", "")}/images`
+					)
 					.filter((file) => /\.(jpg|jpeg|png|gif|webp)$/i.test(file))
 					.map((image) => ({
-						src: `/portfolio/${entry.title}/images/${image}`
+						src: `/portfolio/${entry.title.replaceAll(",", "")}/images/${image}`
 					}))
 			};
 		}

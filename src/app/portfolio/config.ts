@@ -42,6 +42,14 @@ const portfolio: PortfolioEntry[] = [
 		]
 	},
 	{
+		category: "Office & Retail",
+		title: "Carr, Riggs, and Ingram at the Grove",
+		description: [
+			"We completed a comprehensive interior painting and finishing project for a modern office space featuring open ceilings and wall-to-deck-high surfaces. The project included painting accent walls designed to enhance the architectural style, carefully matching stains to various wood finishes throughout the space for a cohesive look.",
+			"Additionally, we installed wallcovering in select areas to add texture and visual interest. Our team navigated the challenges of working with open ceilings and high surfaces, ensuring precise coverage and clean lines while maintaining a smooth workflow. The result is a sophisticated, polished environment that reflects the client’s brand identity and supports a productive workplace atmosphere."
+		]
+	},
+	{
 		category: "Healthcare",
 		title: "RTP Chiropractic",
 		description: [
@@ -81,6 +89,14 @@ const portfolio: PortfolioEntry[] = [
 			"Our team recently completed a full interior repaint for a local high school, revitalizing the campus with fresh, durable finishes. The scope included painting CMU block walls, interior drywall surfaces, doors, frames, built-in cubbies, libraries, cafeterias, and other common areas.",
 			"This large-scale project required careful planning and coordination to ensure minimal disruption and a high-quality result across diverse spaces with heavy daily use. By using long-lasting, low-maintenance coatings, we helped create a bright, clean, and welcoming environment for students, staff, and visitors alike.",
 			"This project showcases our experience managing multi-phase, high-volume educational repaints with a focus on craftsmanship, efficiency, and attention to detail."
+		]
+	},
+	{
+		category: "Education",
+		title: "Pinkston Elementary School",
+		description: [
+			"We completed a detailed painting project at an elementary school gymnasium, featuring high accent walls and an intricately detailed ceiling. The scope required careful surface preparation and precise application to highlight architectural features and enhance the space's brightness and energy.",
+			"Working at height with lifts and scaffolding, our team ensured clean lines and consistent coverage throughout the expansive wall and ceiling areas. The finished gymnasium now provides a vibrant, welcoming environment for students and staff, combining durability with aesthetic appeal to support daily school activities."
 		]
 	}
 ];
