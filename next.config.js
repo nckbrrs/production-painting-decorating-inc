@@ -5,8 +5,6 @@ const coreConfig = {
 	images: {
 		remotePatterns: [
 			{ hostname: "*ufs.sh" },
-			{ hostname: "*placekittens.com" },
-			{ hostname: "*placehold.co" },
 			{ hostname: "*vimeo.com" },
 			{ hostname: "*vimeocdn.com" }
 		]
