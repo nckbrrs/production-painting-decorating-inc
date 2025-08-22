@@ -41,9 +41,9 @@ export default function PortfolioEntry({
 	return (
 		<div className="flex flex-col w-full">
 			{/* Main large image */}
-			<div className="relative w-full bg-muted rounded-lg md:aspect-video">
+			<div className="relative w-full bg-muted rounded-lg">
 				<Carousel
-					className="flex h-full justify-center"
+					className="flex h-full justify-center md:aspect-video"
 					setApi={setApi}
 				>
 					<CarouselContent className="h-full">

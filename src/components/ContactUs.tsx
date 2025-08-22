@@ -17,15 +17,15 @@ export default function ContactUs() {
 				<CardContent className="pt-6">
 					<div className="w-full h-fit flex flex-col">
 						<div className="flex flex-col w-full md:flex-row md:space-x-8 ">
-							<div className="flex flex-col shrink md:grow md:justify-center md:px-4">
+							<div className="flex flex-col shrink gap-1 md:grow md:justify-center md:px-4">
 								<div className="h-6 sm:h-10 flex flex-row items-center">
 									<Phone className="fill-black h-full py-1 mr-1 sm:mr-3" />
 									<Link
-										href="tel:123-4456-7890"
+										href="tel:+19196765505,25"
 										className="h-full flex flex-col justify-center"
 									>
 										<p className="text-sm sm:text-lg text-slate-700 dark:text-bone/80">
-											123-456-7890
+											(919) 676-5505 ext. 25
 										</p>
 									</Link>
 								</div>
@@ -40,15 +40,18 @@ export default function ContactUs() {
 										</p>
 									</Link>
 								</div>
-								<div className="h-6 sm:h-10 flex flex-row items-center mb-4">
-									<MapPin className="fill-black stroke-bone h-full py-1 mr-1 sm:mr-3" />
+								<div className="h-6 sm:h-10 flex flex-row items-start mb-8">
+									<MapPin className="fill-black stroke-bone h-full py-1 mr-1 flex sm:mr-3" />
 									<Link
 										href="https://maps.apple.com/?address=Capital%20Blvd,%20Raleigh,%20NC%20%2027616,%20United%20States&ll=35.861288,-78.581867&q=Capital%20Blvd&t=m"
 										target="_blank"
 										rel="noopener noreferrer"
+										className="sm:translate-y-1"
 									>
 										<p className="text-sm sm:text-lg text-slate-700 dark:text-bone/80 text-nowrap">
-											123 Capital Blvd, Raleigh, NC
+											8411 Garvey Drive, Suite 105
+											<br />
+											Raleigh, NC
 										</p>
 									</Link>
 								</div>

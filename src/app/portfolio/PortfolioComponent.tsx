@@ -31,9 +31,9 @@ export default function PortfolioComponent({
 		{ text: "Office & Retail" as PortfolioCategory, icon: Building2 },
 		{ text: "Education" as PortfolioCategory, icon: School },
 		{ text: "Healthcare" as PortfolioCategory, icon: Hospital },
-		{ text: "Sporting & Entertainment" as PortfolioCategory, icon: Trophy },
-		{ text: "Historical" as PortfolioCategory, icon: Landmark },
-		{ text: "Restaurants" as PortfolioCategory, icon: Utensils }
+		{ text: "Sporting & Entertainment" as PortfolioCategory, icon: Trophy }
+		// { text: "Historical" as PortfolioCategory, icon: Landmark },
+		// { text: "Restaurants" as PortfolioCategory, icon: Utensils }
 	];
 
 	const [selectedCategory, setSelectedCategory] = useState<PortfolioCategory>(
@@ -46,10 +46,10 @@ export default function PortfolioComponent({
 			<div className={portfolioContainerStyling}>
 				<h1 className={headerTextStyling}>Our Portfolio</h1>
 				<h2 className={subHeaderTextStyling}>
-					Select a category to see our happy clients.
+					Select a category to see some of our happy clients.
 				</h2>
 				<div className="flex flex-row flex-wrap justify-center mb-6">
-					<div className="grid grid-cols-2 gap-2 sm:gap-2 w-full sm:grid-cols-3 sm:w-full lg:grid-cols-6 lg:gap-4">
+					<div className="grid grid-cols-2 gap-2 sm:gap-2 w-full md:grid-cols-4 md:w-full lg:grid-cols-4 lg:gap-4">
 						{categories.map((category) => {
 							return (
 								<div
@@ -97,12 +97,12 @@ export default function PortfolioComponent({
 						})}
 					</div>
 				</div>
-				<span className="space-y-6">
+				<span className="flex flex-col space-y-6 justify-center items-center">
 					{portfolio
 						.filter((entry) => entry.category === selectedCategory)
 						.map((pe, idx) => {
 							return (
-								<Card key={idx}>
+								<Card key={idx} className="w-full">
 									<CardContent className="pt-6">
 										<PortfolioEntry
 											key={pe.title}

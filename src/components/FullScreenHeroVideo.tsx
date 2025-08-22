@@ -10,7 +10,7 @@ export default function FullScreenHeroVideo({
 		<div className={videoContainerStyling}>
 			<video
 				className={videoStyling}
-				src={"/STOCK/videos/vid-5.mp4"}
+				src={"homeHero.mov"}
 				autoPlay
 				muted
 				loop
