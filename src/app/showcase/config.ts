@@ -145,7 +145,7 @@ export const showcaseConfig: Omit<
 			"/showcase/Cary-Soccer-Park/images/8.jpg",
 			"/showcase/Cary-Soccer-Park/images/9.jpg"
 		],
-		videoSrc: ""
+		videoSrc: "https://player.vimeo.com/video/1112923376?h=5276359576&initial_quality=4K"
 	}
 	// {
 	// 	id: "UNC-Chapel-Hill-Hall-of-Honor",

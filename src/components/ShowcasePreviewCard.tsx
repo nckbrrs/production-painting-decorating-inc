@@ -12,13 +12,13 @@ export default function ShowcasePreviewCard({
 >) {
 	return (
 		<div className="bg-white dark:bg-slate-950 dark:border-slate-800 border dark:border-1 rounded-lg shadow-md overflow-hidden">
-			<div className="aspect-video">
-				<img
-					src={posterSrc}
-					className="w-full h-full object-cover hover:cursor-pointer"
-				/>
-			</div>
 			<Link href={`/showcase/${id}`}>
+				<div className="aspect-video">
+					<img
+						src={posterSrc}
+						className="w-full h-full object-cover hover:cursor-pointer"
+					/>
+				</div>
 				<div className="flex w-full ">
 					<div className="flex flex-col p-4">
 						<h2 className="text-xl md:text-2xl font-semibold mb-2 text-black dark:text-bone ">

@@ -1,4 +1,3 @@
-import VideoPlayer from "../../../components/VideoPlayer";
 import ImageGallery from "../../../components/ImageGallery";
 import { Button } from "~/components/ui/button";
 import Link from "next/link";
