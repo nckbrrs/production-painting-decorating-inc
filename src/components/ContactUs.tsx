@@ -14,10 +14,10 @@ export default function ContactUs() {
 				touch!
 			</h4>
 			<Card className="rounded-2xl dark:border-2 h-fit">
-				<CardContent className="pt-6">
+				<CardContent className="pt-6 md:pt-3">
 					<div className="w-full h-fit flex flex-col">
-						<div className="flex flex-col w-full md:flex-row md:space-x-8 ">
-							<div className="flex flex-col shrink gap-1 md:grow md:justify-center md:px-4">
+						<div className="flex flex-col w-full md:flex-row md:space-x-0 ">
+							<div className="flex flex-col shrink gap-1 md:grow md:justify-center md:pr-4">
 								<div className="h-6 sm:h-10 flex flex-row items-center">
 									<Phone className="fill-black h-full py-1 mr-1 sm:mr-3" />
 									<Link
@@ -36,7 +36,7 @@ export default function ContactUs() {
 										className="h-full flex flex-col justify-center"
 									>
 										<p className="text-sm sm:text-lg text-slate-700 dark:text-bone/80 text-nowrap">
-											General@PPDRaleigh.com
+											general@productionpaintingonline.com
 										</p>
 									</Link>
 								</div>
@@ -58,19 +58,17 @@ export default function ContactUs() {
 							</div>
 
 							<div className="flex w-full h-full max-h-96  md:py-4 flex-shrink-0 md:flex-shrink drop-shadow-md overflow-hidden">
-								<Link
-									href="https://maps.apple.com/?address=Capital%20Blvd,%20Raleigh,%20NC%20%2027616,%20United%20States&ll=35.861288,-78.581867&q=Capital%20Blvd&t=m"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="w-full flex-shrink-0"
-								>
-									<div className="flex w-full h-full flex-shrink-0 md:flex-shrink aspect-video md:aspect-auto overflow-hidden rounded-xl">
-										<img
-											src="/images/mapsImage.png"
-											className="object-cover grow scale-150 lg:scale-100"
-										/>
-									</div>
-								</Link>
+								<div className="flex w-full h-full flex-shrink-0 md:flex-shrink aspect-video md:aspect-video md:min-h-56 overflow-hidden rounded-lg">
+									<iframe
+										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3636.167256058847!2d-78.57135208255609!3d35.89437430000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac57547ab9ada1%3A0xf789b203a73238bf!2sProduction%20Painting%20%26%20Decorating!5e1!3m2!1sen!2sus!4v1757026837546!5m2!1sen!2sus"
+										width="100%"
+										height="100%"
+										// style={{ border: "0" }}
+										allowFullScreen
+										loading="lazy"
+										referrerPolicy="no-referrer-when-downgrade"
+									/>
+								</div>
 							</div>
 						</div>
 						<Link
@@ -79,7 +77,7 @@ export default function ContactUs() {
 							}}
 							className="w-full mt-4"
 						>
-							<Button className="flex flex-row w-full grow p-6 items-center text-md md:text-lg">
+							<Button className="flex flex-row w-full grow p-6 items-center text-md md:text-lg rounded-lg">
 								Get started on an inquiry
 								<ArrowRight />
 							</Button>

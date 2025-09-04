@@ -2,6 +2,15 @@ import { Card, CardContent } from "~/components/ui/card";
 import { WorkWithUsForm } from "~/components/WorkWithUsForm";
 
 export default function WorkWithUsPage() {
+	const whoWereLookingForBullets = [
+		"Experienced painters with 2+ years in commercial painting",
+		"Experienced Wall Paper/Covering Hangers with 5+ years experience in the commercial field",
+		"Detail-oriented individuals who deliver high-quality finishes",
+		"Team players who communicate effectively",
+		"Reliable professionals who value punctuality and commitment",
+		"Safety-conscious workers who follow proper procedures"
+	];
+
 	return (
 		<div className={pageContainerStyling}>
 			<div className={spaceBehindHeaderStyling} />
@@ -16,7 +25,7 @@ export default function WorkWithUsPage() {
 
 						<div className="prose max-w-none">
 							<p className="text-slate-900 dark:text-slate-50">
-								At our commercial painting company, we're
+								At Production Painting & Decorating, we’re
 								looking for skilled, reliable professionals who
 								take pride in their work and are committed to
 								excellence.
@@ -27,25 +36,9 @@ export default function WorkWithUsPage() {
 							</h3>
 
 							<ul className="space-y-2 text-slate-900 dark:text-slate-50 ml-2">
-								<li>
-									• Experienced painters with 2+ years in
-									commercial painting
-								</li>
-								<li>
-									• Detail-oriented individuals who deliver
-									high-quality finishes
-								</li>
-								<li>
-									• Team players who communicate effectively
-								</li>
-								<li>
-									• Reliable professionals who value
-									punctuality and commitment
-								</li>
-								<li>
-									• Safety-conscious workers who follow proper
-									procedures
-								</li>
+								{whoWereLookingForBullets.map((bullet) => (
+									<li key={bullet}>• {bullet}</li>
+								))}
 							</ul>
 
 							<p className="mt-6">

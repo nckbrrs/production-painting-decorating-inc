@@ -169,9 +169,6 @@ export default function AboutUs() {
 				<h2 className="drop-shadow-sm  text-3xl md:text-4xl font-bold text-black dark:text-bone mb-4">
 					Our Services
 				</h2>
-				{/* <h4 className="text-md md:text-lg text-slate-700 dark:text-bone/80 mb-4">
-					Some subtext here.
-				</h4> */}
 				<div className="flex w-full justify-center items-center ">
 					<Carousel className="w-full">
 						<CarouselContent>
@@ -191,9 +188,6 @@ export default function AboutUs() {
 												<h4 className="text-xl lg:text-2xl text-white font-semibold text-center w-4/5">
 													{service.name}
 												</h4>
-												<h6 className="text-md lg:text-lg text-white opacity-80 font-light">
-													Service Description
-												</h6>
 											</div>
 										</CardContent>
 									</Card>
