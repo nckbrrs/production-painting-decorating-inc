@@ -21,12 +21,14 @@ export default function Hamburger({
 	const hamburgerBarMotionVariants = {
 		top: {
 			closed: {
+				// @ts-ignore
 				backgroundColor: fullConfig.theme.colors[closedColor]
 			},
 			open: {
 				rotate: 45,
 				translateY: `${((100 - 3 * 10) / 4 + 10) * 10}%`,
 				scale: -0.75,
+				// @ts-ignore
 				backgroundColor: fullConfig.theme.colors[openColor]
 			}
 		},
@@ -39,12 +41,14 @@ export default function Hamburger({
 		},
 		bottom: {
 			closed: {
+				// @ts-ignore
 				backgroundColor: fullConfig.theme.colors[closedColor]
 			},
 			open: {
 				rotate: -45,
 				translateY: `-${((100 - 3 * 10) / 4 + 10) * 10}%`,
 				scale: -0.75,
+				// @ts-ignore
 				backgroundColor: fullConfig.theme.colors[openColor]
 			}
 		}
