@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import FullScreenMenu from "./FullScreenMenu";
 import Hamburger from "./Hamburger";
 import Link from "next/link";
-import OGLogo from "./icons/OGLogo";
 import { usePathname } from "next/navigation";
-import OGLogo2 from "OGLogo.png";
 
 export default function TopNav() {
 	const pathname = usePathname();
@@ -206,7 +204,7 @@ export default function TopNav() {
 					<div className={logoStylingVariants[topNavFillColor]}>
 						<Link href={"/"}>
 							<img
-								className="w-full h-full"
+								className="h-full"
 								src={"OGLogo.png"}
 								style={{ filter: "invert(1)" }}
 							/>
