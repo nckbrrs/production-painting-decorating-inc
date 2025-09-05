@@ -28,7 +28,7 @@ const spaceBehindHeaderStyling = `
 	flex-col
 	shrink-0
 	w-full
-	h-24 md:h-32 lg:h-40  xl:h-28
+	h-24 md:h-28 lg:h-36 xl:h-40
 `;
 
 const contentContainerStyling = `

@@ -7,7 +7,8 @@ export default withUt({
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ["var(--font-geist-sans)", ...fontFamily.sans]
+				chevara: ["Chevara", "serif"],
+				timesNewRoman: ["Times New Roman", "serif"]
 			},
 			colors: {
 				black: "#212121",

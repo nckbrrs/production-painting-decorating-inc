@@ -72,10 +72,11 @@ const menuLinksColStyling = `
 
 const linkTextStyling = `
 	text-center
-    text-3xl md:text-5xl lg:text-7xl
+    text-3xl md:text-5xl
     font-bold
     duration-75
     group-hover:opacity-25
     hover:!opacity-100
+	font-chevara
 
 `;

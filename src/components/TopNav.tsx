@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import FullScreenMenu from "./FullScreenMenu";
 import Hamburger from "./Hamburger";
 import Link from "next/link";
-import Logo from "./icons/Logo";
+import OGLogo from "./icons/OGLogo";
 import { usePathname } from "next/navigation";
+import OGLogo2 from "OGLogo.png";
 
 export default function TopNav() {
 	const pathname = usePathname();
@@ -204,7 +205,11 @@ export default function TopNav() {
 				<div className={logoContainerStyling}>
 					<div className={logoStylingVariants[topNavFillColor]}>
 						<Link href={"/"}>
-							<Logo className="w-full h-full" />
+							<img
+								className="w-full h-full"
+								src={"OGLogo.png"}
+								style={{ filter: "invert(1)" }}
+							/>
 						</Link>
 					</div>
 				</div>
@@ -249,14 +254,14 @@ const topNavContainerStyling = `
     items-center
     py-4 xl:py-0
     z-10
-    h-20 md:h-28 lg:h-36 xl:h-24
+    h-24 md:h-28 lg:h-36 xl:h-40
 `;
 
 const logoContainerStyling = `
 	h-full
     hover:cursor-pointer
-    ml-6 md:ml-8 lg:ml-10
-	pt-1 md:py-4 lg:py-6
+    ml-6 md:ml-8 xl:ml-8
+	pt-1 md:pt-4 xl:py-6
 `;
 
 const logoStylingBase = `
@@ -267,8 +272,8 @@ const logoStylingBase = `
 `;
 
 const logoStylingVariants = {
-	black: logoStylingBase + "fill-black",
-	bone: logoStylingBase + "fill-bone"
+	black: logoStylingBase + "invert",
+	bone: logoStylingBase + "invert-0"
 };
 
 const textLinksRowStyling = `
@@ -297,6 +302,7 @@ const textLinkStylingBase = `
 	text-center
 	text-black dark:text-bone
 	text-xl
+	tracking-wide
 `;
 
 const textLinkStylingVariants = {

@@ -17,6 +17,10 @@ export async function sendGeneralInquiryEmail(formData: FormData) {
 		// Validate the form data
 		const validatedData = inquiryFormSchema.parse(rawData);
 
+		if (!process.env.RESEND_API_KEY) {
+			throw new Error("RESEND_API_KEY is not defined");
+		}
+
 		// Initialize Resend (you'll need to add RESEND_API_KEY to your environment variables)
 		const resend = new Resend(process.env.RESEND_API_KEY);
 		// Create email content

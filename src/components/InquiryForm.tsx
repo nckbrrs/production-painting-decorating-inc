@@ -38,7 +38,7 @@ export function InquiryForm({ className }: React.ComponentProps<typeof Card>) {
 			{state.success ? (
 				<p className="text-green-600 font-semibold m-6 md:m-12 flex justify-center items-center gap-2 text-lg">
 					<Check className="size-8 md:size-10" />
-					Your message has been sent. Thank you.
+					Your message has been sent. Thank you!
 				</p>
 			) : (
 				<form action={formAction}>

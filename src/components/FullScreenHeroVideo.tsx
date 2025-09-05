@@ -19,12 +19,12 @@ export default function FullScreenHeroVideo({
 			<div className={textOverVideoContainerStyling}>
 				<div className="flex flex-col grow justify-center mt-16 md:mt-20 px-6">
 					<h1 className={textOverVideoStyling}>
-						Production Painting & Decorating, Inc.
+						Production Painting & Decorating,&nbsp;Inc.
 					</h1>
 				</div>
 				<Link href="/inquiry">
 					<Button
-						className="uppercase font-semibold mb-8 md:mb-12 md:text-lg md:p-6 dark:bg-bone dark:text-black dark:hover:bg-white/80"
+						className="uppercase font-bold  mb-8 md:mb-12 md:text-lg md:p-6 dark:bg-bone dark:text-black dark:hover:bg-white/80"
 						variant={"secondary"}
 					>
 						Contact
@@ -61,13 +61,16 @@ const textOverVideoContainerStyling = `
   justify-center
   items-center
   bg-[#000]
-  bg-opacity-50
+  bg-opacity-60
 `;
 
 const textOverVideoStyling = `
-  font-bold
-  text-3xl lg:text-5xl
+  text-2xl md:text-3xl lg:text-4xl xl:text-5xl
   text-center
   uppercase
   text-bone
+  font-chevara
+  font-bold
+  tracking-tight
+  [text-shadow:2px_2px_6px_rgba(0,_0,_0,_0.5)]
 `;

@@ -185,7 +185,7 @@ export default function AboutUs() {
 												className="object-cover"
 											/>
 											<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60">
-												<h4 className="text-xl lg:text-2xl text-white font-semibold text-center w-4/5">
+												<h4 className="text-xl font-chevara lg:text-2xl text-white font-semibold text-center w-4/5">
 													{service.name}
 												</h4>
 											</div>

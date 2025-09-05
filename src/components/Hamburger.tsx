@@ -1,18 +1,23 @@
 import { motion } from "framer-motion";
-import resolveConfig from "tailwindcss/resolveConfig"
-import tailwindConfig from "../../tailwind.config"
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../tailwind.config";
 import { useEffect, useState } from "react";
 
 const fullConfig = resolveConfig(tailwindConfig);
 
 interface HamburgerProps {
 	isOpen: boolean;
-	openColor: 'black' | 'bone';
-	closedColor: 'black' | 'bone';
+	openColor: "black" | "bone";
+	closedColor: "black" | "bone";
 	onClick: () => void;
 }
 
-export default function Hamburger({ isOpen, openColor, closedColor, onClick }: HamburgerProps) {
+export default function Hamburger({
+	isOpen,
+	openColor,
+	closedColor,
+	onClick
+}: HamburgerProps) {
 	const hamburgerBarMotionVariants = {
 		top: {
 			closed: {
@@ -20,16 +25,16 @@ export default function Hamburger({ isOpen, openColor, closedColor, onClick }: H
 			},
 			open: {
 				rotate: 45,
-				translateY: `${(((100 - (3 * 10)) / 4) + 10) * 10}%`,
+				translateY: `${((100 - 3 * 10) / 4 + 10) * 10}%`,
 				scale: -0.75,
-				backgroundColor: fullConfig.theme.colors[openColor],
+				backgroundColor: fullConfig.theme.colors[openColor]
 			}
 		},
 		middle: {
 			closed: {},
 			open: {
 				translateX: 100,
-				opacity: 0,
+				opacity: 0
 			}
 		},
 		bottom: {
@@ -38,20 +43,33 @@ export default function Hamburger({ isOpen, openColor, closedColor, onClick }: H
 			},
 			open: {
 				rotate: -45,
-				translateY: `-${(((100 - (3 * 10)) / 4) + 10) * 10}%`,
+				translateY: `-${((100 - 3 * 10) / 4 + 10) * 10}%`,
 				scale: -0.75,
-				backgroundColor: fullConfig.theme.colors[openColor],
+				backgroundColor: fullConfig.theme.colors[openColor]
 			}
 		}
-	}
+	};
 
 	return (
-		<motion.div className={hamburgerStyling} animate={isOpen ? "open" : "closed"} onClick={onClick}>
-			<motion.div className={hamburgerBarStylingVariants[closedColor]} variants={hamburgerBarMotionVariants.top} />
-			<motion.div className={hamburgerBarStylingVariants[closedColor]} variants={hamburgerBarMotionVariants.middle} />
-			<motion.div className={hamburgerBarStylingVariants[closedColor]} variants={hamburgerBarMotionVariants.bottom} />
+		<motion.div
+			className={hamburgerStyling}
+			animate={isOpen ? "open" : "closed"}
+			onClick={onClick}
+		>
+			<motion.div
+				className={hamburgerBarStylingVariants[closedColor]}
+				variants={hamburgerBarMotionVariants.top}
+			/>
+			<motion.div
+				className={hamburgerBarStylingVariants[closedColor]}
+				variants={hamburgerBarMotionVariants.middle}
+			/>
+			<motion.div
+				className={hamburgerBarStylingVariants[closedColor]}
+				variants={hamburgerBarMotionVariants.bottom}
+			/>
 		</motion.div>
-	)
+	);
 }
 
 const hamburgerStyling = `
@@ -64,8 +82,7 @@ const hamburgerStyling = `
     bg-transparent
 	rounded-xl
     p-0
-`
-
+`;
 
 const hamburgerBarStylingBase = `
     hamburgerBar
@@ -73,9 +90,9 @@ const hamburgerBarStylingBase = `
     flex-row
     w-full
     h-[10%]
-`
+`;
 
 const hamburgerBarStylingVariants = {
-	'black': hamburgerBarStylingBase + 'bg-black',
-	'bone': hamburgerBarStylingBase + 'bg-bone'
-}
+	black: hamburgerBarStylingBase + "bg-black",
+	bone: hamburgerBarStylingBase + "bg-bone"
+};
