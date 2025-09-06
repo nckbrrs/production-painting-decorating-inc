@@ -138,7 +138,7 @@ export default function AboutUs() {
 				{/* <h4 className="text-md  text-slate-700 dark:text-bone/80 mb-4">
 					Some subtext here
 				</h4> */}
-				<div className="space-y-4 text-gray-900 dark:text-bone/80 text-md md:text-lg">
+				<div className="space-y-4 text-gray-900 dark:text-bone/80 text- md:text-lg">
 					<p>
 						With over 20 years of dedicated service, our mission is
 						to transform commercial & industrial spaces into
@@ -185,7 +185,7 @@ export default function AboutUs() {
 												className="object-cover"
 											/>
 											<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60">
-												<h4 className="text-xl font-chevara lg:text-2xl text-white font-semibold text-center w-4/5">
+												<h4 className="text-xl font-timesNewRoman lg:text-2xl text-white font-semibold text-center w-4/5">
 													{service.name}
 												</h4>
 											</div>

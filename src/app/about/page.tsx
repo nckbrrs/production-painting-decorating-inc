@@ -44,7 +44,7 @@ export default function AboutPage() {
 			<div className={contentContainerStyling}>
 				<h1 className={headerTextStyling}>Our Mission</h1>
 				<div className="px-0 space-y-4 text-muted-foreground dark:text-bone/80 text-md md:text-lg md:h-max mb-8 md:mb-12">
-					<p>
+					<p className="font-timesNewRoman">
 						With over 20 years of dedicated service, our mission is
 						to transform commercial & industrial spaces into
 						vibrant, enduring environments through expert

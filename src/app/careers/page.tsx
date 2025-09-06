@@ -19,12 +19,12 @@ export default function WorkWithUsPage() {
 
 				<div className="grid gap-10 lg:grid-cols-2">
 					<div>
-						<h2 className="text-2xl font-semibold mb-4 lg:mt-6">
+						<h3 className="text-2xl font-semibold mb-4 lg:mt-6">
 							Join Our Team
-						</h2>
+						</h3>
 
 						<div className="prose max-w-none">
-							<p className="text-slate-900 dark:text-slate-50">
+							<p className="text-slate-900 dark:text-slate-50 font-normal">
 								At Production Painting & Decorating, we’re
 								looking for skilled, reliable professionals who
 								take pride in their work and are committed to
@@ -37,7 +37,12 @@ export default function WorkWithUsPage() {
 
 							<ul className="space-y-2 text-slate-900 dark:text-slate-50 ml-2">
 								{whoWereLookingForBullets.map((bullet) => (
-									<li key={bullet}>• {bullet}</li>
+									<p
+										className="font-timesNewRoman font-normal"
+										key={bullet}
+									>
+										• {bullet}
+									</p>
 								))}
 							</ul>
 
@@ -54,9 +59,9 @@ export default function WorkWithUsPage() {
 					<div>
 						<Card className="pt-6">
 							<CardContent>
-								<h2 className="text-2xl font-semibold mb-4">
+								<h3 className="text-2xl font-semibold mb-4">
 									Apply Now
-								</h2>
+								</h3>
 								<p className="mb-6">
 									Please fill out the form below to express
 									interest in joining our team.

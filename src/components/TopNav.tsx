@@ -195,7 +195,7 @@ export default function TopNav() {
 				<Hamburger
 					isOpen={fullScreenMenuIsOpen}
 					onClick={onClickHamburger}
-					openColor={hamburgerOpenColor}
+					openColor={"bone"}
 					closedColor={topNavFillColor}
 				/>
 			</div>
@@ -301,6 +301,8 @@ const textLinkStylingBase = `
 	text-black dark:text-bone
 	text-xl
 	tracking-wide
+	font-timesNewRoman
+	italic
 `;
 
 const textLinkStylingVariants = {

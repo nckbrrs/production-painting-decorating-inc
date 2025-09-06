@@ -48,9 +48,10 @@ const fullScreenMenuContainerStyling = `
 	flex-row 
     w-full
     h-full
-    space-y-2 
-	bg-bone dark:bg-black
-	text-black dark:text-bone
+    space-y-2
+	bg-black/40
+	backdrop-blur-2xl
+	text-bone
     left-0 
     top-0 
     justify-center 
@@ -77,5 +78,6 @@ const linkTextStyling = `
     duration-75
     group-hover:opacity-25
     hover:!opacity-100
-	font-chevara
+	font-timesNewRoman
+	italic
 `;
