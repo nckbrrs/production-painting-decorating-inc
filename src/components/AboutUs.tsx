@@ -93,7 +93,7 @@ export default function AboutUs() {
 	];
 
 	const containerStyling = `
-		max-w-6xl	
+		max-w-2xl max-w-6xl
 		h-full
 		mt-10 md:mt-20 
 	`;

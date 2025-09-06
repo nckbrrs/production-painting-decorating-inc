@@ -98,5 +98,5 @@ const contentContainerStyling = `
 	w-full 
 	items-center
 	px-6 md:px-8 lg:px-10
-	max-w-6xl
+	max-w-2xl md:max-w-6xl
 `;
