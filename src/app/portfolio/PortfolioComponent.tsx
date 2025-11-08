@@ -93,7 +93,7 @@ export default function PortfolioComponent({
 											/>
 											<p
 												className={
-													"flex w-1/2 text-sm md:text-xs lg:text-sm flex-col font-semibold dark:text-bone text-slate-700 " +
+													"flex w-1/2 text-sm md:text-xs lg:text-sm flex-col font-semibold dark:text-bone text-slate-700 font-sans " +
 													(selectedCategory ===
 													category.text
 														? " text-white dark:text-slate-950"

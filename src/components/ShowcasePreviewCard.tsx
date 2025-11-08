@@ -24,7 +24,7 @@ export default function ShowcasePreviewCard({
 						<h2 className="text-xl md:text-2xl font-semibold mb-2 text-black dark:text-bone ">
 							{title}
 						</h2>
-						<p className="text-gray-600 dark:text-bone/90 md:text-lg">
+						<p className="text-gray-600 dark:text-bone/90 md:text-lg font-normal">
 							{previewDescription}
 						</p>
 					</div>

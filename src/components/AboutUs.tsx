@@ -183,7 +183,7 @@ export default function AboutUs() {
 												className="object-cover"
 											/>
 											<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60">
-												<h4 className="font-timesNewRoman text-4xl md:text-3xl lg:text-4xl text-white font-semibold text-center w-4/5">
+												<h4 className="font-sans text-4xl md:text-3xl lg:text-4xl text-white font-semibold text-center w-4/5">
 													{service.name}
 												</h4>
 											</div>
@@ -214,10 +214,10 @@ export default function AboutUs() {
 								<CardContent className="flex flex-row items-center py-4 md:py-8">
 									<cust.icon className="w-10 h-10 md:w-14 md:h-14 shrink-0 -ml-2 mr-4 md:ml-2 md:mr-6 stroke-1 dark:stroke-slate-100"></cust.icon>
 									<div className="flex-col ">
-										<p className="text-xl md:text-2xl font-semibold">
+										<p className="text-xl md:text-2xl font-semibold font-sans">
 											{cust.title}
 										</p>
-										<p className="text-sm md:text-lg dark:text-gray-300">
+										<p className="text-sm md:text-lg dark:text-gray-300 font-sans font-normal">
 											{cust.subtitle}
 										</p>
 									</div>

@@ -59,10 +59,10 @@ export default function WorkWithUsPage() {
 					<div>
 						<Card className="pt-6">
 							<CardContent>
-								<h3 className="text-2xl font-semibold mb-4">
+								<h3 className="text-2xl font-semibold mb-3">
 									Apply Now
 								</h3>
-								<p className="mb-6">
+								<p className="mb-6 font-normal">
 									Please fill out the form below to express
 									interest in joining our team.
 								</p>

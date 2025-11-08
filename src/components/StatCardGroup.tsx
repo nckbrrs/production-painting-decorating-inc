@@ -82,12 +82,14 @@ const StatCard = function (props: StatCardProps) {
 
 	const valueDescStyling = `
 		text-lg md:text-2xl lg:text-3xl font-bold
+		font-sans
 	`;
 
 	const nounDescStyling = `
 		text-sm lg:text-base
 		text-slate-700 dark:text-bone/90
 		text-center
+		font-sans
 	`;
 
 	return (
