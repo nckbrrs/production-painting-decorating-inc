@@ -11,7 +11,7 @@ export default function TopNav() {
 
 	const [fullScreenMenuIsOpen, setFullScreenMenuIsOpen] =
 		useState<boolean>(false);
-	const [isScrolledDownSome, setIsScrolledDownSome] =
+	const [shouldBlurHamburgerContainer, setShouldBlurHamburgerContainer] =
 		useState<boolean>(false);
 
 	const [topNavFillColor, setTopNavFillColor] = useState<"black" | "bone">(
@@ -109,10 +109,17 @@ export default function TopNav() {
 
 		// Add scroll listener to add styling to hamburger menu when scrolled down
 		document.addEventListener("scroll", (e: any) => {
-			if (e.srcElement.scrollingElement.scrollTop > 60) {
-				setIsScrolledDownSome(true);
+			const fullScreenHero = document.querySelector<HTMLElement>(
+				"#full-screen-hero-video"
+			);
+
+			if (
+				e.srcElement.scrollingElement.scrollTop >
+				(fullScreenHero ? fullScreenHero.offsetHeight - 60 : 0)
+			) {
+				setShouldBlurHamburgerContainer(true);
 			} else {
-				setIsScrolledDownSome(false);
+				setShouldBlurHamburgerContainer(false);
 			}
 		});
 
@@ -121,12 +128,12 @@ export default function TopNav() {
 	}, []);
 
 	useEffect(() => {
-		if (isScrolledDownSome) {
+		if (shouldBlurHamburgerContainer) {
 			addBlurToHamburgerContainer();
 		} else {
 			removeBlurFromHamburgerContainer();
 		}
-	}, [isScrolledDownSome]);
+	}, [shouldBlurHamburgerContainer]);
 
 	useEffect(() => {
 		setTopNavFillColor(
@@ -206,7 +213,7 @@ export default function TopNav() {
 							<img
 								className="h-full"
 								src={"OGLogo.png"}
-								style={{ filter: "invert(1)" }}
+								// style={{ filter: "invert(1)" }}
 							/>
 						</Link>
 					</div>
@@ -252,7 +259,7 @@ const topNavContainerStyling = `
     items-center
     py-4 xl:py-0
     z-10
-    h-24 md:h-28 lg:h-36 xl:h-40
+    h-24 md:h-28 lg:h-36 xl:h-36
 `;
 
 const logoContainerStyling = `
@@ -270,8 +277,8 @@ const logoStylingBase = `
 `;
 
 const logoStylingVariants = {
-	black: logoStylingBase + "invert",
-	bone: logoStylingBase + "invert-0"
+	black: logoStylingBase + "invert-0",
+	bone: logoStylingBase + "invert"
 };
 
 const textLinksRowStyling = `
@@ -292,6 +299,7 @@ const textLinkStylingBase = `
 	hover:cursor-pointer
 	duration-100
 	uppercase
+	drop-shadow-sm
 	hover:drop-shadow-sm
 	group-hover:opacity-55
 	group-hover:blur-[1px]
@@ -299,10 +307,9 @@ const textLinkStylingBase = `
 	hover:!blur-0
 	text-center
 	text-black dark:text-bone
-	text-xl
-	tracking-wide
+	text-2xl
+
 	font-timesNewRoman
-	italic
 `;
 
 const textLinkStylingVariants = {

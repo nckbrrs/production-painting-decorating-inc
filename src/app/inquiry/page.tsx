@@ -51,7 +51,7 @@ const subHeaderTextStyling = `
 	text-md md:text-lg
 	text-left
 	w-full
-	text-slate-700 dark:text-bone/80
+	text-slate-700 dark:text-bone/90
 	mb-4 md:mb-10
 `;
 

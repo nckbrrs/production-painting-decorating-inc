@@ -14,7 +14,7 @@ export default function ShowcasePage() {
 				</h2>
 				<ShowcaseGrid />
 				<div className={"flex flex-col mt-20 mb-20 items-center"}>
-					<h3 className="w-fit text-center text-lg font-semibold mb-2 text-black dark:text-bone/80">
+					<h3 className="w-fit text-center text-lg font-semibold mb-2 text-black dark:text-bone/90">
 						Want to be next?
 					</h3>
 					<Link href="/inquiry" className="max-w-1/2">
@@ -62,7 +62,7 @@ const subHeaderTextStyling = `
 	text-md md:text-lg
 	text-left
 	w-full
-	text-slate-700 dark:text-bone/80
+	text-slate-700 dark:text-bone/90
 	mb-4 md:mb-10
 `;
 

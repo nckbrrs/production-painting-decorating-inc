@@ -7,7 +7,7 @@ export default function FullScreenHeroVideo({
 	children?: React.ReactNode;
 }>) {
 	return (
-		<div className={videoContainerStyling}>
+		<div className={videoContainerStyling} id="full-screen-hero-video">
 			<video
 				className={videoStyling}
 				src={"homeHero.mov"}
@@ -22,7 +22,7 @@ export default function FullScreenHeroVideo({
 						Production Painting & Decorating,&nbsp;Inc.
 					</h1>
 				</div>
-				<Link href="/inquiry">
+				<Link href="/inquiry" className="opacity-0">
 					<Button
 						className="uppercase font-bold  mb-8 md:mb-12 md:text-lg md:p-6 dark:bg-bone dark:text-black dark:hover:bg-white/80"
 						variant={"secondary"}

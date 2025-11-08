@@ -81,10 +81,10 @@ export default function PortfolioEntry({
 									: "opacity-70 hover:opacity-100"
 							)}
 						>
-							<Image
+							<img
 								src={image.src || "/placeholder.svg"}
 								alt="TODO"
-								fill
+								// fill
 								className="object-cover"
 								loading="eager"
 							/>

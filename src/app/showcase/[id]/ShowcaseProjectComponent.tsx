@@ -38,7 +38,7 @@ export default function ShowcaseProjectComponent({
 					{longDescription.map((p, idx) => (
 						<p
 							key={idx}
-							className="text-gray-800 dark:text-bone/80 md:text-lg"
+							className="text-gray-800 dark:text-bone/90 md:text-lg"
 						>
 							{p}
 						</p>

@@ -70,5 +70,5 @@ const bodyContainerStyling = `
 	flex
 	flex-col
 	min-h-screen
-	bg-bone dark:bg-gray-950
+	bg-bone/70 dark:bg-gray-950
 `;

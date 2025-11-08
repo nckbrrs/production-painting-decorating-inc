@@ -1,10 +1,11 @@
-export type PortfolioCategory =
-	| "Historical"
-	| "Education"
-	| "Restaurants"
-	| "Healthcare"
-	| "Sporting & Entertainment"
-	| "Office & Retail";
+export enum PortfolioCategory {
+	Historical = "Historical",
+	Education = "Education",
+	Restaurants = "Restaurants",
+	Healthcare = "Healthcare",
+	SportsEntertainment = "Sports & Entertainment",
+	OfficeRetail = "Office & Retail"
+}
 
 export type PortfolioEntry = {
 	category: PortfolioCategory;
@@ -18,7 +19,7 @@ export type PortfolioEntryWithImageNames = PortfolioEntry & {
 
 const portfolio: PortfolioEntry[] = [
 	{
-		category: "Office & Retail",
+		category: PortfolioCategory.OfficeRetail,
 		title: "CPG Provident Resources",
 		description: [
 			"This project featured detailed finish work in a high-end office environment, including painting of wood baseboards and the installation of an intricate, hand-painted wallcovering. Our team began by thoroughly prepping and painting all wood base, ensuring a smooth, consistent finish that complemented the overall color scheme of the space. The painted baseboards added a clean, refined border between flooring and walls, enhancing the architectural detail throughout the office.",
@@ -26,7 +27,7 @@ const portfolio: PortfolioEntry[] = [
 		]
 	},
 	{
-		category: "Office & Retail",
+		category: PortfolioCategory.OfficeRetail,
 		title: "Elder Research at The Grove",
 		description: [
 			"This project involved detailed interior finishing work in a professional office space, with a focus on ceiling painting and the installation of wallcovering in intricate architectural areas. Our crew carefully prepped and painted the ceilings, using flat, low-reflective coatings to create a clean, uniform finish that enhances the space’s openness and lighting. Special attention was given to protecting surrounding surfaces and maintaining clean cut lines where ceilings met tall vertical walls.",
@@ -34,7 +35,7 @@ const portfolio: PortfolioEntry[] = [
 		]
 	},
 	{
-		category: "Office & Retail",
+		category: PortfolioCategory.OfficeRetail,
 		title: "Romanoff Capital Blvd",
 		description: [
 			"This interior repaint project was completed in a large commercial office featuring tall walls and modern black doors with matching frames. The high ceilings required the use of lifts and extension tools to ensure safe, even application across all vertical surfaces.",
@@ -42,7 +43,7 @@ const portfolio: PortfolioEntry[] = [
 		]
 	},
 	{
-		category: "Office & Retail",
+		category: PortfolioCategory.OfficeRetail,
 		title: "Carr, Riggs, and Ingram at the Grove",
 		description: [
 			"We completed a comprehensive interior painting and finishing project for a modern office space featuring open ceilings and wall-to-deck-high surfaces. The project included painting accent walls designed to enhance the architectural style, carefully matching stains to various wood finishes throughout the space for a cohesive look.",
@@ -50,14 +51,14 @@ const portfolio: PortfolioEntry[] = [
 		]
 	},
 	{
-		category: "Healthcare",
+		category: PortfolioCategory.Healthcare,
 		title: "RTP Chiropractic",
 		description: [
 			"We completed a full interior repaint for a chiropractic office, focusing on delivering a clean, calming, and professional environment for both patients and staff. The scope of work included walls, ceilings, trim, and doors throughout the reception area, treatment rooms, offices, and hallways."
 		]
 	},
 	{
-		category: "Sporting & Entertainment",
+		category: PortfolioCategory.SportsEntertainment,
 		title: "UNC Boshamer Stadium",
 		description: [
 			"Our team was contracted to complete a full-scale repaint and custom mural project at a local baseball stadium. The scope included detailed preparation and painting of the team dugouts, exposed brickwork, surrounding walls, and handrails throughout the facility. We used durable, weather-resistant coatings to ensure long-lasting protection and a fresh, vibrant look that can stand up to game-day traffic and the elements.",
@@ -66,7 +67,7 @@ const portfolio: PortfolioEntry[] = [
 		]
 	},
 	{
-		category: "Sporting & Entertainment",
+		category: PortfolioCategory.SportsEntertainment,
 		title: "UNC Carmichael Arena",
 		description: [
 			"Our crew was engaged to revitalize a basketball complex with a focus on safety, aesthetics, and accessibility. This project involved detailed surface prep and painting of handrails surrounding the playing area to enhance both safety and appearance.",
@@ -74,7 +75,7 @@ const portfolio: PortfolioEntry[] = [
 		]
 	},
 	{
-		category: "Education",
+		category: PortfolioCategory.Education,
 		title: "UNC Rams Village Dorms",
 		description: [
 			"Our team completed a large-scale interior repaint project for a local college’s student housing complex. The scope of work included prepping and painting all dorm room walls, doors, and frames throughout multiple buildings.",
@@ -83,7 +84,7 @@ const portfolio: PortfolioEntry[] = [
 		]
 	},
 	{
-		category: "Education",
+		category: PortfolioCategory.Education,
 		title: "Vance County High School",
 		description: [
 			"Our team recently completed a full interior repaint for a local high school, revitalizing the campus with fresh, durable finishes. The scope included painting CMU block walls, interior drywall surfaces, doors, frames, built-in cubbies, libraries, cafeterias, and other common areas.",
@@ -92,7 +93,7 @@ const portfolio: PortfolioEntry[] = [
 		]
 	},
 	{
-		category: "Education",
+		category: PortfolioCategory.Education,
 		title: "Pinkston Elementary School",
 		description: [
 			"We completed a detailed painting project at an elementary school gymnasium, featuring high accent walls and an intricately detailed ceiling. The scope required careful surface preparation and precise application to highlight architectural features and enhance the space's brightness and energy.",

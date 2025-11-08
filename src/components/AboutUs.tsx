@@ -124,7 +124,7 @@ export default function AboutUs() {
 		{
 			title: "Direct Owners",
 			subtitle:
-				"Commodo eu aliqua pariatur occaecat esse ad excepteur quis sint incididunt.",
+				"Work directly for individual clients looking for a refresh or general update to their storefront.",
 			icon: BuildingIcon
 		}
 	];
@@ -135,22 +135,20 @@ export default function AboutUs() {
 				<h2 className="drop-shadow-sm text-3xl md:text-4xl font-bold text-black dark:text-bone mb-3">
 					Our Mission
 				</h2>
-				{/* <h4 className="text-md  text-slate-700 dark:text-bone/80 mb-4">
-					Some subtext here
-				</h4> */}
-				<div className="space-y-4 text-gray-900 dark:text-bone/80 text- md:text-lg">
-					<p>
-						With over 20 years of dedicated service, our mission is
-						to transform commercial & industrial spaces into
-						vibrant, enduring environments through expert
-						craftmanship, innovative techniques and an unwavering
-						commitment to quality. We strive to exceed client
-						expectations by delivering exceptional painting
-						solutions that enhance aesthetics, protect investments,
-						and foster lasting partnerships built on trust and
-						reliability
-					</p>
-				</div>
+				{/* <Card className="dark:border-2">
+					<CardContent className="flex flex-row items-center py-4 md:py-8 text-gray-900 dark:text-bone/90 md:text-2xl"> */}
+				<p className="font-normal text-xl md:text-2xl">
+					With over 20 years of dedicated service, our mission is to
+					transform commercial & industrial spaces into vibrant,
+					enduring environments through expert craftmanship,
+					innovative techniques and an unwavering commitment to
+					quality. We strive to exceed client expectations by
+					delivering exceptional painting solutions that enhance
+					aesthetics, protect investments, and foster lasting
+					partnerships built on trust and reliability
+				</p>
+				{/* </CardContent>
+				</Card> */}
 			</div>
 
 			{/* Accolades */}
@@ -158,7 +156,7 @@ export default function AboutUs() {
 				<h2 className="drop-shadow-sm  text-3xl md:text-4xl font-bold text-black dark:text-bone mb-4">
 					Our Accolades
 				</h2>
-				{/* <h4 className="text-md  text-slate-700 dark:text-bone/80 mb-4">
+				{/* <h4 className="text-md  text-slate-700 dark:text-bone/90 mb-4">
 					Some subtext here.
 				</h4> */}
 				<StatCardGroup stats={statsForStatCards} />
@@ -166,7 +164,7 @@ export default function AboutUs() {
 
 			{/* Services Section */}
 			<div className="mb-12 md:mb-20">
-				<h2 className="drop-shadow-sm  text-3xl md:text-4xl font-bold text-black dark:text-bone mb-4">
+				<h2 className="drop-shadow-sm text-3xl md:text-4xl font-bold text-black dark:text-bone mb-4">
 					Our Services
 				</h2>
 				<div className="flex w-full justify-center items-center ">
@@ -185,7 +183,7 @@ export default function AboutUs() {
 												className="object-cover"
 											/>
 											<div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/60">
-												<h4 className="text-xl font-timesNewRoman lg:text-2xl text-white font-semibold text-center w-4/5">
+												<h4 className="font-timesNewRoman text-4xl md:text-3xl lg:text-4xl text-white font-semibold text-center w-4/5">
 													{service.name}
 												</h4>
 											</div>
@@ -206,7 +204,7 @@ export default function AboutUs() {
 				<h2 className="drop-shadow-sm  text-3xl md:text-4xl font-bold text-black dark:text-bone mb-4">
 					Our Customers
 				</h2>
-				{/* <h4 className="text-md md:text-lg text-slate-700 dark:text-bone/80 mb-4">
+				{/* <h4 className="text-md md:text-lg text-slate-700 dark:text-bone/90 mb-4">
 					Some subtext here.
 				</h4> */}
 				<div className="flex-col space-y-4">

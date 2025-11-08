@@ -86,7 +86,7 @@ const StatCard = function (props: StatCardProps) {
 
 	const nounDescStyling = `
 		text-sm lg:text-base
-		text-gray-500
+		text-slate-700 dark:text-bone/90
 		text-center
 	`;
 

@@ -28,16 +28,20 @@ export default function PortfolioComponent({
 	portfolio
 }: PortfolioComponentProps) {
 	const categories = [
-		{ text: "Office & Retail" as PortfolioCategory, icon: Building2 },
-		{ text: "Education" as PortfolioCategory, icon: School },
-		{ text: "Healthcare" as PortfolioCategory, icon: Hospital },
-		{ text: "Sporting & Entertainment" as PortfolioCategory, icon: Trophy }
+		{ text: PortfolioCategory.OfficeRetail, icon: Building2 },
+		{ text: PortfolioCategory.Education, icon: School },
+		{ text: PortfolioCategory.Healthcare, icon: Hospital },
+		{ text: PortfolioCategory.SportsEntertainment, icon: Trophy },
+		{ text: PortfolioCategory.Restaurants, icon: Utensils }
 		// { text: "Historical" as PortfolioCategory, icon: Landmark },
-		// { text: "Restaurants" as PortfolioCategory, icon: Utensils }
 	];
 
 	const [selectedCategory, setSelectedCategory] = useState<PortfolioCategory>(
 		categories[0]!.text as PortfolioCategory
+	);
+
+	const portfolioOfSelectedCategory = portfolio.filter(
+		(entry) => entry.category === selectedCategory
 	);
 
 	return (
@@ -49,7 +53,7 @@ export default function PortfolioComponent({
 					Select a category to see some of our happy clients.
 				</h2>
 				<div className="flex flex-row flex-wrap justify-center mb-6">
-					<div className="grid grid-cols-2 gap-2 sm:gap-2 w-full md:grid-cols-4 md:w-full lg:grid-cols-4 lg:gap-4">
+					<div className="grid grid-cols-2 gap-2 sm:gap-2 w-full md:grid-cols-5 md:w-full  lg:gap-4">
 						{categories.map((category) => {
 							return (
 								<div
@@ -72,7 +76,15 @@ export default function PortfolioComponent({
 										<CardContent className="pb-0 flex flex-row w-full justify-start items-center p-0">
 											<category.icon
 												className={
-													"flex stroke-1 ml-4 mr-2 w-8 py-4 h-full stroke-slate-500 dark:stroke-slate-400 drop-shadow-xs" +
+													"flex \
+													stroke-1 \
+													ml-4 \
+													mr-2 \
+													w-8 \
+													py-4 \
+													h-full \
+													stroke-slate-500 dark:stroke-slate-400  \
+													drop-shadow-xs" +
 													(selectedCategory ===
 													category.text
 														? " stroke-white dark:stroke-black"
@@ -81,7 +93,7 @@ export default function PortfolioComponent({
 											/>
 											<p
 												className={
-													"flex w-1/2 text-sm flex-col font-semibold dark:text-bone text-slate-700 " +
+													"flex w-1/2 text-sm md:text-xs lg:text-sm flex-col font-semibold dark:text-bone text-slate-700 " +
 													(selectedCategory ===
 													category.text
 														? " text-white dark:text-slate-950"
@@ -97,10 +109,13 @@ export default function PortfolioComponent({
 						})}
 					</div>
 				</div>
-				<span className="flex flex-col space-y-6 justify-center items-center">
-					{portfolio
-						.filter((entry) => entry.category === selectedCategory)
-						.map((pe, idx) => {
+				<span className="flex flex-col space-y-6 justify-center items-center flex-grow h-full">
+					{portfolioOfSelectedCategory.length === 0 ? (
+						<p className="flex flex-grow h-full items-center text-2xl">
+							Coming soon!
+						</p>
+					) : (
+						portfolioOfSelectedCategory.map((pe, idx) => {
 							return (
 								<Card key={idx} className="w-full">
 									<CardContent className="pt-6">
@@ -113,7 +128,8 @@ export default function PortfolioComponent({
 									</CardContent>
 								</Card>
 							);
-						})}
+						})
+					)}
 				</span>
 			</div>
 		</div>
@@ -153,7 +169,7 @@ const subHeaderTextStyling = `
 	text-md md:text-lg
 	text-left
 	w-full
-	text-slate-700 dark:text-bone/80
+	text-slate-700 dark:text-bone/90
 	mb-4 md:mb-4
 `;
 
@@ -162,7 +178,7 @@ const portfolioContainerStyling = `
 	flex-col
 	grow
 	w-full 
-	px-6 md:px-8 lg:px-10
+	px-6 lg:px-10
 	mb-12
 	max-w-2xl md:max-w-6xl
 `;

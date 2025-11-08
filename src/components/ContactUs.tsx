@@ -6,10 +6,10 @@ import { Button } from "./ui/button";
 export default function ContactUs() {
 	return (
 		<div className="mb-12 flex flex-col mt-2">
-			<h2 className="drop-shadow-sm  text-3xl md:text-4xl font-bold text-black dark:text-bone">
+			<h2 className="drop-shadow-sm text-3xl md:text-4xl text-black dark:text-bone">
 				Contact Us
 			</h2>
-			<h4 className="text-md md:text-lg mb-4 text-slate-700 dark:text-bone/80">
+			<h4 className="text-md md:text-lg mb-4 text-slate-700 dark:text-bone/90">
 				Reach out directly, or fill out an inquiry form and we'll be in
 				touch!
 			</h4>
@@ -24,7 +24,7 @@ export default function ContactUs() {
 										href="tel:+19196765505,25"
 										className="h-full flex flex-col justify-center"
 									>
-										<p className="text-sm sm:text-lg text-slate-700 dark:text-bone/80">
+										<p className="text-sm sm:text-lg font-normal text-slate-700 dark:text-bone/90 font-sans">
 											(919) 676-5505 ext. 25
 										</p>
 									</Link>
@@ -35,8 +35,8 @@ export default function ContactUs() {
 										href="mailto:general@productionpaintingonline.com"
 										className="h-full flex flex-col justify-center"
 									>
-										<p className="text-sm sm:text-lg text-slate-700 dark:text-bone/80 text-nowrap">
-											general@productionpaintingonline.com
+										<p className="text-sm sm:text-lg font-normal text-slate-700 dark:text-bone/90 text-nowrap font-sans">
+											General@productionpaintingonline.com
 										</p>
 									</Link>
 								</div>
@@ -48,7 +48,7 @@ export default function ContactUs() {
 										rel="noopener noreferrer"
 										className="sm:translate-y-1"
 									>
-										<p className="text-sm sm:text-lg text-slate-700 dark:text-bone/80 text-nowrap">
+										<p className="text-sm sm:text-lg font-normal text-slate-700 dark:text-bone/90 text-nowrap font-sans">
 											8411 Garvey Drive, Suite 105
 											<br />
 											Raleigh, NC
@@ -57,13 +57,12 @@ export default function ContactUs() {
 								</div>
 							</div>
 
-							<div className="flex w-full h-full max-h-96  md:py-4 flex-shrink-0 md:flex-shrink drop-shadow-md overflow-hidden">
-								<div className="flex w-full h-full flex-shrink-0 md:flex-shrink aspect-video md:aspect-video md:min-h-56 overflow-hidden rounded-lg">
+							<div className="flex w-full h-full md:h-96 md:max-h-96 md:py-4 drop-shadow-md overflow-hidden">
+								<div className="flex w-full h-full flex-grow bg-red-400 overflow-hidden rounded-lg">
 									<iframe
 										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3636.167256058847!2d-78.57135208255609!3d35.89437430000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac57547ab9ada1%3A0xf789b203a73238bf!2sProduction%20Painting%20%26%20Decorating!5e1!3m2!1sen!2sus!4v1757026837546!5m2!1sen!2sus"
 										width="100%"
 										height="100%"
-										// style={{ border: "0" }}
 										allowFullScreen
 										loading="lazy"
 										referrerPolicy="no-referrer-when-downgrade"
