@@ -42,8 +42,8 @@ export async function sendGeneralInquiryEmail(formData: FormData) {
 
 		// Send the email
 		const { data, error } = await resend.emails.send({
-			from: "General Inquiry <no-reply@nickbarrs.com>",
-			to: ["resend@nickbarrs.com", "resend2@nickbarrs.com"],
+			from: "General Inquiry <no-reply@productionpaintingonline.com>",
+			to: ["general@productionpaintingonline.com", "michelle@productionpaintingonline.com", "keisha@productionpaintingonline.com"],
 			subject: `New General Inquiry`,
 			html: emailHtml,
 			replyTo: validatedData.email
@@ -120,8 +120,8 @@ export async function sendCareersInterestFormEmail(formData: FormData) {
 
 		// Send the email
 		const { data, error } = await resend.emails.send({
-			from: "Job Application <no-reply@nickbarrs.com>",
-			to: ["resend@nickbarrs.com", "resend2@nickbarrs.com"],
+			from: "Job Application <no-reply@productionpaintingonline.com>",
+			to: ["michelle@productionpaintingonline.com", "keisha@productionpaintingonline.com"],
 			subject: `New Job Application: ${validatedData.fullName}`,
 			html: emailHtml,
 			replyTo: validatedData.email
