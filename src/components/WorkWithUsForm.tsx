@@ -126,7 +126,7 @@ export function WorkWithUsForm() {
 	};
 
 	return state.success ? (
-		<p className="text-green-600 font-semibold p-1 md:p-8 flex justify-center items-center gap-2 text-lg">
+		<p className="text-green-600 font-semibold font-sans p-1 md:p-8 flex justify-center items-center gap-2 text-lg">
 			<Check className="size-8 md:size-10" />
 			Your message has been sent. Thank you.
 		</p>

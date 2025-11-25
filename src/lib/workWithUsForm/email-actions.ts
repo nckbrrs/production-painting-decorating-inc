@@ -121,7 +121,7 @@ export async function sendCareersInterestFormEmail(formData: FormData) {
 		// Send the email
 		const { data, error } = await resend.emails.send({
 			from: "Job Application <no-reply@productionpaintingonline.com>",
-			to: ["michelle@productionpaintingonline.com", "keisha@productionpaintingonline.com"],
+			to: ["general@productionpaintingonline.com", "michelle@productionpaintingonline.com", "keisha@productionpaintingonline.com"],
 			subject: `New Job Application: ${validatedData.fullName}`,
 			html: emailHtml,
 			replyTo: validatedData.email

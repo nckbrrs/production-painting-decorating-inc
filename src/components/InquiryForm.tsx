@@ -28,7 +28,7 @@ export function InquiryForm({ className }: React.ComponentProps<typeof Card>) {
 
 	const placeholderVals = {
 		name: "John Doe",
-		email: "hello@productionpaintingonline.com",
+		email: "john@youremaildomain.com",
 		phoneNumber: "+1 (555) 123-4567",
 		message: "Type your message here"
 	};
@@ -36,7 +36,7 @@ export function InquiryForm({ className }: React.ComponentProps<typeof Card>) {
 	return (
 		<Card className={cn("w-full", className)}>
 			{state.success ? (
-				<p className="text-green-600 font-semibold m-6 md:m-12 flex justify-center items-center gap-2 text-lg">
+				<p className="text-green-600 font-semibold font-sans m-6 md:m-12 flex justify-center items-center gap-2 text-lg">
 					<Check className="size-8 md:size-10" />
 					Your message has been sent. Thank you!
 				</p>
