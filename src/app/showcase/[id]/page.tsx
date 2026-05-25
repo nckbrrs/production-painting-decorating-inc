@@ -1,42 +1,29 @@
 import { redirect } from "next/navigation";
-import ShowcaseProjectComponent, {
-	ShowcaseProjectComponentProps
-} from "./ShowcaseProjectComponent";
+import ShowcaseProjectComponent from "./ShowcaseProjectComponent";
 import { showcaseConfig } from "~/app/showcase/config";
-import fs from "fs";
 
 type ProjectPageProps = {
-	params: {
-		id: string;
-	};
+  params: Promise<{ id: string }>;
 };
 
-// TODO fix/cleanup this since not dynamically getting imgSrcs anymore
-export default async function ShowcaseProjectPage({
-	params
-}: ProjectPageProps) {
-	const { id } = await params;
-	const showcaseEntry = showcaseConfig.find((project) => project.id === id);
+export default async function ShowcaseProjectPage({ params }: ProjectPageProps) {
+  const { id } = await params;
+  const entry = showcaseConfig.find((p) => p.id === id);
 
-	if (!showcaseEntry) {
-		redirect("/");
-	}
+  if (!entry) {
+    redirect("/showcase");
+  }
 
-	if (showcaseEntry.imgSrcs.length === 0) {
-		showcaseEntry.imgSrcs.push(
-			...Array.from(
-				{ length: 5 },
-				(_, idx) =>
-					`https://placehold.co/600x400/png?text=Placeholder ${idx + 1}`
-			)
-		);
-	}
+  const imgSrcs =
+    entry.imgSrcs.length > 0
+      ? entry.imgSrcs
+      : Array.from({ length: 5 }, (_, i) => `https://placehold.co/600x400/png?text=Placeholder+${i + 1}`);
 
-	const showcaseEntryWithSrcs: ShowcaseProjectComponentProps = {
-		...showcaseEntry,
-		// imgSrcs: thisEntryImgSrcs,
-		posterSrc: `/showcase/${showcaseEntry.id}/images/videoPoster.png`
-	};
-
-	return <ShowcaseProjectComponent {...showcaseEntryWithSrcs} />;
+  return (
+    <ShowcaseProjectComponent
+      {...entry}
+      imgSrcs={imgSrcs}
+      posterSrc={`/showcase/${entry.id}/images/videoPoster.png`}
+    />
+  );
 }

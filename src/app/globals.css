@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Chevara";
+  src: url("/fonts/Chevara Normal.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme inline {
+  /* Geist Sans from next/font/local via CSS var */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand colors */
+  --color-bone: #f9f7f3;
+  --color-black: #212121;
+
+  /* shadcn semantic colors — light mode */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Fonts */
+  --font-chevara: "Chevara", serif;
+
+  /* Animations */
+  --animate-fade-in: fade-in 1s ease-in;
+  --animate-infinite-slider: loop 20s linear infinite;
+}
+
+:root {
+  --background: #f9f7f3;
+  --foreground: #212121;
+  --card: #ffffff;
+  --card-foreground: #212121;
+  --primary: #212121;
+  --primary-foreground: #f9f7f3;
+  --secondary: #f4f4f4;
+  --secondary-foreground: #212121;
+  --muted: #f4f4f4;
+  --muted-foreground: #737373;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #212121;
+}
+
+.dark {
+  --background: #111111;
+  --foreground: #f9f7f3;
+  --card: #1a1a1a;
+  --card-foreground: #f9f7f3;
+  --primary: #f9f7f3;
+  --primary-foreground: #212121;
+  --secondary: #262626;
+  --secondary-foreground: #f9f7f3;
+  --muted: #262626;
+  --muted-foreground: #a3a3a3;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #2a2a2a;
+  --input: #2a2a2a;
+  --ring: #f9f7f3;
+}
+
+@keyframes fade-in {
+  0%, 33% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes loop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+html, body, * {
+  scrollbar-width: none;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html { color-scheme: dark; }
+}

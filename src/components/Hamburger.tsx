@@ -1,102 +1,44 @@
-import { motion } from "framer-motion";
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../tailwind.config";
-import { useEffect, useState } from "react";
+import { cn } from "~/lib/utils";
 
-const fullConfig = resolveConfig(tailwindConfig);
-
-interface HamburgerProps {
-	isOpen: boolean;
-	openColor: "black" | "bone";
-	closedColor: "black" | "bone";
-	onClick: () => void;
-}
-
-export default function Hamburger({
-	isOpen,
-	openColor,
-	closedColor,
-	onClick
-}: HamburgerProps) {
-	const hamburgerBarMotionVariants = {
-		top: {
-			closed: {
-				// @ts-ignore
-				backgroundColor: fullConfig.theme.colors[closedColor]
-			},
-			open: {
-				rotate: 45,
-				translateY: `${((100 - 3 * 10) / 4 + 10) * 10}%`,
-				scale: -0.75,
-				// @ts-ignore
-				backgroundColor: fullConfig.theme.colors[openColor]
-			}
-		},
-		middle: {
-			closed: {},
-			open: {
-				translateX: 100,
-				opacity: 0
-			}
-		},
-		bottom: {
-			closed: {
-				// @ts-ignore
-				backgroundColor: fullConfig.theme.colors[closedColor]
-			},
-			open: {
-				rotate: -45,
-				translateY: `-${((100 - 3 * 10) / 4 + 10) * 10}%`,
-				scale: -0.75,
-				// @ts-ignore
-				backgroundColor: fullConfig.theme.colors[openColor]
-			}
-		}
-	};
-
-	return (
-		<motion.div
-			className={hamburgerStyling}
-			animate={isOpen ? "open" : "closed"}
-			onClick={onClick}
-		>
-			<motion.div
-				className={hamburgerBarStylingVariants[closedColor]}
-				variants={hamburgerBarMotionVariants.top}
-			/>
-			<motion.div
-				className={hamburgerBarStylingVariants[closedColor]}
-				variants={hamburgerBarMotionVariants.middle}
-			/>
-			<motion.div
-				className={hamburgerBarStylingVariants[closedColor]}
-				variants={hamburgerBarMotionVariants.bottom}
-			/>
-		</motion.div>
-	);
-}
-
-const hamburgerStyling = `
-    flex
-    flex-col
-    h-full
-    w-full
-    justify-evenly
-    duration-100
-    bg-transparent
-	rounded-xl
-    p-0
-`;
-
-const hamburgerBarStylingBase = `
-    hamburgerBar
-    flex
-    flex-row
-    w-full
-    h-[10%]
-`;
-
-const hamburgerBarStylingVariants = {
-	black: hamburgerBarStylingBase + "bg-black",
-	bone: hamburgerBarStylingBase + "bg-bone"
+type HamburgerProps = {
+  isOpen: boolean;
+  color: "black" | "bone";
 };
+
+const W = 32;               // px — total width
+const H = 22;               // px — total height
+const TRANSLATE_X = 8;      // px — translate hamburger right when open
+const BAR_H = 2;            // px — thickness of each bar
+const TRANSLATE_BAR_Y = 14; // px — distance each outer bar travels to reach center
+
+export default function Hamburger({ isOpen, color }: HamburgerProps) {
+  const bar = cn(
+    "block w-full origin-center",
+    color === "bone" ? "bg-bone" : "bg-black dark:bg-bone",
+    "transition-all duration-200",
+    "[box-shadow:0_4px_16px_rgba(0,0,0,0.18)]",
+  );
+
+  return (
+    <div
+      className={cn(
+        "relative flex flex-col justify-between",
+        "hover:scale-105 transition-transform duration-200",
+      )}
+      style={{ width: W, height: H, transform: isOpen ? `translateX(${TRANSLATE_X}px)` : undefined }}
+    >
+      <span
+        className={cn(bar, isOpen ? "rotate-45" : "")}
+        style={{ height: BAR_H, transform: isOpen ? `translateY(${TRANSLATE_BAR_Y}px)` : undefined }}
+      />
+      <span
+        className={cn(bar, isOpen ? "opacity-0" : "")}
+        style={{ height: BAR_H }}
+      />
+      <span
+        className={cn(bar, isOpen ? "-rotate-45" : "")}
+        style={{ height: BAR_H, transform: isOpen ? `translateY(-${TRANSLATE_BAR_Y}px)` : undefined }}
+      />
+    </div>
+  );
+}

@@ -1,336 +1,107 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import FullScreenMenu from "./FullScreenMenu";
 import Hamburger from "./Hamburger";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cn } from "~/lib/utils";
+
+const links = [
+  { linkType: "local" as const, text: "Home", href: "/" },
+  { linkType: "local" as const, text: "Showcase", href: "/showcase" },
+  { linkType: "local" as const, text: "Portfolio", href: "/portfolio" },
+  { linkType: "local" as const, text: "About Us", href: "/about" },
+  { linkType: "local" as const, text: "Careers", href: "/careers" },
+];
 
 export default function TopNav() {
-	const pathname = usePathname();
-	const [isInDarkMode, setIsInDarkMode] = useState<boolean>(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
-	const [fullScreenMenuIsOpen, setFullScreenMenuIsOpen] =
-		useState<boolean>(false);
-	const [shouldBlurHamburgerContainer, setShouldBlurHamburgerContainer] =
-		useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolledPastHero, setScrolledPastHero] = useState(false);
 
-	const [topNavFillColor, setTopNavFillColor] = useState<"black" | "bone">(
-		pathname === "/" ? "bone" : isInDarkMode ? "bone" : "black"
-	);
-	const [hamburgerOpenColor, setHamburgerOpenColor] = useState<
-		"black" | "bone"
-	>(isInDarkMode ? "bone" : "black");
+  const open = () => { setIsOpen(true); document.body.style.overflow = "hidden"; };
+  const close = () => { setIsOpen(false); document.body.style.overflow = ""; };
+  const toggle = () => (isOpen ? close() : open());
 
-	const disableScroll = () => {
-		document.body.style.overflowY = "hidden";
-	};
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, []);
 
-	const enableScroll = () => {
-		document.body.style.overflowY = "auto";
-	};
+  useEffect(() => {
+    const handleScroll = () => {
+      const hero = document.getElementById("full-screen-hero-video");
+      setScrolledPastHero(window.scrollY > (hero ? hero.offsetHeight - 80 : 0));
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-	const onClickHamburger = () => {
-		fullScreenMenuIsOpen ? closeFullScreenMenu() : openFullScreenMenu();
-	};
+  useEffect(() => {
+    close();
+    setScrolledPastHero(false);
+  }, [pathname]);
 
-	const openFullScreenMenu = () => {
-		setFullScreenMenuIsOpen(true);
-		disableScroll();
-	};
+  const onHero = isHome && !scrolledPastHero;
+  const barColor = isOpen || onHero ? "bone" : "black";
+  const linkColor = onHero ? "text-white" : "text-black dark:text-bone";
 
-	const closeFullScreenMenu = () => {
-		enableScroll();
-		setTimeout(() => {
-			setFullScreenMenuIsOpen(false);
-		}, 200);
-	};
+  return (
+    <>
+      <FullScreenMenu isOpen={isOpen} links={links} onClickLink={() => setTimeout(close, 20)} />
 
-	const addBlurToHamburgerContainer = () => {
-		const hamburgerContainer = document.querySelector<HTMLElement>(
-			"#hamburgerContainer"
-		)!;
-		hamburgerContainer.className = hamburgerContainer.className.replaceAll(
-			"backdrop-blur-none",
-			"backdrop-blur-lg"
-		);
+      {/* Hamburger — fixed top-right, mobile/tablet only */}
+      <button
+        onClick={toggle}
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+        className={cn(
+          "fixed px-2 py-3 right-5 md:right-8 lg:right-14 top-8 md:top-10 lg:top-14 z-20",
+          "flex xl:hidden cursor-pointer rounded-md",
+          "transition-all duration-75 hover:scale-110",
+          (scrolledPastHero && !isOpen) && "backdrop-blur-lg",
+        )}
+      >
+        <Hamburger isOpen={isOpen} color={barColor} />
+      </button>
 
-		setTopNavFillColor(isInDarkMode ? "bone" : "black");
-	};
+      {/* Full nav bar — absolute, full width */}
+      <div className="absolute w-full flex flex-row justify-between items-center py-4 xl:py-0 z-10 h-24 md:h-28 lg:h-36">
+        {/* Logo — top left */}
+        <Link
+          href="/"
+          className={cn(
+            "ml-6 md:ml-8 lg:ml-10",
+            "flex aspect-square h-16 md:h-20 lg:h-24",
+            "transition-all duration-200",
+            onHero ? "invert" : "invert-0 dark:invert",
+          )}
+        >
+          <img src="/OGLogo.png" alt="PPD Logo" className="h-full object-contain" />
+        </Link>
 
-	const removeBlurFromHamburgerContainer = () => {
-		const hamburgerContainer = document.querySelector<HTMLElement>(
-			"#hamburgerContainer"
-		)!;
-		hamburgerContainer.className = hamburgerContainer.className.replaceAll(
-			"backdrop-blur-lg",
-			"backdrop-blur-none"
-		);
-
-		if (pathname === "/") {
-			setTopNavFillColor("bone");
-		}
-	};
-
-	// First-render things
-	useEffect(() => {
-		// Handler to call on window resize
-		const handleResize = () => {
-			let vh = window.innerHeight * 0.01;
-			document.documentElement.style.setProperty("--vh", `${vh}px`);
-		};
-
-		// Add event listener for resize
-		window.addEventListener("resize", handleResize);
-
-		// Call resize handler right away so state gets updated with initial window size
-		handleResize();
-
-		// Set initial dark mode truthiness
-		if (
-			window.matchMedia &&
-			window.matchMedia("(prefers-color-scheme: dark)").matches
-		) {
-			setIsInDarkMode(true);
-		}
-
-		// Add event listener for changes between dark and light mode
-		window
-			.matchMedia("(prefers-color-scheme: dark)")
-			.addEventListener("change", (e) => {
-				setIsInDarkMode(e.matches);
-			});
-
-		// Add listener to make esc key to close full-screen menu
-		document.onkeydown = (event) => {
-			if (event.key === "Escape") {
-				closeFullScreenMenu();
-			}
-		};
-
-		// Add scroll listener to add styling to hamburger menu when scrolled down
-		document.addEventListener("scroll", (e: any) => {
-			const fullScreenHero = document.querySelector<HTMLElement>(
-				"#full-screen-hero-video"
-			);
-
-			if (
-				e.srcElement.scrollingElement.scrollTop >
-				(fullScreenHero ? fullScreenHero.offsetHeight - 60 : 0)
-			) {
-				setShouldBlurHamburgerContainer(true);
-			} else {
-				setShouldBlurHamburgerContainer(false);
-			}
-		});
-
-		// Remove resize event listener on cleanup
-		return () => window.removeEventListener("resize", handleResize);
-	}, []);
-
-	useEffect(() => {
-		if (shouldBlurHamburgerContainer) {
-			addBlurToHamburgerContainer();
-		} else {
-			removeBlurFromHamburgerContainer();
-		}
-	}, [shouldBlurHamburgerContainer]);
-
-	useEffect(() => {
-		setTopNavFillColor(
-			pathname === "/" ? "bone" : isInDarkMode ? "bone" : "black"
-		);
-		setHamburgerOpenColor(isInDarkMode ? "bone" : "black");
-	}, [isInDarkMode]);
-
-	useEffect(() => {
-		setTopNavFillColor(
-			pathname === "/" ? "bone" : isInDarkMode ? "bone" : "black"
-		);
-
-		setFullScreenMenuIsOpen(false);
-		enableScroll();
-	}, [pathname]);
-
-	const links: {
-		linkType: "external" | "local";
-		text: string;
-		href: string;
-	}[] = [
-		{
-			linkType: "local",
-			text: "Home",
-			href: "/"
-		},
-		{
-			linkType: "local",
-			text: "Showcase",
-			href: "/showcase"
-		},
-		{
-			linkType: "local",
-			text: "Portfolio",
-			href: "/portfolio"
-		},
-		{
-			linkType: "local",
-			text: "About Us",
-			href: "/about"
-		},
-		{
-			linkType: "local",
-			text: "Careers",
-			href: "/careers"
-		}
-	];
-
-	const onClickMenuLink = () => {
-		closeFullScreenMenu();
-	};
-
-	return (
-		<>
-			<FullScreenMenu
-				isOpen={fullScreenMenuIsOpen}
-				links={links}
-				onClickLink={onClickMenuLink}
-			/>
-			<div
-				id="hamburgerContainer"
-				className={hamburgerContainerStyling}
-				onClick={onClickHamburger}
-			>
-				<Hamburger
-					isOpen={fullScreenMenuIsOpen}
-					onClick={onClickHamburger}
-					openColor={"bone"}
-					closedColor={topNavFillColor}
-				/>
-			</div>
-			<div className={topNavContainerStyling}>
-				<div className={logoContainerStyling}>
-					<div className={logoStylingVariants[topNavFillColor]}>
-						<Link href={"/"}>
-							<img
-								className="h-full"
-								src={"OGLogo.png"}
-								// style={{ filter: "invert(1)" }}
-							/>
-						</Link>
-					</div>
-				</div>
-				<div className={textLinksRowStyling}>
-					{links.map((l) =>
-						l.linkType === "external" ? (
-							<Link
-								key={`${l.text}-link`}
-								className={
-									textLinkStylingVariants[topNavFillColor]
-								}
-								href={l.href}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								{l.text}
-							</Link>
-						) : (
-							<Link
-								key={`${l.text}-link`}
-								className={
-									textLinkStylingVariants[topNavFillColor]
-								}
-								href={l.href}
-							>
-								{l.text}
-							</Link>
-						)
-					)}
-				</div>
-			</div>
-		</>
-	);
+        {/* Text links — top right, xl+ only */}
+        <nav className="hidden xl:flex flex-row items-center group pr-6 lg:pr-10 gap-6">
+          {links.map((l) => (
+            <Link
+              key={l.text}
+              href={l.href}
+              className={cn(
+                "font-semibold uppercase text-lg tracking-wide drop-shadow-sm",
+                "transition-all duration-100",
+                "group-hover:opacity-40 group-hover:blur-[1px]",
+                "hover:!opacity-100 hover:!blur-none",
+                linkColor,
+              )}
+            >
+              {l.text}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </>
+  );
 }
-
-const topNavContainerStyling = `
-	absolute    
-    w-full
-    flex
-    flex-row
-    justify-between
-    items-center
-    py-4 xl:py-0
-    z-10
-    h-24 md:h-28 lg:h-36 xl:h-36
-`;
-
-const logoContainerStyling = `
-	h-full
-    hover:cursor-pointer
-    ml-6 md:ml-8 xl:ml-8
-	pt-1 md:pt-4 xl:py-6
-`;
-
-const logoStylingBase = `
-    flex
-    flex-row
-    aspect-square
-    h-full
-`;
-
-const logoStylingVariants = {
-	black: logoStylingBase + "invert-0",
-	bone: logoStylingBase + "invert"
-};
-
-const textLinksRowStyling = `
-    flex
-    flex-row
-    w-full
-    justify-end
-    items-center
-    hidden xl:flex
-    group
-	pr-3 md:pr-6 lg:pr-8
-    gap-4
-`;
-
-const textLinkStylingBase = `
-	font-bold
-	hover:-translate-y-[1px]
-	hover:cursor-pointer
-	duration-100
-	uppercase
-	drop-shadow-sm
-	hover:drop-shadow-sm
-	group-hover:opacity-55
-	group-hover:blur-[1px]
-	hover:!opacity-100
-	hover:!blur-0
-	text-center
-	text-black dark:text-bone
-	text-2xl
-
-	font-timesNewRoman
-`;
-
-const textLinkStylingVariants = {
-	black: textLinkStylingBase + "text-black",
-	bone: textLinkStylingBase + "text-bone"
-};
-
-const hamburgerContainerStyling = `
-	flex
-	flex-col
-	w-12
-	h-12
-	block xl:hidden
-	cursor-pointer
-	duration-75
-	hover:scale-110
-	fixed
-	right-4 md:right-6 lg:right-8
-	top-6 md:top-10 lg:top-14
-	z-20
-	backdrop-blur-none
-	p-2
-	rounded-md
-`;

@@ -1,30 +1,13 @@
 import AboutUs from "~/components/AboutUs";
 import FullScreenHeroVideo from "~/components/FullScreenHeroVideo";
 
-export default async function Home() {
-	return (
-		<main className={homePageContainerStyling}>
-			<FullScreenHeroVideo />
-			<div className={aboutUsContainer}>
-				<AboutUs />
-			</div>
-		</main>
-	);
+export default function Home() {
+  return (
+    <main className="flex flex-col animate-fade-in items-center">
+      <FullScreenHeroVideo />
+      <div className="flex flex-col grow px-6 md:px-16 w-full max-w-6xl">
+        <AboutUs />
+      </div>
+    </main>
+  );
 }
-
-const homePageContainerStyling = `
-	antialiased
-	pageContainer
-	flex
-	flex-col
-	scroll-smooth
-	animate-fadeIn
-  	items-center
-`;
-
-const aboutUsContainer = `
-	flex
-	flex-col
-	grow
-	px-6
-`;

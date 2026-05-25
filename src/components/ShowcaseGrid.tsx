@@ -1,37 +1,17 @@
-import { ShowcaseProjectComponentProps } from "~/app/showcase/[id]/ShowcaseProjectComponent";
 import ShowcasePreviewCard from "./ShowcasePreviewCard";
 import { showcaseConfig } from "~/app/showcase/config";
 
 export default function ShowcaseGrid() {
-	const containerStyling = `
-		grid
-		grid-cols-1 md:grid-cols-2
-		gap-8
-	`;
+  const entries = showcaseConfig.map((entry) => ({
+    ...entry,
+    posterSrc: `/showcase/${entry.id}/images/videoPoster.png`,
+  }));
 
-	const showcaseEntriesWithSrcs: Omit<
-		ShowcaseProjectComponentProps,
-		"imgSrcs" | "longDescription"
-	>[] = showcaseConfig.map((showcaseEntry) => ({
-		...showcaseEntry,
-		posterSrc: `/showcase/${showcaseEntry.id}/images/videoPoster.png`
-	}));
-
-	return (
-		<div className={containerStyling}>
-			{showcaseEntriesWithSrcs.map(
-				(
-					showcaseEntryWithSrcs: Omit<
-						ShowcaseProjectComponentProps,
-						"imgSrcs" | "longDescription"
-					>
-				) => (
-					<ShowcasePreviewCard
-						key={showcaseEntryWithSrcs.id}
-						{...showcaseEntryWithSrcs}
-					/>
-				)
-			)}
-		</div>
-	);
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      {entries.map((entry) => (
+        <ShowcasePreviewCard key={entry.id} {...entry} />
+      ))}
+    </div>
+  );
 }
