@@ -100,7 +100,7 @@ export default function AboutUs() {
                     <CardContent className="flex aspect-square justify-center p-0 m-0 relative">
                       <img src={service.imgSrc} alt={service.name} className="object-cover w-full h-full" />
                       <div className="absolute w-full h-full flex flex-col justify-center items-center bg-black/55">
-                        <h4 className="text-3xl md:text-2xl lg:text-3xl text-white font-semibold text-center w-4/5">
+                        <h4 className="text-xl sm:text-4xl md:text-2xl lg:text-3xl text-white font-semibold text-center w-4/5">
                           {service.name}
                         </h4>
                       </div>

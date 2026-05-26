@@ -17,7 +17,7 @@ export default function FullScreenMenu({ isOpen, links, onClickLink }: FullScree
         "fixed left-0 top-0 z-20",
         "flex flex-row w-full h-full",
         "justify-center items-center",
-        "bg-black/50 backdrop-blur-2xl text-bone",
+        "bg-black/50 backdrop-blur-lg text-bone",
       )}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
