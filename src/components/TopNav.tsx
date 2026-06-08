@@ -5,6 +5,7 @@ import FullScreenMenu from "./FullScreenMenu";
 import Hamburger from "./Hamburger";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useMenuState } from "~/hooks/useMenuState";
 import { cn } from "~/lib/utils";
 
 const links = [
@@ -19,18 +20,8 @@ export default function TopNav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
 
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, close, toggle } = useMenuState();
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
-
-  const open = () => { setIsOpen(true); document.body.style.overflow = "hidden"; };
-  const close = () => { setIsOpen(false); document.body.style.overflow = ""; };
-  const toggle = () => (isOpen ? close() : open());
-
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
-    document.addEventListener("keydown", handleKey);
-    return () => document.removeEventListener("keydown", handleKey);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
